@@ -1,0 +1,11 @@
+Topic 1: **Development Paradigm (Hardcoded vs. Configuration-Driven)**
+Our current codebase hardcodes underwriting logic, mappings, and merging steps in Python files. The shared framework keeps the engine generic and moves prompts, queries, fields, and scoring rules into config files.
+
+Topic 2: **Agent Instantiation & Scaling (Bespoke vs. Factory Pattern)**
+Right now, collectors are created manually inside graph nodes, which makes expansion repetitive. The shared framework uses an AgentFactory that creates the right agents at runtime from a rule config, so new rules need no code duplication.
+
+Topic 3: **Prompt Management (Embedded vs. Decoupled)**
+In our current setup, prompts and LLM instructions are mixed into collector files and utilities. The shared framework separates prompts into standalone templates and injects common context automatically through base agent classes.
+
+Topic 4: **Workflow Orchestration (Single Graph vs. Multi-Workflow)**
+Our current system runs one fixed LangGraph workflow for cyber risk evaluation. The shared framework supports multiple workflows under a registry, and the CLI can switch between them using a rule parameter.
