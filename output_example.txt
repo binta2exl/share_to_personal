@@ -1,0 +1,134 @@
+(.venv) shimodi@192 CyberRiskInsurance % PYTHONPATH=. .venv/bin/python3 src/cli.py --rule cyber_risk_rating --company "EXLService Holdings, Inc." --domain "www.exlservice.com"
+
+/Users/shimodi/Documents/AgenticProjects/CyberRiskInsurance/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+/Users/shimodi/Documents/AgenticProjects/CyberRiskInsurance/.venv/lib/python3.9/site-packages/langgraph/cache/base/__init__.py:8: LangChainPendingDeprecationWarning: The default value of `allowed_objects` will change in a future version. Pass an explicit value (e.g., allowed_objects='messages' or allowed_objects='core') to suppress this warning.
+  from langgraph.checkpoint.serde.jsonplus import JsonPlusSerializer
+
+============================================================
+============ INITIALIZING CYBER RISK PREDICTOR =============
+============================================================
+Rule Target:    cyber_risk_rating
+Company Target: EXLService Holdings, Inc.
+Primary Domain: www.exlservice.com
+
+============================================================
+================== EXECUTION TRACE & LOGS ==================
+============================================================
+  > Supervisor: Validating input - Name: 'EXLService Holdings, Inc.', Domain: 'www.exlservice.com'
+  > Supervisor: Enriched TLD: 'com', Detected Country: 'USA'
+  > Supervisor: Entity name slug matches domain 'www.exlservice.com'.
+  > Supervisor: Cache Miss. Proceeding to collectors.
+  > Coordinator: Initiating prioritized source merge...
+  > Coordinator: Merge and reconciliation completed.
+  > Fact Checker: Starting fact corroboration and consensus analysis...
+  > Fact Checker Verdict: Accuracy Score = 0.25 (1.5/6 corroborated claims)
+  > Underwriter: Applying configuration-driven prompts and mathematical rules...
+  > Underwriter Verdict: Overall Category = Favourable (Confidence: 25.0% - Low)
+
+============================================================
+====================== COLLECTORS RUN ======================
+============================================================
+Real Sources Used:
+DBCollector, DomainScraper, SECCollector, Wikipedia
+
+============================================================
+================ RECONCILED COMPANY PROFILE ================
+============================================================
+Reconciled Revenue:   $124,123,000
+Subsidiaries Count:   0
+Acquisitions Count:   0
+Customer Type:        B2B
+E-commerce Platform:  False
+Countries of Ops:     US
+Privacy Policy:       True
+
+============================================================
+============ FACT CHECKER CORROBORATION CLAIMS =============
+============================================================
+Underwriting Claim             | Status          | Source Count
+-----------------------------------------------------------------
+revenue                        | Partially Verified | 1           
+subsidiaries_count             | Unsupported     | 2           
+acquisitions_count             | Unsupported     | 0           
+customer_type                  | Unsupported     | 0           
+has_ecommerce                  | Unsupported     | 0           
+privacy_policy_published       | Verified        | 1           
+
+============================================================
+============= UNDERWRITER MODIFIER EVALUATIONS =============
+============================================================
+  1. Mergers and Acquisitions: VERY FAVOURABLE (Score: 0.0)
+     Rationale: No mergers or acquisitions reported, indicating a stable business structure., very favourable.
+  2. Amount of sensitive information: FAVOURABLE
+     Rationale: B2B customer type with no ecommerce presence reduces the risk of sensitive information exposure., favourable.
+  3. Domain Encryption: FAVOURABLE (Score: 1/1)
+     Rationale: The only domain reported is https encrypted, demonstrating a good security practice., favourable.
+  4. Geographic Spread: FAVOURABLE (Score: 1)
+     Rationale: Operations are limited to the US, which is a single country and continent, but this is considered low risk given the revenue tier., favourable.
+  5. Internet footprint: FAVOURABLE (Score: 3.0)
+     Rationale: With only one domain and an Enterprise scale multiplier, the internet footprint is relatively small and manageable., favourable.
+  6. Nature of services: AVERAGE (Score: medium_risk)
+     Rationale: Medium risk appetite category is a neutral factor in this assessment., average.
+  7. Organizational Complexity: VERY FAVOURABLE (Score: 0)
+     Rationale: No subsidiaries reported, indicating a simple organizational structure., very favourable.
+  8. Privacy Regulation: FAVOURABLE (Score: 3)
+     Rationale: A published privacy policy and compliance with multiple frameworks (GDPR, CCPA, HIPAA) demonstrate a strong commitment to privacy regulation., favourable.
+  9. Seasonality of sales: AVERAGE
+     Rationale: No quarterly revenue data provided, but this is not considered a significant risk factor given the other favourable factors., average.
+  10. Volatility/Recovery in Sales: PARTIALLY UNFAVOURABLE (Score: 3.6666666666666665)
+     Rationale: Digital exposure, disruption speed, and recovery complexity scores are relatively low, indicating a low risk of sales volatility., partially unfavourable.
+  11. Applicability of Privacy Regulation: AVERAGE
+     Rationale: Operations in the US and compliance with strict regulations (GDPR, CCPA) demonstrate an ability to adapt to privacy regulations., average.
+  12. B2C End Products: AVERAGE
+     Rationale: As a B2B company, the risk associated with B2C end products is not applicable., average.
+  13. Years in business: VERY FAVOURABLE (Score: 27)
+     Rationale: The company has been in operation since 1999, demonstrating stability and longevity., very favourable.
+
+============================================================
+============ FINAL UNDERWRITING VERDICT REPORT =============
+============================================================
+----------------- UNDERWRITING METHODOLOGY -----------------
+* Risk Category: Represents the company's overall cyber risk tier. It is 
+  calculated by averaging the ratings of all 13 modifiers on a 1.0 to 6.0 
+  scale (Very Favourable [1.0] to Unfavourable [6.0]).
+* Underwriting Score: Represents source data reliability and consensus. 
+  It calculates what percentage of key company facts were corroborated 
+  across sources (SEC, D&B, Wikipedia, Domain Scraper).
+
+--------------- STEPS & DETAILED CALCULATIONS ---------------
+1. Entity Validation:
+   - Status: MATCH
+   - Details: Company name aligns with the primary domain slug and registrar records.
+
+2. Risk Category Evaluation (13 Modifiers):
+   - Mapped Scores:
+     - Mergers and Acquisitions: 1.0 (Very Favourable)
+     - Amount of sensitive information: 2.0 (Favourable)
+     - Domain Encryption: 2.0 (Favourable)
+     - Geographic Spread: 2.0 (Favourable)
+     - Internet footprint: 2.0 (Favourable)
+     - Nature of services: 4.0 (Average)
+     - Organizational Complexity: 1.0 (Very Favourable)
+     - Privacy Regulation: 2.0 (Favourable)
+     - Seasonality of sales: 4.0 (Average)
+     - Volatility/Recovery in Sales: 5.0 (Partially Unfavourable)
+     - Applicability of Privacy Regulation: 4.0 (Average)
+     - B2C End Products: 4.0 (Average)
+     - Years in business: 1.0 (Very Favourable)
+   - Math: Sum of scores (34.0) / 13 Modifiers = 2.615 Average
+   - Verdict: FAVOURABLE (Average falls in the Favourable range of 2.0 to 3.0)
+
+3. Data Verification & Underwriting Score:
+   - Claims Corroboration:
+     - 1.0 claim Verified (privacy_policy_published)
+     - 1.0 claim Partially Verified (revenue)
+     - 4.0 claims Unsupported (subsidiaries_count, acquisitions_count, customer_type, has_ecommerce)
+   - Math: (1.0 Verified + 0.5 Partially Verified) / 6 total claims = 25.0%
+   - Verdict: 25.0% (Confidence Band: LOW because the score is below 50.0%)
+
+4. Referral & Human Escalation:
+   - Status: HUMAN ESCALATION REQUIRED
+   - Reason: Automatically triggered because the corroboration Underwriting Score (25.0%) is below 50.0%.
+
+> Saved raw collector evidence to cache database.
