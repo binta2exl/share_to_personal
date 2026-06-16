@@ -1,0 +1,494 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Underwriting Audit Report - EXLService Holdings, Inc.</title>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 20px; }
+            .container { max-width: 1200px; margin: auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+            h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+            h2 { color: #2980b9; margin-top: 30px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+            h3 { color: #34495e; }
+            table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+            th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+            th { background-color: #f8f9fa; font-weight: bold; color: #2c3e50; }
+            tr:nth-child(even) { background-color: #fdfdfd; }
+            .badge { display: inline-block; padding: 5px 10px; border-radius: 4px; font-size: 12px; font-weight: bold; color: #fff; }
+            .badge.success { background-color: #27ae60; }
+            .badge.warning { background-color: #f39c12; }
+            .badge.danger { background-color: #e74c3c; }
+            .badge.info { background-color: #3498db; }
+            .collapsible { background-color: #ecf0f1; color: #333; cursor: pointer; padding: 10px; width: 100%; border: none; text-align: left; outline: none; font-size: 16px; border-radius: 4px; margin-top: 10px; font-weight: bold; }
+            .active, .collapsible:hover { background-color: #d0d3d4; }
+            .content { padding: 0 15px; display: none; overflow: hidden; background-color: #fafafa; border: 1px solid #eee; border-top: none; margin-bottom: 10px; }
+            pre { background: #2d2d2d; color: #ccc; padding: 15px; border-radius: 4px; overflow-x: auto; font-family: 'Courier New', Courier, monospace; font-size: 13px; }
+            .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+            .card { background: #fdfdfd; border: 1px solid #e1e1e1; padding: 20px; border-radius: 6px; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Underwriting Audit & Debug Report</h1>
+            
+            <!-- SECTION 1: Executive Underwriting Summary -->
+            <h2>1. Executive Underwriting Summary</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Target Details</h3>
+                    <p><strong>Target Entity:</strong> EXLService Holdings, Inc.</p>
+                    <p><strong>Primary Domain:</strong> www.exlservice.com</p>
+                    <p><strong>Rule Executed:</strong> cyber_risk_rating</p>
+                    <p><strong>Entity Status:</strong> Match</p>
+                </div>
+                <div class="card">
+                    <h3>Verdict Summary</h3>
+                    <p><strong>Risk Category:</strong> <span class="badge info">Partially Favourable</span></p>
+                    <p><strong>Confidence Score:</strong> 100.0%</p>
+                    <p><strong>Confidence Band:</strong> High</p>
+                    <p><strong>Human Escalation:</strong> <span class="badge success">NOT REQUIRED</span></p>
+                </div>
+                <div class="card">
+                    <h3>Run Audit Metadata</h3>
+                    <p><strong>Prompt Tokens:</strong> 7,329</p>
+                    <p><strong>Completion Tokens:</strong> 1,866</p>
+                    <p><strong>Total Tokens:</strong> 9,195</p>
+                    <p><strong>Est. Execution Cost:</strong> $0.005798 USD</p>
+                </div>
+            </div>
+            
+            <!-- SECTION 2: Collector Research Trail -->
+            <h2>2. Collector Research Trail - Raw JSON Evidence</h2>
+    
+            <button class="collapsible">DBCollector <span class="badge success">SUCCESS</span></button>
+            <div class="content">
+                <p><strong>Source Name:</strong> DBCollector</p>
+                <p><strong>Status:</strong> success</p>
+                
+                <h4>Extracted Findings & Raw JSON:</h4>
+                <pre>{
+  "source": "DBCollector",
+  "status": "success",
+  "findings": {
+    "legal_name": "EXLService Holdings, Inc.",
+    "country": "US",
+    "legal_address": {
+      "street": "280 Park Avenue",
+      "city": "New York",
+      "state": "NY",
+      "postal_code": "10017"
+    },
+    "headquarters_address": {
+      "street": "280 Park Avenue",
+      "city": "New York",
+      "state": "NY",
+      "postal_code": "10017"
+    },
+    "registration_authority": {
+      "name": "Delaware Department of State",
+      "country": "US"
+    },
+    "legal_form": {
+      "description": "Corporation"
+    },
+    "founding_year": 1999
+  }
+}</pre>
+            </div>
+        
+            <button class="collapsible">DomainScraper <span class="badge success">SUCCESS</span></button>
+            <div class="content">
+                <p><strong>Source Name:</strong> DomainScraper</p>
+                <p><strong>Status:</strong> success</p>
+                
+                <h4>Extracted Findings & Raw JSON:</h4>
+                <pre>{
+  "source": "DomainScraper",
+  "status": "success",
+  "findings": {
+    "domains": [
+      {
+        "url": "www.exlservice.com",
+        "https_encrypted": true
+      }
+    ],
+    "privacy_policy_published": true,
+    "compliance_mentions": [],
+    "customer_type": "B2B",
+    "has_ecommerce": false,
+    "industries_served": [
+      "insurance",
+      "healthcare",
+      "banking",
+      "retail",
+      "energy",
+      "infrastructure",
+      "communications",
+      "media",
+      "entertainment"
+    ],
+    "customer_segments": [
+      "enterprise",
+      "business clients"
+    ],
+    "business_model": "B2B services / consulting",
+    "b2b_b2c_confidence": "high",
+    "ecommerce_evidence": "No checkout/cart/payment flow detected",
+    "cloud_saas_indicators": [
+      "platform",
+      "analytics",
+      "AI",
+      "data modernization",
+      "digital transformation"
+    ],
+    "data_sensitive_indicators": [
+      "healthcare",
+      "insurance",
+      "financial services",
+      "customer experience"
+    ],
+    "privacy_policy_url": "https://www.exlservice.com/privacy-notice",
+    "terms_url": "https://www.exlservice.com/terms-of-use",
+    "products_services_portfolio": [
+      "EXLdata.ai",
+      "Exlerate.ai",
+      "AI-powered operations",
+      "data modernization",
+      "digital transformation",
+      "analytics services",
+      "AI solutions",
+      "consulting and implementation"
+    ]
+  }
+}</pre>
+            </div>
+        
+            <button class="collapsible">ResponsesAPI <span class="badge danger">SKIPPED</span></button>
+            <div class="content">
+                <p><strong>Source Name:</strong> ResponsesAPI</p>
+                <p><strong>Status:</strong> skipped</p>
+                
+                <h4>Extracted Findings & Raw JSON:</h4>
+                <pre>{
+  "source": "ResponsesAPI",
+  "status": "skipped",
+  "findings": {}
+}</pre>
+            </div>
+        
+            <button class="collapsible">SECCollector <span class="badge success">SUCCESS</span></button>
+            <div class="content">
+                <p><strong>Source Name:</strong> SECCollector</p>
+                <p><strong>Status:</strong> success</p>
+                
+                <h4>Extracted Findings & Raw JSON:</h4>
+                <pre>{
+  "source": "SECCollector",
+  "status": "success",
+  "findings": {
+    "revenue": 2087679000,
+    "fiscal_year": 2025,
+    "business_segments": [],
+    "geographic_revenue_or_regions": [],
+    "subsidiaries_count": 42,
+    "subsidiaries_list": [],
+    "acquisitions_mentions": [],
+    "risk_factor_keywords": [],
+    "cybersecurity_mentions": false,
+    "cloud_technology_mentions": false,
+    "customer_data_mentions": false,
+    "filing_url": "https://www.sec.gov/Archives/edgar/data/1297989/0001297989-25.txt",
+    "quarterly_revenue": [
+      183033000,
+      189057000,
+      192345000,
+      197875000,
+      206973000,
+      210112000,
+      231124000,
+      234903000,
+      239573000,
+      243509000,
+      251392000,
+      256872000,
+      245990000,
+      222473000,
+      241018000,
+      248953000,
+      261415000,
+      275064000,
+      290325000,
+      329208000,
+      346782000,
+      361351000,
+      400643000,
+      404996000,
+      410971000,
+      436507000,
+      448366000,
+      472073000,
+      501019000,
+      514460000,
+      529585000,
+      570351000
+    ]
+  }
+}</pre>
+            </div>
+        
+            <button class="collapsible">Wikipedia <span class="badge success">SUCCESS</span></button>
+            <div class="content">
+                <p><strong>Source Name:</strong> Wikipedia</p>
+                <p><strong>Status:</strong> success</p>
+                
+                <h4>Extracted Findings & Raw JSON:</h4>
+                <pre>{
+  "source": "Wikipedia",
+  "status": "success",
+  "findings": {
+    "subsidiaries": [],
+    "acquisitions": [],
+    "customer_type": "B2B",
+    "has_ecommerce": null,
+    "country": "USA",
+    "founding_year": 1999,
+    "industry_classification": [
+      "analytics",
+      "digital solutions",
+      "insurance",
+      "healthcare",
+      "banking",
+      "financial services",
+      "media",
+      "retail"
+    ]
+  }
+}</pre>
+            </div>
+        
+            <button class="collapsible">Wikidata <span class="badge danger">SKIPPED</span></button>
+            <div class="content">
+                <p><strong>Source Name:</strong> Wikidata</p>
+                <p><strong>Status:</strong> skipped</p>
+                
+                <h4>Extracted Findings & Raw JSON:</h4>
+                <pre>{
+  "source": "Wikidata",
+  "status": "skipped",
+  "message": "No entity resolved on Wikidata.",
+  "findings": {}
+}</pre>
+            </div>
+        
+            <!-- SECTION 3: Coordinator Reconciliation & Conflict Decision -->
+            <h2>3. Coordinator Reconciliation & Conflict Decision</h2>
+            
+            <div class="card" style="margin-bottom: 20px;">
+                <h3>Collector Contribution Summary</h3>
+                <table>
+                    <tr><th>Collector</th><th>Fields Contributed</th><th>Successful Findings Count</th></tr>
+    <tr><td><strong>SECCollector</strong></td><td>2</td><td>13</td></tr><tr><td><strong>DBCollector</strong></td><td>1</td><td>7</td></tr><tr><td><strong>Wikidata</strong></td><td>0</td><td>0</td></tr><tr><td><strong>Wikipedia</strong></td><td>2</td><td>7</td></tr><tr><td><strong>DomainScraper</strong></td><td>4</td><td>15</td></tr>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h3>Reconciled Company Profile</h3>
+                <div style="overflow-x: auto;">
+                <table>
+                    <tr><th>Field</th><th>Reconciled Value</th><th>Source Used</th><th>Conflict Decision</th></tr>
+    <tr><td>revenue</td><td>2087679000</td><td><span class='badge' style='background-color: #27ae60; color: white;'>SECCollector</span></td><td>Selected because SECCollector has highest priority</td></tr><tr><td>subsidiaries</td><td>['Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary', 'Exhibit 21 Subsidiary']</td><td><span class='badge' style='background-color: #8e44ad; color: white;'>Coordinator Agent (Fallback/Computed)</span></td><td>Defaulted/Computed by LLM</td></tr><tr><td>acquisitions</td><td>[]</td><td><span class='badge' style='background-color: #7f8c8d; color: white;'>Wikipedia</span></td><td>Selected because Wikipedia has highest priority</td></tr><tr><td>customer_type</td><td>B2B</td><td><span class='badge' style='background-color: #7f8c8d; color: white;'>Wikipedia</span></td><td>Selected because Wikipedia has highest priority</td></tr><tr><td>has_ecommerce</td><td>False</td><td><span class='badge' style='background-color: #e67e22; color: white;'>DomainScraper</span></td><td>Selected because DomainScraper has highest priority</td></tr><tr><td>domains</td><td>[{'url': 'www.exlservice.com', 'https_encrypted': True}]</td><td><span class='badge' style='background-color: #e67e22; color: white;'>DomainScraper</span></td><td>Selected because DomainScraper has highest priority</td></tr><tr><td>countries_of_operation</td><td>['US']</td><td><span class='badge' style='background-color: #8e44ad; color: white;'>Coordinator Agent (Fallback/Computed)</span></td><td>Defaulted/Computed by LLM</td></tr><tr><td>continent_spread</td><td>['North America']</td><td><span class='badge' style='background-color: #8e44ad; color: white;'>Coordinator Agent (Fallback/Computed)</span></td><td>Defaulted/Computed by LLM</td></tr><tr><td>usa_presence</td><td>True</td><td><span class='badge' style='background-color: #8e44ad; color: white;'>Coordinator Agent (Fallback/Computed)</span></td><td>Defaulted/Computed by LLM</td></tr><tr><td>privacy_policy_published</td><td>True</td><td><span class='badge' style='background-color: #e67e22; color: white;'>DomainScraper</span></td><td>Selected because DomainScraper has highest priority</td></tr><tr><td>compliance_mentions</td><td>[]</td><td><span class='badge' style='background-color: #e67e22; color: white;'>DomainScraper</span></td><td>Selected because DomainScraper has highest priority</td></tr><tr><td>quarterly_revenue</td><td>[183033000, 189057000, 192345000, 197875000, 206973000, 210112000, 231124000, 234903000, 239573000, 243509000, 251392000, 256872000, 245990000, 222473000, 241018000, 248953000, 261415000, 275064000, 290325000, 329208000, 346782000, 361351000, 400643000, 404996000, 410971000, 436507000, 448366000, 472073000, 501019000, 514460000, 529585000, 570351000]</td><td><span class='badge' style='background-color: #27ae60; color: white;'>SECCollector</span></td><td>Selected because SECCollector has highest priority</td></tr><tr><td>sic_codes</td><td>['7372']</td><td><span class='badge' style='background-color: #8e44ad; color: white;'>Coordinator Agent (Fallback/Computed)</span></td><td>Defaulted/Computed by LLM</td></tr><tr><td>services_appetite</td><td>medium_risk</td><td><span class='badge' style='background-color: #8e44ad; color: white;'>Coordinator Agent (Fallback/Computed)</span></td><td>Defaulted/Computed by LLM</td></tr><tr><td>internet_exposure_domains</td><td>1</td><td><span class='badge' style='background-color: #8e44ad; color: white;'>Coordinator Agent (Fallback/Computed)</span></td><td>Defaulted/Computed by LLM</td></tr><tr><td>customer_base_scale</td><td>Enterprise</td><td><span class='badge' style='background-color: #8e44ad; color: white;'>Coordinator Agent (Fallback/Computed)</span></td><td>Defaulted/Computed by LLM</td></tr><tr><td>digital_exposure</td><td>4</td><td><span class='badge' style='background-color: #8e44ad; color: white;'>Coordinator Agent (Fallback/Computed)</span></td><td>Defaulted/Computed by LLM</td></tr><tr><td>disruption_speed</td><td>4</td><td><span class='badge' style='background-color: #8e44ad; color: white;'>Coordinator Agent (Fallback/Computed)</span></td><td>Defaulted/Computed by LLM</td></tr><tr><td>recovery_complexity</td><td>4</td><td><span class='badge' style='background-color: #8e44ad; color: white;'>Coordinator Agent (Fallback/Computed)</span></td><td>Defaulted/Computed by LLM</td></tr><tr><td>founding_year</td><td>1999</td><td><span class='badge' style='background-color: #2c3e50; color: white;'>DBCollector</span></td><td>Selected because DBCollector has highest priority</td></tr>
+                </table>
+                </div>
+                
+                
+            <div class="card" style="margin-top: 20px; border-left: 4px solid #27ae60;">
+                <h3 style="margin-top:0; color:#27ae60;">SEC Quarterly Revenue Timeline (Chronological)</h3>
+                <ul style="column-count: 3; padding-left: 20px; margin: 0; font-size:14px;">
+                    <li>$183,033,000 USD</li><li>$189,057,000 USD</li><li>$192,345,000 USD</li><li>$197,875,000 USD</li><li>$206,973,000 USD</li><li>$210,112,000 USD</li><li>$231,124,000 USD</li><li>$234,903,000 USD</li><li>$239,573,000 USD</li><li>$243,509,000 USD</li><li>$251,392,000 USD</li><li>$256,872,000 USD</li><li>$245,990,000 USD</li><li>$222,473,000 USD</li><li>$241,018,000 USD</li><li>$248,953,000 USD</li><li>$261,415,000 USD</li><li>$275,064,000 USD</li><li>$290,325,000 USD</li><li>$329,208,000 USD</li><li>$346,782,000 USD</li><li>$361,351,000 USD</li><li>$400,643,000 USD</li><li>$404,996,000 USD</li><li>$410,971,000 USD</li><li>$436,507,000 USD</li><li>$448,366,000 USD</li><li>$472,073,000 USD</li><li>$501,019,000 USD</li><li>$514,460,000 USD</li><li>$529,585,000 USD</li><li>$570,351,000 USD</li>
+                </ul>
+            </div>
+            
+                
+                <h3>Conflict Decisions</h3>
+                <p>Priority rule used: SEC > D&B/GLEIF > Wikidata > Wikipedia > Domain</p>
+                <ul>
+    <li>No conflicts detected.</li>
+                </ul>
+            </div>
+            
+            <!-- SECTION 4: Step-by-Step Modifier Evaluation Table -->
+            <h2>4. Step-by-Step Modifier Evaluation Table</h2>
+            <div style="overflow-x: auto;">
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>Modifier Name</th>
+                    <th>Reconciled Inputs</th>
+                    <th>Excel Rule Reference</th>
+                    <th>Math/Code Logic</th>
+                    <th>Rating</th>
+                </tr>
+    
+                <tr>
+                    <td>1</td>
+                    <td><strong>Mergers and Acquisitions</strong></td>
+                    <td>Acquisitions: 0</td>
+                    <td>Points sum compared against revenue-tier thresholds.</td>
+                    <td>No recent acquisitions, indicating a stable business structure., very favourable.</td>
+                    <td><span class="badge info">Very Favourable (Score: 0.00)</span></td>
+                </tr>
+        
+                <tr>
+                    <td>2</td>
+                    <td><strong>Amount of sensitive information</strong></td>
+                    <td>Customer: B2B, E-com: False</td>
+                    <td>B2B, no e-commerce maps to Favourable.</td>
+                    <td>B2B customer type with no ecommerce presence, reducing the risk of sensitive information exposure., favourable.</td>
+                    <td><span class="badge info">Favourable (Score: 0.00)</span></td>
+                </tr>
+        
+                <tr>
+                    <td>3</td>
+                    <td><strong>Domain Encryption</strong></td>
+                    <td>Total: 1, Encrypted: 1</td>
+                    <td>All domains encrypted maps to Favourable.</td>
+                    <td>Only one domain is present, and it is https encrypted, showing a good level of security., favourable.</td>
+                    <td><span class="badge info">Favourable (Score: 1/1)</span></td>
+                </tr>
+        
+                <tr>
+                    <td>4</td>
+                    <td><strong>Geographic Spread</strong></td>
+                    <td>Countries: 1, Continents: 1</td>
+                    <td>Operations in <= 3 countries on 1 continent = Favourable.</td>
+                    <td>Operations are limited to the US, reducing the complexity of regulatory compliance., favourable.</td>
+                    <td><span class="badge info">Favourable (Score: 1.00)</span></td>
+                </tr>
+        
+                <tr>
+                    <td>5</td>
+                    <td><strong>Internet footprint</strong></td>
+                    <td>Domains: 1, Scale: Enterprise</td>
+                    <td>Domains count * Scale Multiplier (SMB=1, Mid-Market=2, Enterprise=3).</td>
+                    <td>Only one domain is present, indicating a relatively low internet footprint., favourable.</td>
+                    <td><span class="badge info">Favourable (Score: 3.00)</span></td>
+                </tr>
+        
+                <tr>
+                    <td>6</td>
+                    <td><strong>Nature of services</strong></td>
+                    <td>Appetite: medium_risk, SIC: 1</td>
+                    <td>Weighted mapping to low/medium/high risk or SIC fallback.</td>
+                    <td><ul style='margin:0; padding-left:20px;'><li>Detected products: ai</li><li>Detected industries: healthcare</li><li>Weighted Score: 2.43</li><li>Assigned medium_risk according to reference table.</li></ul></td>
+                    <td><span class="badge info">Average (Score: medium_risk)</span></td>
+                </tr>
+        
+                <tr>
+                    <td>7</td>
+                    <td><strong>Organizational Complexity</strong></td>
+                    <td>Subsidiaries: 42, Revenue: 2087679000</td>
+                    <td>Subsidiary count vs revenue tier.</td>
+                    <td>A large number of subsidiaries, but given the revenue tier, this is not excessively complex., average.</td>
+                    <td><span class="badge info">Average (Score: 42.00)</span></td>
+                </tr>
+        
+                <tr>
+                    <td>8</td>
+                    <td><strong>Privacy Regulation</strong></td>
+                    <td>Privacy Policy: True, Frameworks: 0</td>
+                    <td>Policy published + Compliance frameworks count.</td>
+                    <td>A privacy policy is published, but no compliance frameworks are mentioned, which is a minor concern., average.</td>
+                    <td><span class="badge info">Average (Score: 0.00)</span></td>
+                </tr>
+        
+                <tr>
+                    <td>9</td>
+                    <td><strong>Seasonality of sales</strong></td>
+                    <td>Quarterly Revenue: 32, SIC: 1</td>
+                    <td>CV of quarterly revenue (CV < 0.1 Favourable, > 0.25 Unfavourable) or SIC benchmark.</td>
+                    <td>Quarterly revenue shows a relatively stable growth pattern, with no significant fluctuations., partially unfavourable.</td>
+                    <td><span class="badge info">Partially Unfavourable (Score: 0.36)</span></td>
+                </tr>
+        
+                <tr>
+                    <td>10</td>
+                    <td><strong>Volatility/Recovery in Sales</strong></td>
+                    <td>Digital Exposure: 4, Disruption Speed: 4, Recovery Complexity: 4</td>
+                    <td>Avg of digital exposure, disruption speed, recovery complexity.</td>
+                    <td>Digital exposure, disruption speed, and recovery complexity are all rated as 4 out of 5, indicating a moderate level of risk., partially unfavourable.</td>
+                    <td><span class="badge info">Partially Unfavourable (Score: 4.00)</span></td>
+                </tr>
+        
+                <tr>
+                    <td>11</td>
+                    <td><strong>Applicability of Privacy Regulation</strong></td>
+                    <td>Countries: 1, E-com: False</td>
+                    <td>Operates in strict regions (GDPR, CCPA) or has e-commerce.</td>
+                    <td>No operations in strict regions like GDPR or CCPA, and no ecommerce presence, reducing the risk of privacy regulation non-compliance., average.</td>
+                    <td><span class="badge info">Average (Score: 0.00)</span></td>
+                </tr>
+        
+                <tr>
+                    <td>12</td>
+                    <td><strong>B2C End Products</strong></td>
+                    <td>Customer Type: B2B</td>
+                    <td>B2C = average risk, B2B = favourable.</td>
+                    <td>B2B customer type, which is generally considered lower risk than B2C., average.</td>
+                    <td><span class="badge info">Average (Score: 0.00)</span></td>
+                </tr>
+        
+                <tr>
+                    <td>13</td>
+                    <td><strong>Years in business</strong></td>
+                    <td>Founding Year: 1999, Revenue: 2087679000</td>
+                    <td>Founding year vs current year compared against revenue-tier thresholds.</td>
+                    <td>Founded in 1999, indicating a well-established business with a long history of operations., favourable.</td>
+                    <td><span class="badge info">Favourable (Score: 27.00)</span></td>
+                </tr>
+        
+            </table>
+            </div>
+            
+            <!-- SECTION 5: Final Verdict Calculations -->
+            <h2>5. Final Verdict Calculations</h2>
+            <div class="card">
+                <h3>Rating-to-Score Mapping</h3>
+                <ul>
+                    <li>Very Favourable = 1.0</li>
+                    <li>Favourable = 2.0</li>
+                    <li>Partially Favourable = 3.0</li>
+                    <li>Average = 4.0</li>
+                    <li>Partially Unfavourable = 5.0</li>
+                    <li>Unfavourable = 6.0</li>
+                </ul>
+    
+                <h3>Calculation Details</h3>
+                <p><strong>Sum of Modifier Scores:</strong> 41.00</p>
+                <p><strong>Average Score Calculation:</strong> 41.00 / 13 = 3.154</p>
+                <p><strong>Final Risk Category Range:</strong> Partially Favourable</p>
+                <p><strong>Evidence Confidence Score:</strong> 100.0%</p>
+                <p><strong>Human Escalation Reason:</strong> None</p>
+            </div>
+            
+        </div>
+        
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+
+            for (i = 0; i < coll.length; i++) {
+              coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                  content.style.display = "none";
+                } else {
+                  content.style.display = "block";
+                }
+              });
+            }
+        </script>
+    </body>
+    </html>
+    
