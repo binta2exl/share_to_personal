@@ -1,0 +1,453 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Underwriting Audit Report - Liberty Mutual Insurance</title>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 20px; }
+            .container { max-width: 1200px; margin: auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+            h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+            h2 { color: #2980b9; margin-top: 30px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+            h3 { color: #34495e; }
+            table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+            th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+            th { background-color: #f8f9fa; font-weight: bold; color: #2c3e50; }
+            tr:nth-child(even) { background-color: #fdfdfd; }
+            .badge { display: inline-block; padding: 5px 10px; border-radius: 4px; font-size: 12px; font-weight: bold; color: #fff; }
+            .badge.success { background-color: #27ae60; }
+            .badge.warning { background-color: #f39c12; }
+            .badge.danger { background-color: #e74c3c; }
+            .badge.info { background-color: #3498db; }
+            .collapsible { background-color: #ecf0f1; color: #333; cursor: pointer; padding: 10px; width: 100%; border: none; text-align: left; outline: none; font-size: 16px; border-radius: 4px; margin-top: 10px; font-weight: bold; }
+            .active, .collapsible:hover { background-color: #d0d3d4; }
+            .content { padding: 0 15px; display: none; overflow: hidden; background-color: #fafafa; border: 1px solid #eee; border-top: none; margin-bottom: 10px; }
+            pre { background: #2d2d2d; color: #ccc; padding: 15px; border-radius: 4px; overflow-x: auto; font-family: 'Courier New', Courier, monospace; font-size: 13px; }
+            .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+            .card { background: #fdfdfd; border: 1px solid #e1e1e1; padding: 20px; border-radius: 6px; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Underwriting Audit & Debug Report</h1>
+            
+            <!-- SECTION 1: Executive Underwriting Summary -->
+            <h2>1. Executive Underwriting Summary</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Target Details</h3>
+                    <p><strong>Target Entity:</strong> Liberty Mutual Insurance</p>
+                    <p><strong>Primary Domain:</strong> www.libertymutual.com</p>
+                    <p><strong>Rule Executed:</strong> cyber_risk_rating</p>
+                    <p><strong>Entity Status:</strong> Match</p>
+                </div>
+                <div class="card">
+                    <h3>Verdict Summary</h3>
+                    <p><strong>Risk Category:</strong> <span class="badge info">Favourable</span></p>
+                    <p><strong>Confidence Score:</strong> 58.3%</p>
+                    <p><strong>Confidence Band:</strong> Medium</p>
+                    <p><strong>Human Escalation:</strong> <span class="badge success">NOT REQUIRED</span></p>
+                </div>
+                <div class="card">
+                    <h3>Run Audit Metadata</h3>
+                    <p><strong>Prompt Tokens:</strong> 0</p>
+                    <p><strong>Completion Tokens:</strong> 0</p>
+                    <p><strong>Total Tokens:</strong> 0</p>
+                    <p><strong>Est. Execution Cost:</strong> $0.000000 USD</p>
+                </div>
+            </div>
+            
+            <!-- SECTION 2: Collector Research Trail -->
+            <h2>2. Collector Research Trail - Raw JSON Evidence</h2>
+    
+            <button class="collapsible">DBCollector <span class="badge success">SUCCESS</span></button>
+            <div class="content">
+                <p><strong>Source Name:</strong> DBCollector</p>
+                <p><strong>Status:</strong> success</p>
+                
+                <h4>Extracted Findings & Raw JSON:</h4>
+                <pre>{
+  "source": "DBCollector",
+  "status": "success",
+  "findings": {
+    "legal_name": "Liberty Mutual Insurance Company",
+    "country": "US",
+    "legal_address": {
+      "street": "175 Berkeley Street",
+      "city": "Boston",
+      "state": "MA",
+      "postal_code": "02116",
+      "country": "US"
+    },
+    "headquarters_address": {
+      "street": "175 Berkeley Street",
+      "city": "Boston",
+      "state": "MA",
+      "postal_code": "02116",
+      "country": "US"
+    },
+    "registration_authority": {
+      "name": "Massachusetts Department of Insurance",
+      "country": "US"
+    },
+    "legal_form": {
+      "description": "Stock Insurance Company",
+      "category": "Corporation"
+    },
+    "founding_year": 1912
+  }
+}</pre>
+            </div>
+        
+            <button class="collapsible">DomainScraper <span class="badge success">SUCCESS</span></button>
+            <div class="content">
+                <p><strong>Source Name:</strong> DomainScraper</p>
+                <p><strong>Status:</strong> success</p>
+                
+                <h4>Extracted Findings & Raw JSON:</h4>
+                <pre>{
+  "source": "DomainScraper",
+  "status": "success",
+  "findings": {
+    "domains": [
+      {
+        "url": "www.libertymutual.com",
+        "https_encrypted": true
+      }
+    ],
+    "privacy_policy_published": true,
+    "compliance_mentions": [
+      "CCPA"
+    ],
+    "customer_type": "MIX",
+    "has_ecommerce": false,
+    "industries_served": [
+      "insurance"
+    ],
+    "customer_segments": [
+      "personal",
+      "small business",
+      "midsize and large business"
+    ],
+    "business_model": "Insurance services",
+    "b2b_b2c_confidence": "high",
+    "ecommerce_evidence": "No checkout/cart/payment flow detected",
+    "cloud_saas_indicators": [],
+    "data_sensitive_indicators": [
+      "insurance"
+    ],
+    "privacy_policy_url": "https://www.libertymutual.com/privacy-policy",
+    "terms_url": "https://www.libertymutual.com/terms-and-conditions",
+    "products_services_portfolio": [
+      "Auto insurance",
+      "Homeowners insurance",
+      "Renters insurance",
+      "Pet insurance",
+      "Small business insurance",
+      "Commercial insurance"
+    ]
+  }
+}</pre>
+            </div>
+        
+            <button class="collapsible">ResponsesAPI <span class="badge danger">SKIPPED</span></button>
+            <div class="content">
+                <p><strong>Source Name:</strong> ResponsesAPI</p>
+                <p><strong>Status:</strong> skipped</p>
+                
+                <h4>Extracted Findings & Raw JSON:</h4>
+                <pre>{
+  "source": "ResponsesAPI",
+  "status": "skipped",
+  "findings": {}
+}</pre>
+            </div>
+        
+            <button class="collapsible">SECCollector <span class="badge danger">SKIPPED</span></button>
+            <div class="content">
+                <p><strong>Source Name:</strong> SECCollector</p>
+                <p><strong>Status:</strong> skipped</p>
+                
+                <h4>Extracted Findings & Raw JSON:</h4>
+                <pre>{
+  "source": "SECCollector",
+  "status": "skipped",
+  "message": "Company not found in SEC EDGAR tickers.",
+  "findings": {}
+}</pre>
+            </div>
+        
+            <button class="collapsible">Wikipedia <span class="badge success">SUCCESS</span></button>
+            <div class="content">
+                <p><strong>Source Name:</strong> Wikipedia</p>
+                <p><strong>Status:</strong> success</p>
+                
+                <h4>Extracted Findings & Raw JSON:</h4>
+                <pre>{
+  "source": "Wikipedia",
+  "status": "success",
+  "findings": {
+    "subsidiaries": [
+      "Countrywide Legal Indemnities"
+    ],
+    "acquisitions": [],
+    "customer_type": "MIX",
+    "has_ecommerce": true,
+    "country": "United States",
+    "founding_year": 1912,
+    "industry_classification": [
+      "Insurance",
+      "Property and Casualty",
+      "Global Insurer"
+    ]
+  }
+}</pre>
+            </div>
+        
+            <button class="collapsible">Wikidata <span class="badge success">SUCCESS</span></button>
+            <div class="content">
+                <p><strong>Source Name:</strong> Wikidata</p>
+                <p><strong>Status:</strong> success</p>
+                
+            <div class="card" style="margin-top: 15px; margin-bottom: 15px; border-left: 4px solid #3498db; background-color: #fcfdfe;">
+                <h4 style="margin-top:0; color:#2980b9;">Wikidata Structured Output (Parsed Findings)</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; font-size:14px;">
+                    <div><strong>Official Website:</strong> <a href="https://www.libertymutual.com/" target="_blank">https://www.libertymutual.com/</a></div>
+                    <div><strong>Headquarters:</strong> Boston</div>
+                    <div><strong>Country:</strong> United States</div>
+                    <div><strong>Primary Industry:</strong> Insurance</div>
+                    <div><strong>Sub-Industries:</strong> Property insurance, Casualty insurance</div>
+                    <div><strong>Founded Year:</strong> Not Available</div>
+                    <div><strong>Parent Org:</strong> Not Available</div>
+                    <div style="grid-column: span 2;"><strong>Subsidiaries:</strong> Not Available</div>
+                </div>
+            </div>
+            
+                <h4>Extracted Findings & Raw JSON:</h4>
+                <pre>{
+  "source": "Wikidata",
+  "status": "success",
+  "findings": {
+    "revenue": null,
+    "employees": null,
+    "country": "United States",
+    "headquarters": "Boston",
+    "industry": [
+      "Insurance"
+    ],
+    "sub_industries": [
+      "Property insurance",
+      "Casualty insurance"
+    ],
+    "official_website": "https://www.libertymutual.com/",
+    "subsidiaries": [],
+    "founding_year": null
+  }
+}</pre>
+            </div>
+        
+            <!-- SECTION 3: Coordinator Reconciliation & Conflict Decision -->
+            <h2>3. Coordinator Reconciliation & Conflict Decision</h2>
+            
+            <div class="card" style="margin-bottom: 20px;">
+                <h3>Collector Contribution Summary</h3>
+                <table>
+                    <tr><th>Collector</th><th>Fields Contributed</th><th>Successful Findings Count</th></tr>
+    <tr><td><strong>SECCollector</strong></td><td>0</td><td>0</td></tr><tr><td><strong>DBCollector</strong></td><td>1</td><td>7</td></tr><tr><td><strong>Wikidata</strong></td><td>1</td><td>9</td></tr><tr><td><strong>Wikipedia</strong></td><td>3</td><td>7</td></tr><tr><td><strong>DomainScraper</strong></td><td>4</td><td>15</td></tr>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h3>Reconciled Company Profile</h3>
+                <div style="overflow-x: auto;">
+                <table>
+                    <tr><th>Field</th><th>Reconciled Value</th><th>Source Used</th><th>Conflict Decision</th></tr>
+    <tr><td>revenue</td><td>None</td><td><span class='badge' style='background-color: #2980b9; color: white;'>Wikidata</span></td><td>Selected because Wikidata has highest priority</td></tr><tr><td>subsidiaries</td><td>['Countrywide Legal Indemnities']</td><td><span class='badge' style='background-color: #7f8c8d; color: white;'>Wikipedia</span></td><td>Selected because Wikipedia has highest priority</td></tr><tr><td>acquisitions</td><td>[]</td><td><span class='badge' style='background-color: #7f8c8d; color: white;'>Wikipedia</span></td><td>Selected because Wikipedia has highest priority</td></tr><tr><td>customer_type</td><td>MIX</td><td><span class='badge' style='background-color: #7f8c8d; color: white;'>Wikipedia</span></td><td>Selected because Wikipedia has highest priority</td></tr><tr><td>has_ecommerce</td><td>False</td><td><span class='badge' style='background-color: #e67e22; color: white;'>DomainScraper</span></td><td>Selected because DomainScraper has highest priority</td></tr><tr><td>domains</td><td>[{'url': 'www.libertymutual.com', 'https_encrypted': True}]</td><td><span class='badge' style='background-color: #e67e22; color: white;'>DomainScraper</span></td><td>Selected because DomainScraper has highest priority</td></tr><tr><td>countries_of_operation</td><td>['US']</td><td><span class='badge' style='background-color: #8e44ad; color: white;'>Coordinator Agent (Fallback/Computed)</span></td><td>Defaulted/Computed by LLM</td></tr><tr><td>continent_spread</td><td>['North America']</td><td><span class='badge' style='background-color: #8e44ad; color: white;'>Coordinator Agent (Fallback/Computed)</span></td><td>Defaulted/Computed by LLM</td></tr><tr><td>usa_presence</td><td>True</td><td><span class='badge' style='background-color: #8e44ad; color: white;'>Coordinator Agent (Fallback/Computed)</span></td><td>Defaulted/Computed by LLM</td></tr><tr><td>privacy_policy_published</td><td>True</td><td><span class='badge' style='background-color: #e67e22; color: white;'>DomainScraper</span></td><td>Selected because DomainScraper has highest priority</td></tr><tr><td>compliance_mentions</td><td>['CCPA']</td><td><span class='badge' style='background-color: #e67e22; color: white;'>DomainScraper</span></td><td>Selected because DomainScraper has highest priority</td></tr><tr><td>quarterly_revenue</td><td>[]</td><td><span class='badge' style='background-color: #8e44ad; color: white;'>Coordinator Agent (Fallback/Computed)</span></td><td>Defaulted/Computed by LLM</td></tr><tr><td>sic_codes</td><td>['7372']</td><td><span class='badge' style='background-color: #8e44ad; color: white;'>Coordinator Agent (Fallback/Computed)</span></td><td>Defaulted/Computed by LLM</td></tr><tr><td>services_appetite</td><td>medium_risk</td><td><span class='badge' style='background-color: #8e44ad; color: white;'>Coordinator Agent (Fallback/Computed)</span></td><td>Defaulted/Computed by LLM</td></tr><tr><td>internet_exposure_domains</td><td>1</td><td><span class='badge' style='background-color: #8e44ad; color: white;'>Coordinator Agent (Fallback/Computed)</span></td><td>Defaulted/Computed by LLM</td></tr><tr><td>customer_base_scale</td><td>Enterprise</td><td><span class='badge' style='background-color: #8e44ad; color: white;'>Coordinator Agent (Fallback/Computed)</span></td><td>Defaulted/Computed by LLM</td></tr><tr><td>digital_exposure</td><td>4</td><td><span class='badge' style='background-color: #8e44ad; color: white;'>Coordinator Agent (Fallback/Computed)</span></td><td>Defaulted/Computed by LLM</td></tr><tr><td>disruption_speed</td><td>3</td><td><span class='badge' style='background-color: #8e44ad; color: white;'>Coordinator Agent (Fallback/Computed)</span></td><td>Defaulted/Computed by LLM</td></tr><tr><td>recovery_complexity</td><td>4</td><td><span class='badge' style='background-color: #8e44ad; color: white;'>Coordinator Agent (Fallback/Computed)</span></td><td>Defaulted/Computed by LLM</td></tr><tr><td>founding_year</td><td>1912</td><td><span class='badge' style='background-color: #2c3e50; color: white;'>DBCollector</span></td><td>Selected because DBCollector has highest priority</td></tr>
+                </table>
+                </div>
+                
+                
+                
+                <h3>Conflict Decisions</h3>
+                <p>Priority rule used: SEC > D&B/GLEIF > Wikidata > Wikipedia > Domain</p>
+                <ul>
+    <li>No conflicts detected.</li>
+                </ul>
+            </div>
+            
+            <!-- SECTION 4: Step-by-Step Modifier Evaluation Table -->
+            <h2>4. Step-by-Step Modifier Evaluation Table</h2>
+            <div style="overflow-x: auto;">
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>Modifier Name</th>
+                    <th>Reconciled Inputs</th>
+                    <th>Excel Rule Reference</th>
+                    <th>Math/Code Logic</th>
+                    <th>Rating</th>
+                </tr>
+    
+                <tr>
+                    <td>1</td>
+                    <td><strong>Mergers and Acquisitions</strong></td>
+                    <td>Acquisitions: 0</td>
+                    <td>Points sum compared against revenue-tier thresholds.</td>
+                    <td>No acquisitions listed, which is, very favourable.</td>
+                    <td><span class="badge info">Very Favourable (Score: 0.0)</span></td>
+                </tr>
+        
+                <tr>
+                    <td>2</td>
+                    <td><strong>Amount of sensitive information</strong></td>
+                    <td>Customer: MIX, E-com: False</td>
+                    <td>B2B, no e-commerce maps to Favourable.</td>
+                    <td>Mixed customer type and no ecommerce presence, reducing sensitivity., average.</td>
+                    <td><span class="badge info">Average (Score: 0.0)</span></td>
+                </tr>
+        
+                <tr>
+                    <td>3</td>
+                    <td><strong>Domain Encryption</strong></td>
+                    <td>Total: 1, Encrypted: 1</td>
+                    <td>All domains encrypted maps to Favourable.</td>
+                    <td>Only one domain is listed, but it is https encrypted, which is, favourable.</td>
+                    <td><span class="badge info">Favourable (Score: 1/1)</span></td>
+                </tr>
+        
+                <tr>
+                    <td>4</td>
+                    <td><strong>Geographic Spread</strong></td>
+                    <td>Countries: 1, Continents: 1</td>
+                    <td>Operations in <= 3 countries on 1 continent = Favourable.</td>
+                    <td>Limited to the US, which may reduce complexity and risk., favourable.</td>
+                    <td><span class="badge info">Favourable (Score: 1)</span></td>
+                </tr>
+        
+                <tr>
+                    <td>5</td>
+                    <td><strong>Internet footprint</strong></td>
+                    <td>Domains: 1, Scale: Enterprise</td>
+                    <td>Domains count * Scale Multiplier (SMB=1, Mid-Market=2, Enterprise=3).</td>
+                    <td>Single domain with high scale multiplier due to Enterprise classification, increasing exposure., favourable.</td>
+                    <td><span class="badge info">Favourable (Score: 3.0)</span></td>
+                </tr>
+        
+                <tr>
+                    <td>6</td>
+                    <td><strong>Nature of services</strong></td>
+                    <td>Appetite: medium_risk, SIC: 1</td>
+                    <td>Weighted mapping to low/medium/high risk or SIC fallback.</td>
+                    <td><ul style='margin:0; padding-left:20px;'><li>Detected products: insurance</li><li>Detected industries: insurance</li><li>Weighted Score: 3.00</li><li>Assigned high_risk according to reference table.</li></ul></td>
+                    <td><span class="badge info">Partially Unfavourable (Score: high_risk)</span></td>
+                </tr>
+        
+                <tr>
+                    <td>7</td>
+                    <td><strong>Organizational Complexity</strong></td>
+                    <td>Subsidiaries: 1, Revenue: None</td>
+                    <td>Subsidiary count vs revenue tier.</td>
+                    <td>Single subsidiary, which may indicate relatively simple organizational structure., very favourable.</td>
+                    <td><span class="badge info">Very Favourable (Score: 1)</span></td>
+                </tr>
+        
+                <tr>
+                    <td>8</td>
+                    <td><strong>Privacy Regulation</strong></td>
+                    <td>Privacy Policy: True, Frameworks: 1</td>
+                    <td>Policy published + Compliance frameworks count.</td>
+                    <td>Published privacy policy and CCPA compliance, demonstrating proactive approach., partially favourable.</td>
+                    <td><span class="badge info">Partially Favourable (Score: 1)</span></td>
+                </tr>
+        
+                <tr>
+                    <td>9</td>
+                    <td><strong>Seasonality of sales</strong></td>
+                    <td>Quarterly Revenue: 0, SIC: 1</td>
+                    <td>CV of quarterly revenue (CV < 0.1 Favourable, > 0.25 Unfavourable) or SIC benchmark.</td>
+                    <td>Insufficient quarterly revenue data to assess seasonality., average.</td>
+                    <td><span class="badge info">Average (Score: 0.0)</span></td>
+                </tr>
+        
+                <tr>
+                    <td>10</td>
+                    <td><strong>Volatility/Recovery in Sales</strong></td>
+                    <td>Digital Exposure: 4, Disruption Speed: 3, Recovery Complexity: 4</td>
+                    <td>Avg of digital exposure, disruption speed, recovery complexity.</td>
+                    <td>High digital exposure and moderate disruption speed and recovery complexity, indicating potential volatility., partially unfavourable.</td>
+                    <td><span class="badge info">Partially Unfavourable (Score: 3.6666666666666665)</span></td>
+                </tr>
+        
+                <tr>
+                    <td>11</td>
+                    <td><strong>Applicability of Privacy Regulation</strong></td>
+                    <td>Countries: 1, E-com: False</td>
+                    <td>Operates in strict regions (GDPR, CCPA) or has e-commerce.</td>
+                    <td>Operates in the US with CCPA compliance, which is, average.</td>
+                    <td><span class="badge info">Average (Score: 0.0)</span></td>
+                </tr>
+        
+                <tr>
+                    <td>12</td>
+                    <td><strong>B2C End Products</strong></td>
+                    <td>Customer Type: MIX</td>
+                    <td>B2C = average risk, B2B = favourable.</td>
+                    <td>Mixed customer type, but no indication of high-risk B2C end products., partially favourable.</td>
+                    <td><span class="badge info">Partially Favourable (Score: 0.0)</span></td>
+                </tr>
+        
+                <tr>
+                    <td>13</td>
+                    <td><strong>Years in business</strong></td>
+                    <td>Founding Year: 1912, Revenue: None</td>
+                    <td>Founding year vs current year compared against revenue-tier thresholds.</td>
+                    <td>Long-standing company, founded in 1912, which is highly, very favourable.</td>
+                    <td><span class="badge info">Very Favourable (Score: 114)</span></td>
+                </tr>
+        
+            </table>
+            </div>
+            
+            <!-- SECTION 5: Final Verdict Calculations -->
+            <h2>5. Final Verdict Calculations</h2>
+            <div class="card">
+                <h3>Rating-to-Score Mapping</h3>
+                <ul>
+                    <li>Very Favourable = 1.0</li>
+                    <li>Favourable = 2.0</li>
+                    <li>Partially Favourable = 3.0</li>
+                    <li>Average = 4.0</li>
+                    <li>Partially Unfavourable = 5.0</li>
+                    <li>Unfavourable = 6.0</li>
+                </ul>
+    
+                <h3>Calculation Details</h3>
+                <p><strong>Sum of Modifier Scores:</strong> 37.00</p>
+                <p><strong>Average Score Calculation:</strong> 37.00 / 13 = 2.846</p>
+                <p><strong>Final Risk Category Range:</strong> Favourable</p>
+                <p><strong>Evidence Confidence Score:</strong> 58.3%</p>
+                <p><strong>Human Escalation Reason:</strong> None</p>
+            </div>
+            
+        </div>
+        
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+
+            for (i = 0; i < coll.length; i++) {
+              coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                  content.style.display = "none";
+                } else {
+                  content.style.display = "block";
+                }
+              });
+            }
+        </script>
+    </body>
+    </html>
+    
