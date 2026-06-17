@@ -1,0 +1,10 @@
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Nature of services | ========================================
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Nature of services | Modifier Evaluation: Nature of services
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Nature of services | ========================================
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Nature of services | Input: services_appetite = medium_risk
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Nature of services | Math Logic: low_risk => favourable; high_risk => unfavourable; else => average.
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Nature of services | Resulting Score: high_risk
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Nature of services | Resulting Rating: partially unfavourable
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Nature of services | Rationale: Detected products: insurance | Detected industries: insurance | Weighted Score: 3.00 | Assigned high_risk according to reference table.
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Nature of services | ========================================
+

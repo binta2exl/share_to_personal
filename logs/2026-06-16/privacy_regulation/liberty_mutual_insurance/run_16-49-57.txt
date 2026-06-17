@@ -1,0 +1,11 @@
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Privacy Regulation | ========================================
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Privacy Regulation | Modifier Evaluation: Privacy Regulation
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Privacy Regulation | ========================================
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Privacy Regulation | Input: privacy_policy_published = True
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Privacy Regulation | Input: compliance_mentions = ['CCPA']
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Privacy Regulation | Math Logic: Policy published and compliance count >= 2 => favourable; count == 1 => partially favourable; no policy => partially unfavourable.
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Privacy Regulation | Resulting Score: 1
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Privacy Regulation | Resulting Rating: partially favourable
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Privacy Regulation | Rationale: Published policy and CCPA compliance framework are, partially favourable.
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Privacy Regulation | ========================================
+

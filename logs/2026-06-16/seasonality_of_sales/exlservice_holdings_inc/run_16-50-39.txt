@@ -1,0 +1,12 @@
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Seasonality of sales | ========================================
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Seasonality of sales | Modifier Evaluation: Seasonality of sales
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Seasonality of sales | ========================================
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Seasonality of sales | Input: quarterly_revenue = [183033000, 189057000, 192345000, 197875000, 206973000, 210112000, 231124000, 234903000, 239573000, 243509000, 251392000, 256872000, 245990000, 222473000, 241018000, 248953000, 261415000, 275064000, 290325000, 329208000, 346782000, 361351000, 400643000, 404996000, 410971000, 436507000, 448366000, 472073000, 501019000, 514460000, 529585000, 570351000]
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Seasonality of sales | Input: sic_codes = ['7372']
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Seasonality of sales | Math Logic: If quarterly revenue count >= 4, CV = std/mean. CV < 0.1 => favourable, CV <= 0.25 => average, else partially unfavourable. Else check if SIC starts with 5311 (high seasonality).
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Seasonality of sales | Calculation details: Quarterly revenue Coefficient of Variation = 0.359
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Seasonality of sales | Resulting Score: 0.35923857863807307
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Seasonality of sales | Resulting Rating: partially unfavourable
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Seasonality of sales | Rationale: Quarterly revenue shows a relatively stable growth pattern, with no significant fluctuations., partially unfavourable.
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Seasonality of sales | ========================================
+

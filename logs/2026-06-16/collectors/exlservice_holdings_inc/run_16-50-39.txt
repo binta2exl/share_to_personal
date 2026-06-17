@@ -1,0 +1,135 @@
+2026-06-16 16:50:39 | INFO | cyber_risk_insurance.D&B GLEIF Collector | [D&B GLEIF Collector] Starting data collection for EXLService Holdings, Inc. (www.exlservice.com)
+2026-06-16 16:50:39 | INFO | cyber_risk_insurance.D&B GLEIF Collector | [D&B GLEIF Collector] Cache miss. Executing live harvesting...
+2026-06-16 16:50:40 | INFO | cyber_risk_insurance.D&B GLEIF Collector | [D&B GLEIF Collector] Invoking LLM for prompt/extraction...
+2026-06-16 16:50:41 | INFO | cyber_risk_insurance.D&B GLEIF Collector | [D&B GLEIF Collector] LLM Response received. Usage: input=193, output=160, reasoning=0, cached=0, tool_calls=0, cost=$0.000240
+2026-06-16 16:50:41 | INFO | cyber_risk_insurance.D&B GLEIF Collector | [D&B GLEIF Collector] Output text:
+{
+  "legal_name": "EXLService Holdings, Inc.",
+  "country": "US",
+  "legal_address": {
+    "street": "280 Park Avenue",
+    "city": "New York",
+    "state": "NY",
+    "postal_code": "10017"
+  },
+  "headquarters_address": {
+    "street": "280 Park Avenue",
+    "city": "New York",
+    "state": "NY",
+    "postal_code": "10017"
+  },
+  "registration_authority": {
+    "name": "Delaware Department of State",
+    "country": "US"
+  },
+  "legal_form": {
+    "description": "Corporation"
+  },
+  "founding_year": 1999
+}
+2026-06-16 16:50:41 | INFO | cyber_risk_insurance.D&B GLEIF Collector | [D&B GLEIF Collector] Extraction complete: status=success, findings={'legal_name': 'EXLService Holdings, Inc.', 'country': 'US', 'legal_address': {'street': '280 Park Avenue', 'city': 'New York', 'state': 'NY', 'postal_code': '10017'}, 'headquarters_address': {'street': '280 Park Avenue', 'city': 'New York', 'state': 'NY', 'postal_code': '10017'}, 'registration_authority': {'name': 'Delaware Department of State', 'country': 'US'}, 'legal_form': {'description': 'Corporation'}, 'founding_year': 1999}
+2026-06-16 16:50:41 | INFO | cyber_risk_insurance.Domain Scraper | [Domain Scraper] Starting data collection for EXLService Holdings, Inc. (www.exlservice.com)
+2026-06-16 16:50:41 | INFO | cyber_risk_insurance.Domain Scraper | [Domain Scraper] Cache miss. Executing live harvesting...
+2026-06-16 16:50:54 | INFO | cyber_risk_insurance.Domain Scraper | [Domain Scraper] Invoking LLM for prompt/extraction...
+2026-06-16 16:50:55 | INFO | cyber_risk_insurance.Domain Scraper | [Domain Scraper] LLM Response received. Usage: input=2595, output=338, reasoning=0, cached=0, tool_calls=0, cost=$0.001798
+2026-06-16 16:50:55 | INFO | cyber_risk_insurance.Domain Scraper | [Domain Scraper] Output text:
+```json
+{
+  "domains": [
+    {
+      "url": "www.exlservice.com",
+      "https_encrypted": true
+    }
+  ],
+  "privacy_policy_published": true,
+  "compliance_mentions": [],
+  "customer_type": "B2B",
+  "has_ecommerce": false,
+  "industries_served": [
+    "insurance",
+    "healthcare",
+    "banking",
+    "retail",
+    "energy",
+    "infrastructure",
+    "communications",
+    "media",
+    "entertainment"
+  ],
+  "customer_segments": [
+    "enterprise",
+    "business clients"
+  ],
+  "business_model": "B2B services / consulting",
+  "b2b_b2c_confidence": "high",
+  "ecommerce_evidence": "No checkout/cart/payment flow detected",
+  "cloud_saas_indicators": [
+    "platform",
+    "analytics",
+    "AI",
+    "data modernization",
+    "digital transformation"
+  ],
+  "data_sensitive_indicators": [
+    "healthcare",
+    "insurance",
+    "financial services",
+    "customer experience"
+  ],
+  "privacy_policy_url": "https://www.exlservice.com/privacy-notice",
+  "terms_url": "https://www.exlservice.com/terms-of-use",
+  "products_services_portfolio": [
+    "EXLdata.ai",
+    "Exlerate.ai",
+    "AI-powered operations",
+    "data modernization",
+    "digital transformation",
+    "analytics services",
+    "AI solutions",
+    "consulting and implementation"
+  ]
+}
+```
+2026-06-16 16:50:55 | INFO | cyber_risk_insurance.Domain Scraper | [Domain Scraper] Extraction complete: status=success, findings={'domains': [{'url': 'www.exlservice.com', 'https_encrypted': True}], 'privacy_policy_published': True, 'compliance_mentions': [], 'customer_type': 'B2B', 'has_ecommerce': False, 'industries_served': ['insurance', 'healthcare', 'banking', 'retail', 'energy', 'infrastructure', 'communications', 'media', 'entertainment'], 'customer_segments': ['enterprise', 'business clients'], 'business_model': 'B2B services / consulting', 'b2b_b2c_confidence': 'high', 'ecommerce_evidence': 'No checkout/cart/payment flow detected', 'cloud_saas_indicators': ['platform', 'analytics', 'AI', 'data modernization', 'digital transformation'], 'data_sensitive_indicators': ['healthcare', 'insurance', 'financial services', 'customer experience'], 'privacy_policy_url': 'https://www.exlservice.com/privacy-notice', 'terms_url': 'https://www.exlservice.com/terms-of-use', 'products_services_portfolio': ['EXLdata.ai', 'Exlerate.ai', 'AI-powered operations', 'data modernization', 'digital transformation', 'analytics services', 'AI solutions', 'consulting and implementation']}
+2026-06-16 16:50:55 | INFO | cyber_risk_insurance.Responses API Collector | [Responses API Collector] Starting data collection for EXLService Holdings, Inc. (www.exlservice.com)
+2026-06-16 16:50:55 | INFO | cyber_risk_insurance.Responses API Collector | [Responses API Collector] Cache miss. Executing live harvesting...
+2026-06-16 16:50:55 | INFO | cyber_risk_insurance.Responses API Collector | [Responses API Collector] Extraction complete: status=skipped, findings={}
+2026-06-16 16:50:55 | INFO | cyber_risk_insurance.SEC EDGAR Collector | [SEC EDGAR Collector] Starting data collection for EXLService Holdings, Inc. (www.exlservice.com)
+2026-06-16 16:50:55 | INFO | cyber_risk_insurance.SEC EDGAR Collector | [SEC EDGAR Collector] Cache miss. Executing live harvesting...
+2026-06-16 16:50:59 | INFO | cyber_risk_insurance.SEC EDGAR Collector | [SEC EDGAR Collector] Invoking LLM for prompt/extraction...
+2026-06-16 16:51:00 | INFO | cyber_risk_insurance.SEC EDGAR Collector | [SEC EDGAR Collector] LLM Response received. Usage: input=560, output=298, reasoning=0, cached=0, tool_calls=0, cost=$0.000566
+2026-06-16 16:51:00 | INFO | cyber_risk_insurance.SEC EDGAR Collector | [SEC EDGAR Collector] Output text:
+{
+  "revenue": 2087679000,
+  "fiscal_year": 2025,
+  "business_segments": [],
+  "geographic_revenue_or_regions": [],
+  "subsidiaries_count": 42,
+  "subsidiaries_list": [],
+  "acquisitions_mentions": [],
+  "risk_factor_keywords": [],
+  "cybersecurity_mentions": false,
+  "cloud_technology_mentions": false,
+  "customer_data_mentions": false,
+  "filing_url": "https://www.sec.gov/Archives/edgar/data/1297989/0001297989-25.txt",
+  "quarterly_revenue": [183033000, 189057000, 192345000, 197875000, 206973000, 210112000, 231124000, 234903000, 239573000, 243509000, 251392000, 256872000, 245990000, 222473000, 241018000, 248953000, 261415000, 275064000, 290325000, 329208000, 346782000, 361351000, 400643000, 404996000, 410971000, 436507000, 448366000, 472073000, 501019000, 514460000, 529585000, 570351000]
+}
+2026-06-16 16:51:00 | INFO | cyber_risk_insurance.SEC EDGAR Collector | [SEC EDGAR Collector] Extraction complete: status=success, findings={'revenue': 2087679000, 'fiscal_year': 2025, 'business_segments': [], 'geographic_revenue_or_regions': [], 'subsidiaries_count': 42, 'subsidiaries_list': [], 'acquisitions_mentions': [], 'risk_factor_keywords': [], 'cybersecurity_mentions': False, 'cloud_technology_mentions': False, 'customer_data_mentions': False, 'filing_url': 'https://www.sec.gov/Archives/edgar/data/1297989/0001297989-25.txt', 'quarterly_revenue': [183033000, 189057000, 192345000, 197875000, 206973000, 210112000, 231124000, 234903000, 239573000, 243509000, 251392000, 256872000, 245990000, 222473000, 241018000, 248953000, 261415000, 275064000, 290325000, 329208000, 346782000, 361351000, 400643000, 404996000, 410971000, 436507000, 448366000, 472073000, 501019000, 514460000, 529585000, 570351000]}
+2026-06-16 16:51:00 | INFO | cyber_risk_insurance.Wikipedia Collector | [Wikipedia Collector] Starting data collection for EXLService Holdings, Inc. (www.exlservice.com)
+2026-06-16 16:51:00 | INFO | cyber_risk_insurance.Wikipedia Collector | [Wikipedia Collector] Cache miss. Executing live harvesting...
+2026-06-16 16:51:01 | INFO | cyber_risk_insurance.Wikipedia Collector | [Wikipedia Collector] Invoking LLM for prompt/extraction...
+2026-06-16 16:51:02 | INFO | cyber_risk_insurance.Wikipedia Collector | [Wikipedia Collector] LLM Response received. Usage: input=397, output=86, reasoning=0, cached=0, tool_calls=0, cost=$0.000302
+2026-06-16 16:51:02 | INFO | cyber_risk_insurance.Wikipedia Collector | [Wikipedia Collector] Output text:
+{
+  "subsidiaries": [],
+  "acquisitions": [],
+  "customer_type": "B2B",
+  "has_ecommerce": null,
+  "country": "USA",
+  "founding_year": 1999,
+  "industry_classification": ["analytics", "digital solutions", "insurance", "healthcare", "banking", "financial services", "media", "retail"]
+}
+2026-06-16 16:51:02 | INFO | cyber_risk_insurance.Wikipedia Collector | [Wikipedia Collector] Extraction complete: status=success, findings={'subsidiaries': [], 'acquisitions': [], 'customer_type': 'B2B', 'has_ecommerce': None, 'country': 'USA', 'founding_year': 1999, 'industry_classification': ['analytics', 'digital solutions', 'insurance', 'healthcare', 'banking', 'financial services', 'media', 'retail']}
+2026-06-16 16:51:02 | INFO | cyber_risk_insurance.Wikidata Collector | [Wikidata Collector] Starting data collection for EXLService Holdings, Inc. (www.exlservice.com)
+2026-06-16 16:51:02 | INFO | cyber_risk_insurance.Wikidata Collector | [Wikidata Collector] Cache miss. Executing live harvesting...
+2026-06-16 16:51:02 | INFO | cyber_risk_insurance.Wikidata Collector | [Wikidata Collector] Extraction complete: status=skipped, findings={}

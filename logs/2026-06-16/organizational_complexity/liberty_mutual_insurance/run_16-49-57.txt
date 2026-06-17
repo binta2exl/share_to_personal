@@ -1,0 +1,12 @@
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Organizational Complexity | ========================================
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Organizational Complexity | Modifier Evaluation: Organizational Complexity
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Organizational Complexity | ========================================
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Organizational Complexity | Input: subsidiaries = ["Countrywide Legal Indemnities"]
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Organizational Complexity | Input: revenue = 0
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Organizational Complexity | Math Logic: Subsidiary count evaluated against revenue tier thresholds.
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Organizational Complexity | Calculation details: Subsidiary count = 1
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Organizational Complexity | Resulting Score: 1
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Organizational Complexity | Resulting Rating: very favourable
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Organizational Complexity | Rationale: Single subsidiary may reduce complexity, but revenue tier is unknown., very favourable.
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Organizational Complexity | ========================================
+

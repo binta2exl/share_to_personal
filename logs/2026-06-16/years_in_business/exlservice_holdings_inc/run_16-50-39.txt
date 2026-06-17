@@ -1,0 +1,12 @@
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Years in business | ========================================
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Years in business | Modifier Evaluation: Years in business
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Years in business | ========================================
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Years in business | Input: founding_year = 1999
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Years in business | Input: revenue = 2087679000
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Years in business | Math Logic: Years since founding year evaluated against revenue tier thresholds.
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Years in business | Calculation details: Years in business = 27
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Years in business | Resulting Score: 27
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Years in business | Resulting Rating: favourable
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Years in business | Rationale: Founded in 1999, indicating a well-established business with a long history of operations., favourable.
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Years in business | ========================================
+

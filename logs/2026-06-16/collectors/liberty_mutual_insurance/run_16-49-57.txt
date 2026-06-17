@@ -1,0 +1,119 @@
+2026-06-16 16:49:57 | INFO | cyber_risk_insurance.D&B GLEIF Collector | [D&B GLEIF Collector] Starting data collection for Liberty Mutual Insurance (www.libertymutual.com)
+2026-06-16 16:49:57 | INFO | cyber_risk_insurance.D&B GLEIF Collector | [D&B GLEIF Collector] Cache miss. Executing live harvesting...
+2026-06-16 16:49:58 | INFO | cyber_risk_insurance.D&B GLEIF Collector | [D&B GLEIF Collector] Invoking LLM for prompt/extraction...
+2026-06-16 16:49:59 | INFO | cyber_risk_insurance.D&B GLEIF Collector | [D&B GLEIF Collector] LLM Response received. Usage: input=190, output=180, reasoning=0, cached=0, tool_calls=0, cost=$0.000254
+2026-06-16 16:49:59 | INFO | cyber_risk_insurance.D&B GLEIF Collector | [D&B GLEIF Collector] Output text:
+{
+  "legal_name": "Liberty Mutual Insurance Company",
+  "country": "US",
+  "legal_address": {
+    "street": "175 Berkeley Street",
+    "city": "Boston",
+    "state": "MA",
+    "postal_code": "02116",
+    "country": "US"
+  },
+  "headquarters_address": {
+    "street": "175 Berkeley Street",
+    "city": "Boston",
+    "state": "MA",
+    "postal_code": "02116",
+    "country": "US"
+  },
+  "registration_authority": {
+    "name": "Massachusetts Department of Insurance",
+    "country": "US"
+  },
+  "legal_form": {
+    "description": "Stock Insurance Company",
+    "category": "Corporation"
+  },
+  "founding_year": 1912
+}
+2026-06-16 16:49:59 | INFO | cyber_risk_insurance.D&B GLEIF Collector | [D&B GLEIF Collector] Extraction complete: status=success, findings={'legal_name': 'Liberty Mutual Insurance Company', 'country': 'US', 'legal_address': {'street': '175 Berkeley Street', 'city': 'Boston', 'state': 'MA', 'postal_code': '02116', 'country': 'US'}, 'headquarters_address': {'street': '175 Berkeley Street', 'city': 'Boston', 'state': 'MA', 'postal_code': '02116', 'country': 'US'}, 'registration_authority': {'name': 'Massachusetts Department of Insurance', 'country': 'US'}, 'legal_form': {'description': 'Stock Insurance Company', 'category': 'Corporation'}, 'founding_year': 1912}
+2026-06-16 16:49:59 | INFO | cyber_risk_insurance.Domain Scraper | [Domain Scraper] Starting data collection for Liberty Mutual Insurance (www.libertymutual.com)
+2026-06-16 16:49:59 | INFO | cyber_risk_insurance.Domain Scraper | [Domain Scraper] Cache miss. Executing live harvesting...
+2026-06-16 16:50:02 | INFO | cyber_risk_insurance.Domain Scraper | [Domain Scraper] Invoking LLM for prompt/extraction...
+2026-06-16 16:50:03 | INFO | cyber_risk_insurance.Domain Scraper | [Domain Scraper] LLM Response received. Usage: input=1605, output=283, reasoning=0, cached=0, tool_calls=0, cost=$0.001171
+2026-06-16 16:50:03 | INFO | cyber_risk_insurance.Domain Scraper | [Domain Scraper] Output text:
+```json
+{
+  "domains": [
+    {
+      "url": "www.libertymutual.com",
+      "https_encrypted": true
+    }
+  ],
+  "privacy_policy_published": true,
+  "compliance_mentions": [
+    "CCPA"
+  ],
+  "customer_type": "MIX",
+  "has_ecommerce": false,
+  "industries_served": [
+    "insurance"
+  ],
+  "customer_segments": [
+    "personal",
+    "small business",
+    "midsize and large business"
+  ],
+  "business_model": "Insurance services",
+  "b2b_b2c_confidence": "high",
+  "ecommerce_evidence": "No checkout/cart/payment flow detected",
+  "cloud_saas_indicators": [],
+  "data_sensitive_indicators": [
+    "insurance"
+  ],
+  "privacy_policy_url": "https://www.libertymutual.com/privacy-policy",
+  "terms_url": "https://www.libertymutual.com/terms-and-conditions",
+  "products_services_portfolio": [
+    "Auto insurance",
+    "Homeowners insurance",
+    "Renters insurance",
+    "Pet insurance",
+    "Small business insurance",
+    "Commercial insurance",
+    "Umbrella insurance",
+    "Flood insurance",
+    "Life insurance",
+    "Identity theft insurance"
+  ]
+}
+```
+2026-06-16 16:50:03 | INFO | cyber_risk_insurance.Domain Scraper | [Domain Scraper] Extraction complete: status=success, findings={'domains': [{'url': 'www.libertymutual.com', 'https_encrypted': True}], 'privacy_policy_published': True, 'compliance_mentions': ['CCPA'], 'customer_type': 'MIX', 'has_ecommerce': False, 'industries_served': ['insurance'], 'customer_segments': ['personal', 'small business', 'midsize and large business'], 'business_model': 'Insurance services', 'b2b_b2c_confidence': 'high', 'ecommerce_evidence': 'No checkout/cart/payment flow detected', 'cloud_saas_indicators': [], 'data_sensitive_indicators': ['insurance'], 'privacy_policy_url': 'https://www.libertymutual.com/privacy-policy', 'terms_url': 'https://www.libertymutual.com/terms-and-conditions', 'products_services_portfolio': ['Auto insurance', 'Homeowners insurance', 'Renters insurance', 'Pet insurance', 'Small business insurance', 'Commercial insurance', 'Umbrella insurance', 'Flood insurance', 'Life insurance', 'Identity theft insurance']}
+2026-06-16 16:50:03 | INFO | cyber_risk_insurance.Responses API Collector | [Responses API Collector] Starting data collection for Liberty Mutual Insurance (www.libertymutual.com)
+2026-06-16 16:50:03 | INFO | cyber_risk_insurance.Responses API Collector | [Responses API Collector] Cache miss. Executing live harvesting...
+2026-06-16 16:50:03 | INFO | cyber_risk_insurance.Responses API Collector | [Responses API Collector] Extraction complete: status=skipped, findings={}
+2026-06-16 16:50:03 | INFO | cyber_risk_insurance.SEC EDGAR Collector | [SEC EDGAR Collector] Starting data collection for Liberty Mutual Insurance (www.libertymutual.com)
+2026-06-16 16:50:03 | INFO | cyber_risk_insurance.SEC EDGAR Collector | [SEC EDGAR Collector] Cache miss. Executing live harvesting...
+2026-06-16 16:50:04 | INFO | cyber_risk_insurance.SEC EDGAR Collector | [SEC EDGAR Collector] Extraction complete: status=skipped, findings={}
+2026-06-16 16:50:04 | INFO | cyber_risk_insurance.Wikipedia Collector | [Wikipedia Collector] Starting data collection for Liberty Mutual Insurance (www.libertymutual.com)
+2026-06-16 16:50:04 | INFO | cyber_risk_insurance.Wikipedia Collector | [Wikipedia Collector] Cache miss. Executing live harvesting...
+2026-06-16 16:50:05 | INFO | cyber_risk_insurance.Wikipedia Collector | [Wikipedia Collector] Invoking LLM for prompt/extraction...
+2026-06-16 16:50:06 | INFO | cyber_risk_insurance.Wikipedia Collector | [Wikipedia Collector] LLM Response received. Usage: input=700, output=98, reasoning=0, cached=0, tool_calls=0, cost=$0.000490
+2026-06-16 16:50:06 | INFO | cyber_risk_insurance.Wikipedia Collector | [Wikipedia Collector] Output text:
+{
+  "subsidiaries": [
+    "Countrywide Legal Indemnities"
+  ],
+  "acquisitions": [],
+  "customer_type": "MIX",
+  "has_ecommerce": true,
+  "country": "United States",
+  "founding_year": 1912,
+  "industry_classification": [
+    "Insurance",
+    "Property and Casualty",
+    "Global Insurer",
+    "Diversified Global Insurer"
+  ]
+}
+2026-06-16 16:50:06 | INFO | cyber_risk_insurance.Wikipedia Collector | [Wikipedia Collector] Extraction complete: status=success, findings={'subsidiaries': ['Countrywide Legal Indemnities'], 'acquisitions': [], 'customer_type': 'MIX', 'has_ecommerce': True, 'country': 'United States', 'founding_year': 1912, 'industry_classification': ['Insurance', 'Property and Casualty', 'Global Insurer', 'Diversified Global Insurer']}
+2026-06-16 16:50:06 | INFO | cyber_risk_insurance.Wikidata Collector | [Wikidata Collector] Starting data collection for Liberty Mutual Insurance (www.libertymutual.com)
+2026-06-16 16:50:06 | INFO | cyber_risk_insurance.Wikidata Collector | [Wikidata Collector] Cache miss. Executing live harvesting...
+2026-06-16 16:50:08 | INFO | cyber_risk_insurance.Wikidata Collector | [Wikidata Collector] Invoking LLM for prompt/extraction...
+2026-06-16 16:50:09 | INFO | cyber_risk_insurance.Wikidata Collector | [Wikidata Collector] LLM Response received. Usage: input=307, output=75, reasoning=0, cached=0, tool_calls=0, cost=$0.000240
+2026-06-16 16:50:09 | INFO | cyber_risk_insurance.Wikidata Collector | [Wikidata Collector] Output text:
+{"revenue": null, "employees": null, "country": "United States", "headquarters": "Boston", "industry": ["Insurance"], "sub_industries": ["Property insurance", "Casualty insurance"], "official_website": "https://www.libertymutual.com/", "subsidiaries": [], "founding_year": null}
+2026-06-16 16:50:09 | INFO | cyber_risk_insurance.Wikidata Collector | [Wikidata Collector] Extraction complete: status=success, findings={'revenue': None, 'employees': None, 'country': 'United States', 'headquarters': 'Boston', 'industry': ['Insurance'], 'sub_industries': ['Property insurance', 'Casualty insurance'], 'official_website': 'https://www.libertymutual.com/', 'subsidiaries': [], 'founding_year': None}

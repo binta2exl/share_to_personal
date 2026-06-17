@@ -1,0 +1,10 @@
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Domain Encryption | ========================================
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Domain Encryption | Modifier Evaluation: Domain Encryption
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Domain Encryption | ========================================
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Domain Encryption | Input: domains = [{"url": "www.libertymutual.com", "https_encrypted": true}]
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Domain Encryption | Math Logic: Ratio of HTTPS encrypted domains. All encrypted => favourable; Some => partially favourable; None => average.
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Domain Encryption | Resulting Score: 1/1
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Domain Encryption | Resulting Rating: favourable
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Domain Encryption | Rationale: Only one domain is listed, but it is https encrypted, which is, favourable.
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Domain Encryption | ========================================
+

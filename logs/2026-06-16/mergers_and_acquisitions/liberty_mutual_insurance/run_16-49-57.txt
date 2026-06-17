@@ -1,0 +1,12 @@
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Mergers and Acquisitions | ========================================
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Mergers and Acquisitions | Modifier Evaluation: Mergers and Acquisitions
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Mergers and Acquisitions | ========================================
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Mergers and Acquisitions | Input: acquisitions = []
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Mergers and Acquisitions | Input: revenue = 0
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Mergers and Acquisitions | Math Logic: Points calculated by deal type and recency multiplier. Thresholds depend on revenue tier.
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Mergers and Acquisitions | Calculation details: Mergers & Acquisitions points = 0.00 across 0 acquisitions.
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Mergers and Acquisitions | Resulting Score: 0.0
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Mergers and Acquisitions | Resulting Rating: very favourable
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Mergers and Acquisitions | Rationale: No acquisitions listed, which is, very favourable.
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Mergers and Acquisitions | ========================================
+

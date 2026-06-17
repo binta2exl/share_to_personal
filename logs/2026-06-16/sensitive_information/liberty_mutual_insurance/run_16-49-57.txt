@@ -1,0 +1,11 @@
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Amount of sensitive information | ========================================
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Amount of sensitive information | Modifier Evaluation: Amount of sensitive information
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Amount of sensitive information | ========================================
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Amount of sensitive information | Input: customer_type = MIX
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Amount of sensitive information | Input: has_ecommerce = False
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Amount of sensitive information | Math Logic: B2C/MIX + ecommerce => partially unfavourable; B2C/MIX + no ecommerce => average; B2B + ecommerce => partially favourable; B2B + no ecommerce => favourable.
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Amount of sensitive information | Resulting Score: 0.0
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Amount of sensitive information | Resulting Rating: average
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Amount of sensitive information | Rationale: Mixed customer type and no ecommerce presence reduces sensitivity., average.
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Amount of sensitive information | ========================================
+

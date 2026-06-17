@@ -1,0 +1,12 @@
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Years in business | ========================================
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Years in business | Modifier Evaluation: Years in business
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Years in business | ========================================
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Years in business | Input: founding_year = 1912
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Years in business | Input: revenue = 0
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Years in business | Math Logic: Years since founding year evaluated against revenue tier thresholds.
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Years in business | Calculation details: Years in business = 114
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Years in business | Resulting Score: 114
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Years in business | Resulting Rating: very favourable
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Years in business | Rationale: Long founding year is favourable, but revenue tier is unknown., very favourable.
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Years in business | ========================================
+

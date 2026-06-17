@@ -1,0 +1,11 @@
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Privacy Regulation | ========================================
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Privacy Regulation | Modifier Evaluation: Privacy Regulation
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Privacy Regulation | ========================================
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Privacy Regulation | Input: privacy_policy_published = True
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Privacy Regulation | Input: compliance_mentions = []
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Privacy Regulation | Math Logic: Policy published and compliance count >= 2 => favourable; count == 1 => partially favourable; no policy => partially unfavourable.
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Privacy Regulation | Resulting Score: 0
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Privacy Regulation | Resulting Rating: average
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Privacy Regulation | Rationale: A privacy policy is published, but no compliance frameworks are mentioned, which is a minor concern., average.
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Privacy Regulation | ========================================
+

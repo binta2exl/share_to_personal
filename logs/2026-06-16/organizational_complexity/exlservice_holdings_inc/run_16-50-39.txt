@@ -1,0 +1,12 @@
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Organizational Complexity | ========================================
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Organizational Complexity | Modifier Evaluation: Organizational Complexity
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Organizational Complexity | ========================================
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Organizational Complexity | Input: subsidiaries = ["Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary", "Exhibit 21 Subsidiary"]
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Organizational Complexity | Input: revenue = 2087679000
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Organizational Complexity | Math Logic: Subsidiary count evaluated against revenue tier thresholds.
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Organizational Complexity | Calculation details: Subsidiary count = 42
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Organizational Complexity | Resulting Score: 42
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Organizational Complexity | Resulting Rating: average
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Organizational Complexity | Rationale: A large number of subsidiaries, but given the revenue tier, this is not excessively complex., average.
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Organizational Complexity | ========================================
+

@@ -1,0 +1,143 @@
+2026-06-16 16:51:02 | INFO | cyber_risk_insurance.Collection Coordinator | ********************************************
+2026-06-16 16:51:02 | INFO | cyber_risk_insurance.Collection Coordinator | [COLLECTION COORDINATOR] Starting Data Reconciliation Process
+2026-06-16 16:51:02 | INFO | cyber_risk_insurance.Collection Coordinator | ********************************************
+2026-06-16 16:51:02 | INFO | cyber_risk_insurance.Collection Coordinator | Analyzing input context...
+2026-06-16 16:51:02 | INFO | cyber_risk_insurance.Collection Coordinator | - Company Name: EXLService Holdings, Inc.
+2026-06-16 16:51:02 | INFO | cyber_risk_insurance.Collection Coordinator | - Domain: www.exlservice.com
+2026-06-16 16:51:02 | INFO | cyber_risk_insurance.Collection Coordinator | - Number of reports received: 6
+2026-06-16 16:51:02 | INFO | cyber_risk_insurance.Collection Coordinator | - Report sources: ['DBCollector', 'DomainScraper', 'ResponsesAPI', 'SECCollector', 'Wikidata', 'Wikipedia']
+2026-06-16 16:51:02 | INFO | cyber_risk_insurance.Collection Coordinator | [Collection Coordinator] Invoking LLM for prompt/extraction...
+2026-06-16 16:51:03 | INFO | cyber_risk_insurance.Collection Coordinator | [Collection Coordinator] LLM Response received. Usage: input=1247, output=313, reasoning=0, cached=0, tool_calls=0, cost=$0.000983
+2026-06-16 16:51:03 | INFO | cyber_risk_insurance.Collection Coordinator | [Collection Coordinator] Output text:
+```json
+{
+  "revenue": 2087679000,
+  "customer_type": "B2B",
+  "has_ecommerce": false,
+  "countries_of_operation": ["US"],
+  "continent_spread": ["North America"],
+  "privacy_policy_published": true,
+  "compliance_mentions": [],
+  "quarterly_revenue": [183033000, 189057000, 192345000, 197875000, 206973000, 210112000, 231124000, 234903000, 239573000, 243509000, 251392000, 256872000, 245990000, 222473000, 241018000, 248953000, 261415000, 275064000, 290325000, 329208000, 346782000, 361351000, 400643000, 404996000, 410971000, 436507000, 448366000, 472073000, 501019000, 514460000, 529585000, 570351000],
+  "sic_codes": [],
+  "services_appetite": "medium_risk",
+  "internet_exposure_domains": 1,
+  "customer_base_scale": "Enterprise",
+  "digital_exposure": 4,
+  "disruption_speed": 4,
+  "recovery_complexity": 4,
+  "founding_year": 1999
+}
+```
+2026-06-16 16:51:03 | INFO | cyber_risk_insurance.Collection Coordinator | Reconciliation complete. Reconciled Profile:
+{
+  "revenue": 2087679000,
+  "subsidiaries": [
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary",
+    "Exhibit 21 Subsidiary"
+  ],
+  "acquisitions": [],
+  "customer_type": "B2B",
+  "has_ecommerce": false,
+  "domains": [
+    {
+      "url": "www.exlservice.com",
+      "https_encrypted": true
+    }
+  ],
+  "countries_of_operation": [
+    "US"
+  ],
+  "continent_spread": [
+    "North America"
+  ],
+  "usa_presence": true,
+  "privacy_policy_published": true,
+  "compliance_mentions": [],
+  "quarterly_revenue": [
+    183033000,
+    189057000,
+    192345000,
+    197875000,
+    206973000,
+    210112000,
+    231124000,
+    234903000,
+    239573000,
+    243509000,
+    251392000,
+    256872000,
+    245990000,
+    222473000,
+    241018000,
+    248953000,
+    261415000,
+    275064000,
+    290325000,
+    329208000,
+    346782000,
+    361351000,
+    400643000,
+    404996000,
+    410971000,
+    436507000,
+    448366000,
+    472073000,
+    501019000,
+    514460000,
+    529585000,
+    570351000
+  ],
+  "sic_codes": [
+    "7372"
+  ],
+  "services_appetite": "medium_risk",
+  "internet_exposure_domains": 1,
+  "customer_base_scale": "Enterprise",
+  "digital_exposure": 4,
+  "disruption_speed": 4,
+  "recovery_complexity": 4,
+  "founding_year": 1999
+}
+2026-06-16 16:51:03 | INFO | cyber_risk_insurance.Collection Coordinator | Conflict Flags:
+[]

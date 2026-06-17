@@ -1,0 +1,13 @@
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Geographic Spread | ========================================
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Geographic Spread | Modifier Evaluation: Geographic Spread
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Geographic Spread | ========================================
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Geographic Spread | Input: countries_of_operation = ['US']
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Geographic Spread | Input: continent_spread = ['North America']
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Geographic Spread | Input: usa_presence = True
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Geographic Spread | Input: revenue = 0
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Geographic Spread | Math Logic: Evaluates country count and continent spread against revenue tier thresholds.
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Geographic Spread | Resulting Score: 1
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Geographic Spread | Resulting Rating: favourable
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Geographic Spread | Rationale: USA presence and limited continent spread may reduce risk, but revenue tier is unknown., favourable.
+2026-06-16 16:50:12 | INFO | cyber_risk_insurance.Geographic Spread | ========================================
+

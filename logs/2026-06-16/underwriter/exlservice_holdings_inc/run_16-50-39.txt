@@ -1,0 +1,44 @@
+2026-06-16 16:51:04 | INFO | cyber_risk_insurance.Underwriter | ********************************************
+2026-06-16 16:51:04 | INFO | cyber_risk_insurance.Underwriter | [UNDERWRITER] Initiating underwriting evaluation...
+2026-06-16 16:51:04 | INFO | cyber_risk_insurance.Underwriter | ********************************************
+2026-06-16 16:51:04 | INFO | cyber_risk_insurance.Underwriter | [Underwriter] Invoking LLM for prompt/extraction...
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Underwriter | [Underwriter] LLM Response received. Usage: input=1215, output=353, reasoning=0, cached=0, tool_calls=0, cost=$0.000996
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Underwriter | [Underwriter] Output text:
+{
+  "risk_category": "Favourable",
+  "underwriting_rationale": {
+    "Mergers and Acquisitions": "No recent acquisitions, indicating a stable business structure.",
+    "Amount of sensitive information": "B2B customer type with no ecommerce presence, reducing the risk of sensitive information exposure.",
+    "Domain Encryption": "Only one domain is present, and it is https encrypted, showing a good level of security.",
+    "Geographic Spread": "Operations are limited to the US, reducing the complexity of regulatory compliance.",
+    "Internet footprint": "Only one domain is present, indicating a relatively low internet footprint.",
+    "Nature of services": "Medium risk services appetite, which is a neutral factor in this assessment.",
+    "Organizational Complexity": "A large number of subsidiaries, but given the revenue tier, this is not excessively complex.",
+    "Privacy Regulation": "A privacy policy is published, but no compliance frameworks are mentioned, which is a minor concern.",
+    "Seasonality of sales": "Quarterly revenue shows a relatively stable growth pattern, with no significant fluctuations.",
+    "Volatility/Recovery in Sales": "Digital exposure, disruption speed, and recovery complexity are all rated as 4 out of 5, indicating a moderate level of risk.",
+    "Applicability of Privacy Regulation": "No operations in strict regions like GDPR or CCPA, and no ecommerce presence, reducing the risk of privacy regulation non-compliance.",
+    "B2C End Products": "B2B customer type, which is generally considered lower risk than B2C.",
+    "Years in business": "Founded in 1999, indicating a well-established business with a long history of operations."
+  }
+}
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Underwriter | ********************************************
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Underwriter | [UNDERWRITER] Starting Risk Assessment Summary
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Underwriter | ********************************************
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Underwriter | Claims Accuracy: 100.0%, Discrepancies Count: 0
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Underwriter | Reconciled Profile Inputs used for mathematical modifiers:
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Underwriter | - Revenue: 2087679000
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Underwriter | - Customer Type: B2B
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Underwriter | - Ecommerce: False
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Underwriter | - Domains: 1 domains
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Underwriter | - Countries: 1 countries
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Underwriter | - Subsidiaries: 42 subsidiaries
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Underwriter | - Acquisitions: 0 acquisitions
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Underwriter | - Founding Year: 1999
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Underwriter | ----------------------------------------
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Underwriter | Final Aggregated Modifiers Result:
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Underwriter | Average Numeric Score: 3.154
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Underwriter | Overall Category: Partially Favourable
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Underwriter | Confidence Score: 100.0% (High)
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Underwriter | Human Escalation Required: False
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Underwriter | ********************************************

@@ -1,0 +1,74 @@
+2026-06-16 16:50:09 | INFO | cyber_risk_insurance.Fact Checker | ********************************************
+2026-06-16 16:50:09 | INFO | cyber_risk_insurance.Fact Checker | [FACT CHECKER] Starting Fact Verification Process
+2026-06-16 16:50:09 | INFO | cyber_risk_insurance.Fact Checker | ********************************************
+2026-06-16 16:50:09 | INFO | cyber_risk_insurance.Fact Checker | [Fact Checker] Invoking LLM for prompt/extraction...
+2026-06-16 16:50:10 | INFO | cyber_risk_insurance.Fact Checker | [Fact Checker] LLM Response received. Usage: input=887, output=286, reasoning=0, cached=0, tool_calls=0, cost=$0.000749
+2026-06-16 16:50:10 | INFO | cyber_risk_insurance.Fact Checker | [Fact Checker] Output text:
+{
+  "claims_verification": {
+    "revenue": {
+      "status": "Unsupported",
+      "sources_count": 2,
+      "evidence_consensus": "No consensus among sources, with some reporting null revenue."
+    },
+    "subsidiaries_count": {
+      "status": "Partially Verified",
+      "sources_count": 2,
+      "evidence_consensus": "Wikipedia reports at least one subsidiary, while Wikidata reports no subsidiaries, and DBCollector does not provide this information."
+    },
+    "acquisitions_count": {
+      "status": "Verified",
+      "sources_count": 1,
+      "evidence_consensus": "Wikipedia reports no acquisitions."
+    },
+    "customer_type": {
+      "status": "Verified",
+      "sources_count": 2,
+      "evidence_consensus": "Both DomainScraper and Wikipedia report a mixed customer type."
+    },
+    "has_ecommerce": {
+      "status": "Partially Verified",
+      "sources_count": 2,
+      "evidence_consensus": "DomainScraper reports no ecommerce, while Wikipedia reports ecommerce presence."
+    },
+    "privacy_policy_published": {
+      "status": "Verified",
+      "sources_count": 2,
+      "evidence_consensus": "Both DomainScraper and DBCollector report a published privacy policy."
+    }
+  }
+}
+2026-06-16 16:50:10 | INFO | cyber_risk_insurance.Fact Checker | Fact Checker Verdict: Accuracy Score = 0.67 (4.0/6 corroborated claims)
+2026-06-16 16:50:10 | INFO | cyber_risk_insurance.Fact Checker | Claims Verification Details:
+{
+  "revenue": {
+    "status": "Unsupported",
+    "sources_count": 2,
+    "evidence_consensus": "No consensus among sources, with some reporting null revenue."
+  },
+  "subsidiaries_count": {
+    "status": "Partially Verified",
+    "sources_count": 2,
+    "evidence_consensus": "Wikipedia reports at least one subsidiary, while Wikidata reports no subsidiaries, and DBCollector does not provide this information."
+  },
+  "acquisitions_count": {
+    "status": "Verified",
+    "sources_count": 1,
+    "evidence_consensus": "Wikipedia reports no acquisitions."
+  },
+  "customer_type": {
+    "status": "Verified",
+    "sources_count": 2,
+    "evidence_consensus": "Both DomainScraper and Wikipedia report a mixed customer type."
+  },
+  "has_ecommerce": {
+    "status": "Partially Verified",
+    "sources_count": 2,
+    "evidence_consensus": "DomainScraper reports no ecommerce, while Wikipedia reports ecommerce presence."
+  },
+  "privacy_policy_published": {
+    "status": "Verified",
+    "sources_count": 2,
+    "evidence_consensus": "Both DomainScraper and DBCollector report a published privacy policy."
+  }
+}

@@ -1,0 +1,11 @@
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Volatility/Recovery in Sales | ========================================
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Volatility/Recovery in Sales | Modifier Evaluation: Volatility/Recovery in Sales
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Volatility/Recovery in Sales | ========================================
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Volatility/Recovery in Sales | Input: digital_exposure = 4, disruption_speed = 4, recovery_complexity = 4
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Volatility/Recovery in Sales | Math Logic: Average of digital exposure, disruption speed, and recovery complexity. Average <= 2.0 => favourable, <= 3.5 => average, else partially unfavourable.
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Volatility/Recovery in Sales | Calculation details: Averaged Volatility/Recovery index = 4.00
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Volatility/Recovery in Sales | Resulting Score: 4.0
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Volatility/Recovery in Sales | Resulting Rating: partially unfavourable
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Volatility/Recovery in Sales | Rationale: Digital exposure, disruption speed, and recovery complexity are all rated as 4 out of 5, indicating a moderate level of risk., partially unfavourable.
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Volatility/Recovery in Sales | ========================================
+

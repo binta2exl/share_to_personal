@@ -1,0 +1,12 @@
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Internet footprint | ========================================
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Internet footprint | Modifier Evaluation: Internet footprint
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Internet footprint | ========================================
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Internet footprint | Input: internet_exposure_domains = 1
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Internet footprint | Input: customer_base_scale = Enterprise
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Internet footprint | Math Logic: Exposure domains * scale multiplier. Enterprise => 3.0, Mid-Market => 2.0, others => 1.0.
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Internet footprint | Calculation details: Footprint score = 3.0
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Internet footprint | Resulting Score: 3.0
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Internet footprint | Resulting Rating: favourable
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Internet footprint | Rationale: Only one domain is present, indicating a relatively low internet footprint., favourable.
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Internet footprint | ========================================
+

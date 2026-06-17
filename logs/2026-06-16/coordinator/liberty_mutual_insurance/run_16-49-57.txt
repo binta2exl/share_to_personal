@@ -1,0 +1,69 @@
+2026-06-16 16:50:09 | INFO | cyber_risk_insurance.Collection Coordinator | ********************************************
+2026-06-16 16:50:09 | INFO | cyber_risk_insurance.Collection Coordinator | [COLLECTION COORDINATOR] Starting Data Reconciliation Process
+2026-06-16 16:50:09 | INFO | cyber_risk_insurance.Collection Coordinator | ********************************************
+2026-06-16 16:50:09 | INFO | cyber_risk_insurance.Collection Coordinator | Analyzing input context...
+2026-06-16 16:50:09 | INFO | cyber_risk_insurance.Collection Coordinator | - Company Name: Liberty Mutual Insurance
+2026-06-16 16:50:09 | INFO | cyber_risk_insurance.Collection Coordinator | - Domain: www.libertymutual.com
+2026-06-16 16:50:09 | INFO | cyber_risk_insurance.Collection Coordinator | - Number of reports received: 6
+2026-06-16 16:50:09 | INFO | cyber_risk_insurance.Collection Coordinator | - Report sources: ['DBCollector', 'DomainScraper', 'ResponsesAPI', 'SECCollector', 'Wikidata', 'Wikipedia']
+2026-06-16 16:50:09 | INFO | cyber_risk_insurance.Collection Coordinator | [Collection Coordinator] Invoking LLM for prompt/extraction...
+2026-06-16 16:50:09 | INFO | cyber_risk_insurance.Collection Coordinator | [Collection Coordinator] LLM Response received. Usage: input=1014, output=148, reasoning=0, cached=0, tool_calls=0, cost=$0.000715
+2026-06-16 16:50:09 | INFO | cyber_risk_insurance.Collection Coordinator | [Collection Coordinator] Output text:
+{
+  "revenue": null,
+  "customer_type": "MIX",
+  "has_ecommerce": false,
+  "countries_of_operation": ["US"],
+  "continent_spread": ["North America"],
+  "privacy_policy_published": true,
+  "compliance_mentions": ["CCPA"],
+  "quarterly_revenue": [],
+  "sic_codes": [],
+  "services_appetite": "medium_risk",
+  "internet_exposure_domains": 1,
+  "customer_base_scale": "Enterprise",
+  "digital_exposure": 4,
+  "disruption_speed": 3,
+  "recovery_complexity": 4,
+  "founding_year": 1912
+}
+2026-06-16 16:50:09 | INFO | cyber_risk_insurance.Collection Coordinator | Reconciliation complete. Reconciled Profile:
+{
+  "revenue": null,
+  "subsidiaries": [
+    "Countrywide Legal Indemnities"
+  ],
+  "acquisitions": [],
+  "customer_type": "MIX",
+  "has_ecommerce": false,
+  "domains": [
+    {
+      "url": "www.libertymutual.com",
+      "https_encrypted": true
+    }
+  ],
+  "countries_of_operation": [
+    "US"
+  ],
+  "continent_spread": [
+    "North America"
+  ],
+  "usa_presence": true,
+  "privacy_policy_published": true,
+  "compliance_mentions": [
+    "CCPA"
+  ],
+  "quarterly_revenue": [],
+  "sic_codes": [
+    "7372"
+  ],
+  "services_appetite": "medium_risk",
+  "internet_exposure_domains": 1,
+  "customer_base_scale": "Enterprise",
+  "digital_exposure": 4,
+  "disruption_speed": 3,
+  "recovery_complexity": 4,
+  "founding_year": 1912
+}
+2026-06-16 16:50:09 | INFO | cyber_risk_insurance.Collection Coordinator | Conflict Flags:
+[]

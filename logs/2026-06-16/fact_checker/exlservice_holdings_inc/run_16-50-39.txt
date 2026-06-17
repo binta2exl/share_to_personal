@@ -1,0 +1,74 @@
+2026-06-16 16:51:03 | INFO | cyber_risk_insurance.Fact Checker | ********************************************
+2026-06-16 16:51:03 | INFO | cyber_risk_insurance.Fact Checker | [FACT CHECKER] Starting Fact Verification Process
+2026-06-16 16:51:03 | INFO | cyber_risk_insurance.Fact Checker | ********************************************
+2026-06-16 16:51:03 | INFO | cyber_risk_insurance.Fact Checker | [Fact Checker] Invoking LLM for prompt/extraction...
+2026-06-16 16:51:04 | INFO | cyber_risk_insurance.Fact Checker | [Fact Checker] LLM Response received. Usage: input=1122, output=318, reasoning=0, cached=0, tool_calls=0, cost=$0.000913
+2026-06-16 16:51:04 | INFO | cyber_risk_insurance.Fact Checker | [Fact Checker] Output text:
+{
+  "claims_verification": {
+    "revenue": {
+      "status": "Verified",
+      "sources_count": 1,
+      "evidence_consensus": "SECCollector reports revenue of 2087679000 for fiscal year 2025, which matches the claim."
+    },
+    "subsidiaries_count": {
+      "status": "Verified",
+      "sources_count": 1,
+      "evidence_consensus": "SECCollector reports 42 subsidiaries, which matches the claim."
+    },
+    "acquisitions_count": {
+      "status": "Verified",
+      "sources_count": 2,
+      "evidence_consensus": "SECCollector and Wikipedia report no acquisitions, which matches the claim of 0 acquisitions."
+    },
+    "customer_type": {
+      "status": "Verified",
+      "sources_count": 3,
+      "evidence_consensus": "DomainScraper, Wikipedia, and SECCollector all report a customer type of B2B, which matches the claim."
+    },
+    "has_ecommerce": {
+      "status": "Verified",
+      "sources_count": 2,
+      "evidence_consensus": "DomainScraper and Wikipedia report no ecommerce presence, which matches the claim."
+    },
+    "privacy_policy_published": {
+      "status": "Verified",
+      "sources_count": 2,
+      "evidence_consensus": "DomainScraper and DBCollector report a published privacy policy, which matches the claim."
+    }
+  }
+}
+2026-06-16 16:51:04 | INFO | cyber_risk_insurance.Fact Checker | Fact Checker Verdict: Accuracy Score = 1.00 (6/6 corroborated claims)
+2026-06-16 16:51:04 | INFO | cyber_risk_insurance.Fact Checker | Claims Verification Details:
+{
+  "revenue": {
+    "status": "Verified",
+    "sources_count": 1,
+    "evidence_consensus": "SECCollector reports revenue of 2087679000 for fiscal year 2025, which matches the claim."
+  },
+  "subsidiaries_count": {
+    "status": "Verified",
+    "sources_count": 1,
+    "evidence_consensus": "SECCollector reports 42 subsidiaries, which matches the claim."
+  },
+  "acquisitions_count": {
+    "status": "Verified",
+    "sources_count": 2,
+    "evidence_consensus": "SECCollector and Wikipedia report no acquisitions, which matches the claim of 0 acquisitions."
+  },
+  "customer_type": {
+    "status": "Verified",
+    "sources_count": 3,
+    "evidence_consensus": "DomainScraper, Wikipedia, and SECCollector all report a customer type of B2B, which matches the claim."
+  },
+  "has_ecommerce": {
+    "status": "Verified",
+    "sources_count": 2,
+    "evidence_consensus": "DomainScraper and Wikipedia report no ecommerce presence, which matches the claim."
+  },
+  "privacy_policy_published": {
+    "status": "Verified",
+    "sources_count": 2,
+    "evidence_consensus": "DomainScraper and DBCollector report a published privacy policy, which matches the claim."
+  }
+}

@@ -1,0 +1,12 @@
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Applicability of Privacy Regulation | ========================================
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Applicability of Privacy Regulation | Modifier Evaluation: Applicability of Privacy Regulation
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Applicability of Privacy Regulation | ========================================
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Applicability of Privacy Regulation | Input: sic_codes = ['7372']
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Applicability of Privacy Regulation | Input: customer_type = B2B
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Applicability of Privacy Regulation | Input: has_ecommerce = False
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Applicability of Privacy Regulation | Math Logic: Checks if industry is not high risk and customer type is B2B-only and has no ecommerce => favourable; B2B-only with ecommerce => partially favourable; else average.
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Applicability of Privacy Regulation | Resulting Score: 0.0
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Applicability of Privacy Regulation | Resulting Rating: average
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Applicability of Privacy Regulation | Rationale: No operations in strict regions like GDPR or CCPA, and no ecommerce presence, reducing the risk of privacy regulation non-compliance., average.
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.Applicability of Privacy Regulation | ========================================
+

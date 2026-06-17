@@ -1,0 +1,10 @@
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.B2C End Products | ========================================
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.B2C End Products | Modifier Evaluation: B2C End Products
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.B2C End Products | ========================================
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.B2C End Products | Input: customer_type = B2B
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.B2C End Products | Math Logic: B2C/B2B mix or MIX => partially favourable; pure B2C or CONSUMER or SMB => favourable; else average.
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.B2C End Products | Resulting Score: 0.0
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.B2C End Products | Resulting Rating: average
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.B2C End Products | Rationale: B2B customer type, which is generally considered lower risk than B2C., average.
+2026-06-16 16:51:06 | INFO | cyber_risk_insurance.B2C End Products | ========================================
+
