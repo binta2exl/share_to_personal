@@ -1,0 +1,138 @@
+            llm = AzureChatOpenAI(
+                azure_endpoint=azure_endpoint,
+                api_key=azure_key,
+                api_version=api_version,
+                deployment_name=deployment_name # your Azure deployment name
+            )
+ 
+from langchain_openai import AzureChatOpenAI
+ 
+ 
+
+
+2026-06-22 17:49:46 | ERROR | cyber_risk_insurance.Collection Coordinator | [Collection Coordinator] LLM invocation failed: Error code: 404 - {'error': {'code': '404', 'message': 'Resource not found'}}
+
+Traceback:
+
+Traceback (most recent call last):
+
+  File "C:\Projects\CyberRiskInsurance\src\base_agents.py", line 150, in call_llm
+
+    res = llm.invoke(prompt)
+
+  File "C:\Projects\CyberRiskInsurance\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 476, in invoke
+
+    self.generate_prompt(
+
+    ~~~~~~~~~~~~~~~~~~~~^
+
+        [self._convert_input(input)],
+
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    ...<6 lines>...
+
+        **kwargs,
+
+        ^^^^^^^^^
+
+    ).generations[0][0],
+
+    ^
+
+  File "C:\Projects\CyberRiskInsurance\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1849, in generate_prompt
+
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "C:\Projects\CyberRiskInsurance\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1656, in generate
+
+    self._generate_with_cache(
+
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+
+        m,
+
+        ^^
+
+    ...<2 lines>...
+
+        **kwargs,
+
+        ^^^^^^^^^
+
+    )
+
+    ^
+
+  File "C:\Projects\CyberRiskInsurance\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1994, in _generate_with_cache
+
+    result = self._generate(
+
+        messages, stop=stop, run_manager=run_manager, **kwargs
+
+    )
+
+  File "C:\Projects\CyberRiskInsurance\venv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1692, in _generate
+
+    _handle_openai_api_error(e)
+
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^
+
+  File "C:\Projects\CyberRiskInsurance\venv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1687, in _generate
+
+    raw_response = self.client.with_raw_response.create(**payload)
+
+  File "C:\Projects\CyberRiskInsurance\venv\Lib\site-packages\openai\_legacy_response.py", line 367, in wrapped
+
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+
+                                      ~~~~^^^^^^^^^^^^^^^^^
+
+  File "C:\Projects\CyberRiskInsurance\venv\Lib\site-packages\openai\_utils\_utils.py", line 298, in wrapper
+
+    return func(*args, **kwargs)
+
+  File "C:\Projects\CyberRiskInsurance\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1251, in create
+
+    return self._post(
+
+           ~~~~~~~~~~^
+
+        "/chat/completions",
+
+        ^^^^^^^^^^^^^^^^^^^^
+
+    ...<52 lines>...
+
+        stream_cls=Stream[ChatCompletionChunk],
+
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    )
+
+    ^
+
+  File "C:\Projects\CyberRiskInsurance\venv\Lib\site-packages\openai\_base_client.py", line 1332, in post
+
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "C:\Projects\CyberRiskInsurance\venv\Lib\site-packages\openai\_base_client.py", line 1105, in request
+
+    raise self._make_status_error_from_response(err.response) from None
+
+openai.NotFoundError: Error code: 404 - {'error': {'code': '404', 'message': 'Resource not found'}}
+ 
+2026-06-22 17:49:46 | INFO | cyber_risk_insurance.Domain Scraper | [Domain Scraper] Starting data collection for Microsoft (microsoft.com)
+
+2026-06-22 17:49:46 | INFO | cyber_risk_insurance.Domain Scraper | [Domain Scraper] Cache miss. Executing live harvesting...
+
+2026-06-22 17:49:46 | INFO | cyber_risk_insurance.Domain Scraper | [Domain Scraper Collector] Starting recursive collection for 'Microsoft' on domain 'microsoft.com' (input discovered domains: [])
+
+2026-06-22 17:49:46 | INFO | cyber_risk_insurance.Domain Scraper | [Domain Scraper Collector] Brand keywords: ['microsoft']
+
+INFO:     127.0.0.1:58653 - "POST /api/analyze HTTP/1.1" 500 Internal Server Error
+ 
