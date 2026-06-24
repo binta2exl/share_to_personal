@@ -1,0 +1,139 @@
+
+Biswajit Das
+0 minutes 5 seconds0:05
+Biswajit Das 0 minutes 5 seconds
+You can, you can share your screen and explain.
+RM
+
+Reddi Madhu
+0 minutes 6 seconds0:06
+Reddi Madhu 0 minutes 6 seconds
+Yeah.
+Reddi Madhu 0 minutes 8 seconds
+I think I'm already sharing my screen.
+
+Biswajit Das
+0 minutes 11 seconds0:11
+Biswajit Das 0 minutes 11 seconds
+Yeah, it is coming now. Yeah, okay, fine. Go ahead.
+RM
+
+Reddi Madhu
+0 minutes 16 seconds0:16
+Reddi Madhu 0 minutes 16 seconds
+So, yeah.
+Reddi Madhu 0 minutes 20 seconds
+Singh.
+Reddi Madhu 0 minutes 32 seconds
+So this is the API call.
+Reddi Madhu 0 minutes 35 seconds
+That is calling the backend.
+
+Biswajit Das
+0 minutes 37 seconds0:37
+Biswajit Das 0 minutes 37 seconds
+Mm.
+RM
+
+Reddi Madhu
+0 minutes 37 seconds0:37
+Reddi Madhu 0 minutes 37 seconds
+So it return it return response in the span of.
+
+Biswajit Das
+2 minutes 9 seconds2:09
+Biswajit Das 2 minutes 9 seconds
+Streaming up and another one which you are saying.
+RM
+Reddi Madhu
+2 minutes 11 seconds2:11
+Reddi Madhu 2 minutes 11 seconds
+Polling, polling in sense, like it will constantly call the back end, so, so that it will get the updates, so it will call for two to three seconds, like click buzz.
+
+Biswajit Das
+2 minutes 17 seconds2:17
+Biswajit Das 2 minutes 17 seconds
+Nothing.
+Biswajit Das 2 minutes 19 seconds
+Gupta.
+Biswajit Das 2 minutes 23 seconds
+Okay, okay, so it is every time it is refreshing by itself.
+RM
+Reddi Madhu
+2 minutes 27 seconds2:27
+Reddi Madhu 2 minutes 27 seconds
+Yeah, so it will be not refreshing. Yeah, it is maybe, yeah, we can high level we can say refreshing, but in back end for every two seconds it's called the front end will call the back end.
+
+Biswajit Das
+2 minutes 38 seconds2:38
+Biswajit Das 2 minutes 38 seconds
+I do know it will check if there is any job that is getting completed or not. If not, it will not progress ahead. If it is getting completed, then only it will progress, right? That is what you are saying, right?
+RM
+Reddi Madhu
+2 minutes 40 seconds2:40
+Reddi Madhu 2 minutes 40 seconds
+Yeah.
+Reddi Madhu 2 minutes 42 seconds
+Yeah.
+Reddi Madhu 2 minutes 48 seconds
+Biswajit, is this the expected result?
+
+Biswajit Das
+2 minutes 55 seconds2:55
+Biswajit Das 2 minutes 55 seconds
+Yeah, we can say that, yes, yes, yes.
+RM
+Reddi Madhu
+2 minutes 55 seconds2:55
+Reddi Madhu 2 minutes 55 seconds
+Final.
+Reddi Madhu 2 minutes 58 seconds
+But though we are getting a result, but is not updating here, I think.
+Reddi Madhu 3 minutes 6 seconds
+This is expected.
+
+Biswajit Das
+3 minutes 7 seconds3:07
+Biswajit Das 3 minutes 7 seconds
+K.
+RM
+Reddi Madhu
+3 minutes 9 seconds3:09
+Reddi Madhu 3 minutes 9 seconds
+So, this is the expected that final score is around eighty-three ; confidence band is high, then somewhere issue with the front end.
+
+Biswajit Das
+3 minutes 14 seconds3:14
+Biswajit Das 3 minutes 14 seconds
+Yeah, that is expected. Yeah. Yeah.
+Biswajit Das 3 minutes 21 seconds
+Backend is working fine.
+RM
+Reddi Madhu
+3 minutes 22 seconds3:22
+Reddi Madhu 3 minutes 22 seconds
+Yeah, backend is working.
+
+Biswajit Das
+3 minutes 31 seconds3:31
+Biswajit Das 3 minutes 31 seconds
+Good, so let them investigate that and make those changes, either includes streaming or polling, and probably once the event is getting completed, then only in the front end it should sync, right?
+RM
+Reddi Madhu
+3 minutes 34 seconds3:34
+Reddi Madhu 3 minutes 34 seconds
+Yeah.
+Reddi Madhu 3 minutes 38 seconds
+Yeah.
+Reddi Madhu 3 minutes 45 seconds
+Yeah.
+
+Biswajit Das
+3 minutes 46 seconds3:46
+Biswajit Das 3 minutes 46 seconds
+Okay, that's fine. So I'm just stopping the recording now. Okay.
+RM
+Reddi Madhu
+3 minutes 52 seconds3:52
+Reddi Madhu 3 minutes 52 seconds
+Yeah.
