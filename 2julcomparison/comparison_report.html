@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberRiskInsurance: API Comparison Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --primary-accent: #3b82f6;
+            --secondary-accent: #8b5cf6;
+            --success-color: #10b981;
+            --text-main: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --glass-blur: blur(16px);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 40%);
+            min-height: 100vh;
+            padding: 2rem 1.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeIn 0.8s ease;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.05em;
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        /* Tabs system */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 0.4rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            backdrop-filter: var(--glass-blur);
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tab-btn {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            padding: 0.8rem 1.5rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .tab-btn:hover {
+            color: var(--text-main);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.15);
+        }
+
+        .panel {
+            display: none;
+            animation: slideUp 0.6s ease;
+        }
+
+        .panel.active {
+            display: block;
+        }
+
+        /* Section Cards */
+        .section-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: var(--glass-blur);
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .section-card:hover {
+            border-color: rgba(59, 130, 246, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .section-card h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #93c5fd;
+        }
+
+        /* Copy buttons */
+        .copy-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .copy-btn:hover {
+            background: var(--primary-accent);
+            color: white;
+            border-color: var(--primary-accent);
+            box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Responsive Table */
+        .table-container {
+            overflow-x: auto;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        th {
+            background-color: rgba(255, 255, 255, 0.02);
+            color: #93c5fd;
+            font-weight: 600;
+            padding: 1rem 1.2rem;
+            border-bottom: 1px solid var(--border-color);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            padding: 1.1rem 1.2rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-main);
+            line-height: 1.5;
+            vertical-align: top;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr {
+            transition: background-color 0.2s ease;
+        }
+
+        tr:hover {
+            background-color: rgba(255, 255, 255, 0.015);
+        }
+
+        code {
+            font-family: 'Fira Code', Consolas, monospace;
+            background: rgba(255, 255, 255, 0.04);
+            color: #a78bfa;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            white-space: pre-wrap;
+        }
+
+        /* Success states */
+        .copy-btn.success {
+            background: var(--success-color);
+            color: white;
+            border-color: var(--success-color);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(12px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
+            .section-card {
+                padding: 1.2rem;
+            }
+            td, th {
+                padding: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>CyberRiskInsurance</h1>
+        <p class="subtitle">API Comparison Report (Existing vs. New System)</p>
+    </header>
+
+    <!-- API Coverage Summary -->
+    <div class="section-card" style="margin-bottom: 2.5rem;">
+        <h2 style="margin-bottom: 1rem;">Chayan's API Coverage Summary</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">22 distinct collector APIs were provided by Chayan across both reference images.</p>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Status</th>
+                        <th>Count</th>
+                        <th>APIs</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong style="color: #60a5fa;">Already Using (Original)</strong></td>
+                        <td>5</td>
+                        <td>SEC EDGAR, Wikidata, GLEIF, crt.sh, Site Scrape</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: #10b981;">New — Implemented</strong></td>
+                        <td>12</td>
+                        <td>Tavily, Brave Search, Mozilla Observatory, SSL Labs, ToS;DR, RDAP/WHOIS, OpenCorporates, GDELT, CourtListener/RECAP, FTC/State-AG Feeds, Wappalyzer (local), Census NAICS</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: #ef4444;">Not Implementing</strong></td>
+                        <td>5</td>
+                        <td>Common Crawl (impractical for real-time), SEDAR+ (no public API), DuckDuckGo (redundant with Tavily/Brave), Wayback Machine (rate-limited, low value), Companies House UK (US-only scope)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Per-Rule Mapping (Chayan's Table — Filtered) -->
+    <div class="section-card" style="margin-bottom: 2.5rem;">
+        <h2 style="margin-bottom: 1rem;">
+            Per-Rule Mapping (Our Implementation)
+            <button class="copy-btn" onclick="copyTable('table-chayan-mapping')">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                Copy for Excel
+            </button>
+        </h2>
+        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Based on Chayan's reference table, filtered to only include APIs we are implementing.</p>
+        <div class="table-container">
+            <table id="table-chayan-mapping">
+                <thead>
+                    <tr>
+                        <th>Rule</th>
+                        <th>Free data sources</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>acquisition_activity</strong></td>
+                        <td>SEC full-text 8-K/10-K, Wikidata P749/P127, GLEIF parent rels, OpenCorporates network, GDELT</td>
+                    </tr>
+                    <tr>
+                        <td><strong>organizational_complexity</strong></td>
+                        <td>SEC Exhibit 21, GLEIF Level-2, Wikidata P355, OpenCorporates network</td>
+                    </tr>
+                    <tr>
+                        <td><strong>internet_footprint</strong></td>
+                        <td>crt.sh, RDAP/WHOIS, Wikidata P856</td>
+                    </tr>
+                    <tr>
+                        <td><strong>domain_encryption</strong></td>
+                        <td>crt.sh + TLS probe (already), SSL Labs, Mozilla Observatory</td>
+                    </tr>
+                    <tr>
+                        <td><strong>privacy_regulation</strong></td>
+                        <td>site scrape <code>/privacy</code>, ToS;DR</td>
+                    </tr>
+                    <tr>
+                        <td><strong>media_liability</strong></td>
+                        <td>SEC Legal Proceedings, CourtListener/RECAP, FTC/State-AG feeds, GDELT</td>
+                    </tr>
+                    <tr>
+                        <td><strong>amount_of_sensitive_information</strong></td>
+                        <td>site scrape, Wappalyzer (local library), Wikidata industry</td>
+                    </tr>
+                    <tr>
+                        <td><strong>business_to_consumer_end_products</strong></td>
+                        <td>site scrape, SEC 10-K Customers, Wikidata industry</td>
+                    </tr>
+                    <tr>
+                        <td><strong>nature_of_services</strong></td>
+                        <td>SEC SIC, GLEIF entity category, Wikidata/NAICS, Census NAICS</td>
+                    </tr>
+                    <tr>
+                        <td><strong>geographic_spread</strong></td>
+                        <td>SEC 10-K geo segments (XBRL), GLEIF addresses, Wikidata P17, OpenCorporates jurisdictions</td>
+                    </tr>
+                    <tr>
+                        <td><strong>years_in_business</strong></td>
+                        <td>Wikidata P571 (already Wikipedia), OpenCorporates incorporation_date, GLEIF</td>
+                    </tr>
+                    <tr>
+                        <td><strong>seasonality / volatility</strong></td>
+                        <td>SEC XBRL 10-Q (already), internal baselines</td>
+                    </tr>
+                    <tr>
+                        <td><strong>applicability_of_privacy_regulations</strong></td>
+                        <td>SEC SIC, Wikidata industry, site scrape</td>
+                    </tr>
+                    <tr>
+                        <td><strong>company_profile revenue</strong></td>
+                        <td>SEC XBRL (already), Wikidata P2139 supplemental</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="color: var(--text-secondary); margin-top: 1.5rem; font-size: 0.9rem;"><strong>Free general web-search engines (replace Bing grounding):</strong></p>
+        <ul style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem; padding-left: 1.5rem;">
+            <li><strong style="color: var(--text-main);">Brave Search API</strong> — free 2k queries/mo, official key, good quality. <em>Recommended primary.</em></li>
+            <li><strong style="color: var(--text-main);">Tavily</strong> — free 1k credits/mo, LLM-optimized clean snippets. <em>Best for agent feed.</em></li>
+        </ul>
+    </div>
+
+    <!-- QUALITY BENCHMARK SECTION (LIBERTY MUTUAL) -->
+    <div class="section-card" style="margin-bottom: 2.5rem;">
+        <h2 style="margin-bottom: 1rem;">
+            Quality & Efficiency Benchmark (Liberty Mutual Case Study)
+            <button class="copy-btn" onclick="copyTable('table-benchmark-metrics')">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                Copy Metrics
+            </button>
+        </h2>
+        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+            A detailed analysis of how our **Phase 5** implementation compares to the **June 22 Old System** and **Claude's Manual Research (Gold Standard)**.
+        </p>
+
+        <h3 style="color: #93c5fd; font-size: 1.1rem; margin-bottom: 1rem;">1. Field Extraction Quality comparison</h3>
+        <div class="table-container" style="margin-bottom: 2rem;">
+            <table id="table-benchmark-fields">
+                <thead>
+                    <tr>
+                        <th>Parameter / Field</th>
+                        <th>Claude Baseline (Manual Gold Standard)</th>
+                        <th>Old System Report (June 22)</th>
+                        <th>New System Report (July 2)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>founding_year</strong></td>
+                        <td>1912</td>
+                        <td>1912 (Wikipedia/DB)</td>
+                        <td>1912 (Wikipedia)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>revenue</strong></td>
+                        <td>$50.5B (FY2025) / $50.2B (FY2024)</td>
+                        <td>$50.2B</td>
+                        <td>$50.2B</td>
+                    </tr>
+                    <tr>
+                        <td><strong>quarterly_revenue</strong></td>
+                        <td>Q4 2025: $12.758B, Q1 2026: $12.774B</td>
+                        <td><span style="color: #ef4444;">Not found (0)</span></td>
+                        <td><span style="color: #ef4444;">Not found (0)</span> <small style="color: var(--text-secondary);">(SEC Skipped)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>acquisitions</strong></td>
+                        <td>Safeco, Ironshore, Wausau, State Auto, Vietnam ops, etc.</td>
+                        <td>State Auto Group (8 total)</td>
+                        <td>8 named acquisitions (detailed list)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>customer_type</strong></td>
+                        <td>B2B and B2C (MIX)</td>
+                        <td>MIX</td>
+                        <td>MIX</td>
+                    </tr>
+                    <tr>
+                        <td><strong>has_ecommerce</strong></td>
+                        <td>Yes (libertymutual.com checkout)</td>
+                        <td>True</td>
+                        <td>True</td>
+                    </tr>
+                    <tr>
+                        <td><strong>customer_base_scale</strong></td>
+                        <td>Enterprise (Tens of millions)</td>
+                        <td>Enterprise</td>
+                        <td>Enterprise</td>
+                    </tr>
+                    <tr>
+                        <td><strong>countries_of_operation</strong></td>
+                        <td>27 countries</td>
+                        <td>15 countries</td>
+                        <td>15 countries</td>
+                    </tr>
+                    <tr>
+                        <td><strong>continent_spread</strong></td>
+                        <td>4 continents</td>
+                        <td>4 continents</td>
+                        <td>4 continents</td>
+                    </tr>
+                    <tr>
+                        <td><strong>subsidiaries</strong></td>
+                        <td>Safeco, State Auto, Ironshore, LIU, LSM, Helmsman, etc.</td>
+                        <td>24 subsidiaries</td>
+                        <td>24 subsidiaries</td>
+                    </tr>
+                    <tr>
+                        <td><strong>domains</strong></td>
+                        <td>14 domains</td>
+                        <td>12 domains</td>
+                        <td>12 domains</td>
+                    </tr>
+                    <tr>
+                        <td><strong>privacy_policy_published</strong></td>
+                        <td>Yes (notices for Personal, Commercial, applicant, etc.)</td>
+                        <td>True</td>
+                        <td>True</td>
+                    </tr>
+                    <tr>
+                        <td><strong>compliance_mentions</strong></td>
+                        <td>CCPA/CPRA, GDPR, PIPEDA, NAIC model rules</td>
+                        <td>CCPA</td>
+                        <td>CA Residents Only (CCPA)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>sic_codes</strong></td>
+                        <td>SIC 6331, 6411</td>
+                        <td>6331 (fallback computed)</td>
+                        <td>6331 (fallback computed)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>naics_code</strong></td>
+                        <td>— <small style="color: var(--text-secondary);">(Not in baseline)</small></td>
+                        <td><span style="color: #ef4444;">— (Not supported)</span></td>
+                        <td><strong style="color: #10b981;">524126 (Direct P&amp;C Carriers)</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3 style="color: #93c5fd; font-size: 1.1rem; margin-bottom: 1rem;">2. Performance &amp; Efficiency Metrics</h3>
+        <div class="table-container">
+            <table id="table-benchmark-metrics">
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Old System (6 Collectors)</th>
+                        <th>New System (13 Collectors)</th>
+                        <th>Improvement %</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Modifier Score Sum</strong></td>
+                        <td>47.00</td>
+                        <td>47.00</td>
+                        <td>0.0% <small style="color: var(--text-secondary);">(Consistent Rating)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Average Underwriting Score</strong></td>
+                        <td>3.615 <small style="color: var(--text-secondary);">(Partially Favourable)</small></td>
+                        <td>3.615 <small style="color: var(--text-secondary);">(Partially Favourable)</small></td>
+                        <td>0.0% <small style="color: var(--text-secondary);">(Identical Verdict)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Precision Fields Extracted</strong></td>
+                        <td>14</td>
+                        <td><strong>15</strong></td>
+                        <td style="color: #10b981; font-weight: 600;">+7.1% precision</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Prompt Tokens (API overhead)</strong></td>
+                        <td>16,907</td>
+                        <td><strong>4,606</strong></td>
+                        <td style="color: #10b981; font-weight: 600;">-72.7% token reduction</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Est. Execution Cost (USD)</strong></td>
+                        <td>$0.012884</td>
+                        <td><strong>$0.003499</strong></td>
+                        <td style="color: #10b981; font-weight: 600;">-72.8% cheaper run cost</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Evidence Confidence Score</strong></td>
+                        <td>58.3%</td>
+                        <td>50.0%</td>
+                        <td>-8.3% <small style="color: var(--text-secondary);">(Stricter criteria)</small></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('existing')">Existing System</button>
+        <button class="tab-btn" onclick="switchTab('new')">New System</button>
+    </div>
+
+    <!-- EXISTING SYSTEM PANEL -->
+    <div id="existing" class="panel active">
+        <!-- Table 1: Modifiers (Existing System) -->
+        <div class="section-card">
+            <h2>
+                Table 1: Modifiers (Existing System)
+                <button class="copy-btn" onclick="copyTable('table-existing-modifiers')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    Copy for Excel
+                </button>
+            </h2>
+            <div class="table-container">
+                <table id="table-existing-modifiers">
+                    <thead>
+                        <tr>
+                            <th>modifier_name</th>
+                            <th>target_fields</th>
+                            <th>collector_apis</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Mergers and Acquisitions</strong></td>
+                            <td><code>acquisitions</code></td>
+                            <td>ResponsesAPI, Wikipedia, Wikidata</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Amount of sensitive information</strong></td>
+                            <td><code>customer_type</code>, <code>has_ecommerce</code></td>
+                            <td>DomainScraper</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Domain Encryption</strong></td>
+                            <td><code>domains</code></td>
+                            <td>DomainScraper</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Geographic Spread</strong></td>
+                            <td><code>countries_of_operation</code>, <code>continent_spread</code>, <code>usa_presence</code></td>
+                            <td>Wikipedia, Wikidata, GLEIF, SEC EDGAR</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Internet footprint</strong></td>
+                            <td><code>internet_exposure_domains</code>, <code>domains</code></td>
+                            <td>DomainScraper</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nature of services</strong></td>
+                            <td><code>services_appetite</code>, <code>sic_codes</code></td>
+                            <td>SEC EDGAR, Wikipedia, Wikidata, DomainScraper</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Organizational Complexity</strong></td>
+                            <td><code>subsidiaries</code> (count/list), <code>revenue</code></td>
+                            <td>Wikipedia, Wikidata, SEC EDGAR</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Privacy Regulation</strong></td>
+                            <td><code>privacy_policy_published</code>, <code>compliance_mentions</code></td>
+                            <td>DomainScraper</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Seasonality of sales</strong></td>
+                            <td><code>quarterly_revenue</code></td>
+                            <td>SEC EDGAR</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Volatility/Recovery in Sales</strong></td>
+                            <td><code>digital_exposure</code>, <code>disruption_speed</code>, <code>recovery_complexity</code></td>
+                            <td>(None - estimated by Coordinator LLM)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Applicability of Privacy Regulation</strong></td>
+                            <td><code>compliance_mentions</code>, <code>countries_of_operation</code>, <code>has_ecommerce</code></td>
+                            <td>DomainScraper, Wikidata</td>
+                        </tr>
+                        <tr>
+                            <td><strong>B2C End Products</strong></td>
+                            <td><code>customer_type</code></td>
+                            <td>DomainScraper</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Years in business</strong></td>
+                            <td><code>founding_year</code></td>
+                            <td>Wikipedia, Wikidata, GLEIF</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Company Profile Revenue</strong></td>
+                            <td><code>revenue</code></td>
+                            <td>SEC EDGAR, Wikipedia, Wikidata, ResponsesAPI</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Table 2: Collector APIs (Existing System) -->
+        <div class="section-card">
+            <h2>
+                Table 2: Collector APIs (Existing System)
+                <button class="copy-btn" onclick="copyTable('table-existing-collectors')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    Copy for Excel
+                </button>
+            </h2>
+            <div class="table-container">
+                <table id="table-existing-collectors">
+                    <thead>
+                        <tr>
+                            <th>collector_apis</th>
+                            <th>target_fields</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Wikipedia</strong></td>
+                            <td><code>revenue</code>, <code>employees</code>, <code>country</code>, <code>headquarters</code>, <code>industry</code>, <code>official_website</code>, <code>subsidiaries</code>, <code>founding_year</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Wikidata</strong></td>
+                            <td><code>revenue</code>, <code>employees</code>, <code>country</code>, <code>headquarters</code>, <code>industry</code>, <code>sub_industries</code>, <code>official_website</code>, <code>official_websites</code>, <code>subsidiaries</code>, <code>founding_year</code>, <code>countries_of_operation</code>, <code>parent_organization</code>, <code>company_type</code>, <code>acquisitions</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>SEC EDGAR</strong></td>
+                            <td><code>revenue</code>, <code>fiscal_year</code>, <code>business_segments</code>, <code>geographic_revenue_or_regions</code>, <code>subsidiaries_count</code>, <code>subsidiaries_list</code>, <code>acquisitions_mentions</code>, <code>acquisitions</code>, <code>risk_factor_keywords</code>, <code>cybersecurity_mentions</code>, <code>cloud_technology_mentions</code>, <code>customer_data_mentions</code>, <code>filing_url</code>, <code>quarterly_revenue</code>, <code>sic_codes</code>, <code>company_type</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>GLEIF</strong></td>
+                            <td><code>legal_name</code>, <code>country</code>, <code>legal_address</code>, <code>headquarters_address</code>, <code>registration_authority</code>, <code>legal_form</code>, <code>founding_year</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>DomainScraper</strong></td>
+                            <td><code>domains</code>, <code>privacy_policy_published</code>, <code>compliance_mentions</code>, <code>customer_type</code>, <code>has_ecommerce</code>, <code>industries_served</code>, <code>customer_segments</code>, <code>business_model</code>, <code>b2b_b2c_confidence</code>, <code>ecommerce_evidence</code>, <code>cloud_saas_indicators</code>, <code>data_sensitive_indicators</code>, <code>privacy_policy_url</code>, <code>terms_url</code>, <code>products_services_portfolio</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>ResponsesAPI</strong></td>
+                            <td><code>official_websites</code>, <code>revenue</code>, <code>acquisitions</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW SYSTEM PANEL -->
+    <div id="new" class="panel">
+        <!-- Table 1: Modifiers (New System) -->
+        <div class="section-card">
+            <h2>
+                Table 1: Modifiers (New System)
+                <button class="copy-btn" onclick="copyTable('table-new-modifiers')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    Copy for Excel
+                </button>
+            </h2>
+            <div class="table-container">
+                <table id="table-new-modifiers">
+                    <thead>
+                        <tr>
+                            <th>modifier_name</th>
+                            <th>target_fields</th>
+                            <th>collector_apis</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Mergers and Acquisitions</strong></td>
+                            <td><code>acquisitions</code>, <code>acquisitions_mentions</code></td>
+                            <td>SEC EDGAR, Responses (Tavily/Brave), Wikidata, OpenCorporates, GDELT 2.0</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Amount of sensitive information</strong></td>
+                            <td><code>customer_type</code>, <code>has_ecommerce</code>, <code>detected_technologies</code>, <code>has_ecommerce_platform</code></td>
+                            <td>DomainScraper, Wikidata, Wappalyzer (local)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Domain Encryption</strong></td>
+                            <td><code>domains</code>, <code>ssl_grade</code>, <code>ssl_details</code></td>
+                            <td>DomainScraper, SSL Labs</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Geographic Spread</strong></td>
+                            <td><code>countries_of_operation</code>, <code>continent_spread</code>, <code>usa_presence</code></td>
+                            <td>SEC EDGAR, D&B (GLEIF), Wikidata, OpenCorporates</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Internet footprint</strong></td>
+                            <td><code>domains</code>, <code>customer_base_scale</code></td>
+                            <td>DomainScraper, Wikidata</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nature of services</strong></td>
+                            <td><code>sic_codes</code>, <code>naics_code</code>, <code>naics_description</code>, <code>services_appetite</code></td>
+                            <td>SEC EDGAR, D&B (GLEIF), Wikidata, Census NAICS</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Organizational Complexity</strong></td>
+                            <td><code>subsidiaries</code>, <code>subsidiaries_count</code>, <code>subsidiaries_list</code>, <code>relationships</code></td>
+                            <td>SEC EDGAR, D&B (GLEIF), Wikidata, OpenCorporates</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Privacy Regulation</strong></td>
+                            <td><code>privacy_policy_published</code>, <code>compliance_mentions</code></td>
+                            <td>DomainScraper</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Seasonality of sales</strong></td>
+                            <td><code>quarterly_revenue</code>, <code>sic_codes</code></td>
+                            <td>SEC EDGAR</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Volatility/Recovery in Sales</strong></td>
+                            <td><code>digital_exposure</code>, <code>disruption_speed</code>, <code>recovery_complexity</code></td>
+                            <td>Coordinator LLM (Tavily/Brave)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Applicability of Privacy Regulation</strong></td>
+                            <td><code>countries_of_operation</code>, <code>has_ecommerce</code>, <code>sic_codes</code></td>
+                            <td>SEC EDGAR, Wikidata, DomainScraper</td>
+                        </tr>
+                        <tr>
+                            <td><strong>B2C End Products</strong></td>
+                            <td><code>customer_type</code></td>
+                            <td>SEC EDGAR, DomainScraper</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Years in business</strong></td>
+                            <td><code>founding_year</code>, <code>incorporation_date</code></td>
+                            <td>Wikidata, OpenCorporates, D&B (GLEIF)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Company Profile Revenue</strong></td>
+                            <td><code>revenue</code></td>
+                            <td>SEC EDGAR, Wikidata, Responses (Tavily/Brave)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Table 2: Collector APIs (New System) -->
+        <div class="section-card">
+            <h2>
+                Table 2: Collector APIs (New System)
+                <button class="copy-btn" onclick="copyTable('table-new-collectors')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    Copy for Excel
+                </button>
+            </h2>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;">
+                <strong>Note on Consolidation:</strong> While the new system leverages 17 distinct APIs from Chayan's list of 22, they are wired as <strong>13 consolidated collector agents</strong>. For example, <em>DomainScraper</em> runs WHOIS/RDAP, crt.sh, and Mozilla Observatory scans inside a single agent, and <em>Responses</em> combines SerpAPI, Tavily, and Brave Search.
+            </p>
+            <div class="table-container">
+                <table id="table-new-collectors">
+                    <thead>
+                        <tr>
+                            <th>collector_apis</th>
+                            <th>target_fields</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Wikipedia</strong></td>
+                            <td><code>subsidiaries</code>, <code>acquisitions</code>, <code>customer_type</code>, <code>has_ecommerce</code>, <code>country</code>, <code>countries_of_operation</code>, <code>founding_year</code>, <code>industry_classification</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Wikidata</strong></td>
+                            <td><code>revenue</code>, <code>employees</code>, <code>country</code>, <code>founding_year</code>, <code>subsidiaries</code>, <code>acquisitions</code>, <code>industry</code>, <code>naics_codes</code>, <code>homepage_url</code>, <code>official_names</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>SEC EDGAR</strong></td>
+                            <td><code>revenue</code>, <code>fiscal_year</code>, <code>business_segments</code>, <code>geographic_revenue_or_regions</code>, <code>subsidiaries_count</code>, <code>subsidiaries_list</code>, <code>acquisitions_mentions</code>, <code>acquisitions</code>, <code>risk_factor_keywords</code>, <code>cybersecurity_mentions</code>, <code>cloud_technology_mentions</code>, <code>customer_data_mentions</code>, <code>filing_url</code>, <code>quarterly_revenue</code>, <code>sic_codes</code>, <code>company_type</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>D&B (GLEIF)</strong></td>
+                            <td><code>legal_name</code>, <code>country</code>, <code>legal_address</code>, <code>headquarters_address</code>, <code>registration_authority</code>, <code>legal_form</code>, <code>founding_year</code>, <code>relationships</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>DomainScraper</strong></td>
+                            <td><code>domains</code>, <code>privacy_policy_published</code>, <code>compliance_mentions</code>, <code>customer_type</code>, <code>has_ecommerce</code>, <code>registrar_info</code>, <code>domain_age_years</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Responses (SerpAPI)</strong></td>
+                            <td><code>official_websites</code>, <code>revenue</code>, <code>acquisitions</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>OpenCorporates</strong></td>
+                            <td><code>incorporation_date</code>, <code>jurisdiction_code</code>, <code>company_number</code>, <code>status</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>GDELT 2.0</strong></td>
+                            <td><code>negative_events_count</code>, <code>negative_events_details</code>, <code>has_cyber_breach</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>CourtListener</strong></td>
+                            <td><code>has_active_litigation</code>, <code>litigation_cases</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>SSL Labs</strong></td>
+                            <td><code>ssl_grade</code>, <code>ssl_details</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>FTC Feed</strong></td>
+                            <td><code>ftc_actions_count</code>, <code>ftc_actions</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Wappalyzer (local)</strong></td>
+                            <td><code>detected_technologies</code>, <code>has_ecommerce_platform</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Census NAICS (local)</strong></td>
+                            <td><code>naics_code</code>, <code>naics_description</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function switchTab(tabId) {
+        document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        
+        document.getElementById(tabId).classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
+
+    function copyTable(tableId) {
+        const table = document.getElementById(tableId);
+        let tsvContent = "";
+        
+        for (let row of table.rows) {
+            let rowData = [];
+            for (let cell of row.cells) {
+                let text = cell.innerText.replace(/\n/g, " ");
+                rowData.push(text);
+            }
+            tsvContent += rowData.join("\t") + "\n";
+        }
+        
+        navigator.clipboard.writeText(tsvContent).then(() => {
+            const btn = event.currentTarget;
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = `
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Copied!
+            `;
+            btn.classList.add('success');
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+                btn.classList.remove('success');
+            }, 2000);
+        }).catch(err => {
+            console.error('Failed to copy text: ', err);
+        });
+    }
+</script>
+
+</body>
+</html>
