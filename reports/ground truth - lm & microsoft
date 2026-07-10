@@ -1,0 +1,90 @@
+Based on the ground truth report for **Liberty Mutual**, here are the exact values mapped to each of the 13 modifiers:
+
+### 1. Mergers and Acquisitions
+*   **Ground Truth Values:** 8 total acquisitions (1999 – Wausau Insurance, 2005 – American Mutual, 2008 – Safeco Corp, 2017 – Ironshore Inc, 2019 – Nationale Borg / AmTrust Spain, 2022 – State Auto Group, 2022 – AmGeneral Insurance Malaysia). Note also features 1 divestment in 2026 (Sold Vietnam ops to Chubb).
+
+### 2. Amount of sensitive information
+*   **Ground Truth Values:** **MIX** customer type (B2C individual consumer lines like auto/home + B2B mid-to-large commercial/specialty lines). Has active online e-commerce quoting/buying flows processing consumer PII, SSNs, financial transactions, and claims.
+
+### 3. Domain Encryption
+*   **Ground Truth Values:** **100% encrypted (14/14 domains)**. All observed domains (including libertymutual.com, solarialabs.com, comparioninsurance.com, and regional entities) enforce HTTPS.
+
+### 4. Geographic Spread
+*   **Ground Truth Values:** Operations in **27 countries and economies** spanning **4 continents** (North America, South America, Europe, Asia-Pacific).
+
+### 5. Internet footprint
+*   **Ground Truth Values:** **14 distinct active domains** (e.g., primary, sub-brands like Safeco/Solaria/Comparion, and regional country domains like `.ca`). Organization scale is **Enterprise** (40K+ employees across 900+ global locations).
+
+### 6. Nature of services
+*   **Ground Truth Values:** Primary industry classifications are **SIC 6331** (Fire, Marine & Casualty Insurance) and **SIC 6411** (Insurance Agents, Brokers & Service). Specialty lines include Reinsurance, Workers' Compensation, and Aviation.
+
+### 7. Organizational Complexity
+*   **Ground Truth Values:** **14 major operating subsidiaries** (including Safeco, State Auto, Ironshore, Liberty Seguros, Ohio Casualty, and Solaria Labs). Structural parent-subsidiary hierarchy managed via Liberty Mutual Holding Company Inc (LMHC) and Liberty Mutual Group Inc (LMGI).
+
+### 8. Privacy Regulation
+*   **Ground Truth Values:** Multiple published privacy notices (Personal, Commercial, State Auto, Telematics, Job Applicant). Contains explicit compliance mentions for **CCPA/CPRA, GDPR, PIPEDA, NAIC model privacy regulations, and state-level insurance privacy laws**.
+
+### 9. Seasonality of sales
+*   **Ground Truth Values:** **Moderate/Low volatility**. Premium revenue is highly recurring/stable Q-over-Q (NWP Q1 2026: $11.1B vs Q4 2025: $10.6B). cat-losses (hurricanes/storms in summer/fall Q2–Q3) introduce seasonal loss volatility. Primary industry benchmark is SIC 6331.
+
+### 10. Volatility/Recovery in Sales
+*   **Ground Truth Values:** **High digital exposure** (essential online quoting/claims channels), **High disruption speed** (outages instantly impact policyholder intake and billing), and **High recovery complexity** (interconnected multi-country systems, 40K+ employees, $100B+ investment portfolio).
+
+### 11. Applicability of Privacy Regulation
+*   **Ground Truth Values:** **High**. Collects highly sensitive consumer PII (SSN, medical/health claims data, financial info) and operates in CCPA/GDPR/PIPEDA jurisdictions with tens of millions of policyholders.
+
+### 12. B2C End Products
+*   **Ground Truth Values:** Wide portfolio of consumer insurance lines including **Auto, Home, Renters, Condo, Life, Pet, Identity Theft, Umbrella, Mobile Home, and Flood insurance**.
+
+### 13. Years in business
+*   **Ground Truth Values:** **114 years** of operations (founded on July 1, 1912, as the Massachusetts Employees Insurance Association).
+
+
+
+
+
+
+I will load the ground truth company profile for Microsoft to extract its modifier parameters.
+
+Viewed microsoft_company_profile.html:1-170
+
+Now let's translate Microsoft's ground truth data into the values for each of the 13 modifiers, strictly based on the ground truth HTML report we just viewed.Based on the ground truth report for **Microsoft**, here are the exact values mapped to each of the 13 modifiers:
+
+### 1. Mergers and Acquisitions
+*   **Ground Truth Values:** Over **250+ total acquisitions** since 1987. Major $1B+ acquisitions include Activision Blizzard ($68.7B in 2023, largest ever), LinkedIn ($26.2B in 2016), Nuance Communications ($19.7B in 2021), Skype ($8.5B in 2011), GitHub ($7.5B in 2018), ZeniMax/Bethesda ($7.5B in 2020), aQuantive ($6.2B in 2007), Nokia Devices ($7.2B in 2014), and Mojang ($2.5B in 2014). Note features an additional $13B+ investment partnership (OpenAI).
+
+### 2. Amount of sensitive information
+*   **Ground Truth Values:** **MIX** customer type (B2C consumer services like Windows/Xbox/Bing + B2B enterprise databases and Azure cloud). Operates transaction-heavy online storefronts (microsoft.com/store) selling subscription licenses (M365, Azure, Xbox Game Pass) and devices. Collects and processes enterprise, financial, health (via Nuance), and PII data for billions of global users.
+
+### 3. Domain Encryption
+*   **Ground Truth Values:** **100% encrypted (all domains HTTPS)**. All properties (microsoft.com, azure.microsoft.com, office.com, linkedin.com, github.com, etc.) use TLS 1.2/1.3 and enforce HSTS. Azure includes end-to-end encryption in transit and at rest.
+
+### 4. Geographic Spread
+*   **Ground Truth Values:** Operates in **190+ countries** with direct offices in 100+ countries and key hubs in the US, UK, Ireland, Germany, France, India, China, Japan, Singapore, and Brazil. Operates **60+ global Azure cloud regions**.
+
+### 5. Internet footprint
+*   **Ground Truth Values:** **16+ major domains** (including microsoft.com, linkedin.com, github.com, bing.com, xbox.com, azure.com). Footprint is **Extreme** (1B+ Windows users, 400M+ M365 seats, 1B+ LinkedIn members, 100M+ GitHub developers, and ~228,000 full-time employees).
+
+### 6. Nature of services
+*   **Ground Truth Values:** Primary industry classification is **SIC 7372** (Prepackaged Software). Secondary classifications include **SIC 7371** (Computer Programming Services) and **SIC 7374** (Computer Processing & Data Preparation). Services include Azure cloud infrastructure, Teams messaging, developer tools, ERP/CRM (Dynamics 365), and cybersecurity software.
+
+### 7. Organizational Complexity
+*   **Ground Truth Values:** **13 major operating subsidiaries** (including LinkedIn, GitHub, Activision Blizzard, Xbox Game Studios, ZeniMax/Bethesda, Mojang, Nuance Communications, and Skype). Structural breakdown covers 3 main reportable segments: Productivity & Business Processes, Intelligent Cloud, and More Personal Computing.
+
+### 8. Privacy Regulation
+*   **Ground Truth Values:** Microsoft Privacy Statement, State Privacy Laws notice, Consumer Health Data Privacy Policy, and EU GDPR Data Protection Addendum (DPA). Certifications and compliance frameworks include **GDPR, CCPA/CPRA, HIPAA/HITECH (Azure healthcare), FedRAMP, SOC 1/2/3, ISO 27001/27018/27701, PIPEDA (Canada), PDPA (Thailand/Singapore), and PIPL (China)**.
+
+### 9. Seasonality of sales
+*   **Ground Truth Values:** **Low-to-moderate seasonality**. Subscription and cloud revenue represents 77%+ of the total and is non-seasonal. Minor seasonal spikes occur in Q4 (ended June 30) driven by multi-year contract renewals (e.g., Q1 FY2026: $77.7B ➔ Q2: $81.3B ➔ Q3: $82.9B). Xbox/gaming shows modest holiday seasonality in the December quarter.
+
+### 10. Volatility/Recovery in Sales
+*   **Ground Truth Values:** **Extreme digital exposure** (Azure/M365 powers global enterprise), **Very High disruption speed** (cloud outages instantly impact global businesses/hospitals), and **Extreme recovery complexity** (interconnected operations across 190+ countries and 60+ cloud regions, serving highly regulated sectors like banking and government).
+
+### 11. Applicability of Privacy Regulation
+*   **Ground Truth Values:** **Extreme**. Acts as both a controller and processor collecting data on billions of users across every major privacy regulatory jurisdiction (EU GDPR, US CCPA/state laws, PIPL, PIPEDA, LGPD).
+
+### 12. B2C End Products
+*   **Ground Truth Values:** Multi-line consumer products including **Windows, Surface devices, Xbox (console + Game Pass), Microsoft 365 Personal/Family, Outlook, OneDrive, Microsoft Store, and Copilot Pro**.
+
+### 13. Years in business
+*   **Ground Truth Values:** **51 years** of operations (founded in 1975 by Bill Gates and Paul Allen, incorporated in 1981, and IPO'd in 1986).
