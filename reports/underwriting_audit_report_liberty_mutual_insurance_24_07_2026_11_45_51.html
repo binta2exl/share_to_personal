@@ -1,0 +1,2205 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Underwriting Audit Report - Liberty Mutual Insurance</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+            body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; color: #1e293b; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+            .header-banner { background-color: #0b192c; color: #ffffff; padding: 32px 40px; border-bottom: 4px solid #f97316; }
+            .header-banner h1 { color: #ffffff; font-weight: 700; font-size: 28px; margin: 0 0 8px 0; border: none; padding: 0; }
+            .header-banner p { color: #94a3b8; font-size: 14px; margin: 0; }
+            .container { max-width: 1240px; margin: -20px auto 40px auto; background: #ffffff; padding: 36px; border-radius: 12px; box-shadow: 0 10px 25px -5px rgba(11,25,44,0.08); border: 1px solid #e2e8f0; }
+            h2 { color: #0b192c; font-weight: 700; font-size: 20px; margin-top: 36px; margin-bottom: 16px; border-bottom: 2px solid #f1f5f9; padding-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+            h2::before { content: ''; display: inline-block; width: 8px; height: 20px; background-color: #f97316; border-radius: 2px; }
+            h3 { color: #1e293b; font-weight: 600; font-size: 16px; margin-top: 0; margin-bottom: 16px; }
+            table { width: 100%; border-collapse: collapse; margin-top: 12px; margin-bottom: 12px; font-size: 14px; }
+            th { background-color: #0b192c; color: #ffffff; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; padding: 12px 16px; text-align: left; }
+            td { padding: 12px 16px; border-bottom: 1px solid #e2e8f0; text-align: left; color: #334155; }
+            tr:hover { background-color: #f8fafc; }
+            .modifier-main-row:hover { background-color: #fff7ed !important; }
+            .badge { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 9999px; font-size: 12px; font-weight: 600; line-height: 1; }
+            .badge.success { background-color: #dcfce7; color: #15803d; }
+            .badge.warning { background-color: #fef3c7; color: #b45309; }
+            .badge.danger { background-color: #fee2e2; color: #b91c1c; }
+            .badge.info { background-color: #e0f2fe; color: #0369a1; }
+            .badge.muted { background-color: #f1f5f9; color: #475569; }
+            .chevron-icon { font-size: 12px; color: #f97316; transition: transform 0.2s ease; display: inline-block; }
+            .collapsible { background-color: #f8fafc; color: #0b192c; cursor: pointer; padding: 14px 20px; width: 100%; border: 1px solid #e2e8f0; text-align: left; outline: none; font-size: 15px; border-radius: 6px; margin-top: 12px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; transition: background-color 0.2s; }
+            .collapsible:hover { background-color: #f1f5f9; }
+            .content { padding: 20px; display: none; overflow: hidden; background-color: #ffffff; border: 1px solid #e2e8f0; border-top: none; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px; margin-bottom: 12px; box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.02); }
+            pre { background: #0b192c; color: #f8fafc; padding: 16px; border-radius: 6px; overflow-x: auto; font-family: 'Fira Code', 'Courier New', Courier, monospace; font-size: 13px; margin-top: 8px; line-height: 1.5; border-left: 4px solid #f97316; }
+            .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin-bottom: 20px; }
+            .card { background: #ffffff; border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px 0 rgba(11,25,44,0.04); }
+            .comparison-gauge { display: flex; align-items: center; gap: 16px; margin-bottom: 5px; }
+            .gauge-circle { width: 68px; height: 68px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; border: 6px solid #e2e8f0; }
+            .gauge-circle.success { border-color: #10b981; color: #059669; background-color: #f0fdf4; }
+            .gauge-circle.warning { border-color: #f59e0b; color: #d97706; background-color: #fff7ed; }
+            .gauge-circle.danger { border-color: #ef4444; color: #dc2626; background-color: #fef2f2; }
+            
+            /* Data Lineage Matrix Styles */
+            .matrix-field-tag { background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 6px; padding: 6px 12px; font-size: 12px; font-weight: 500; color: #334155; cursor: pointer; transition: all 0.2s ease; display: inline-block; user-select: none; }
+            .matrix-field-tag:hover { background: #fff7ed; border-color: #f97316; color: #c2410c; transform: translateY(-1px); }
+            .matrix-field-tag.active-select { background: #f97316 !important; color: #ffffff !important; border-color: #ea580c !important; font-weight: 700; box-shadow: 0 0 0 3px rgba(249,115,22,0.25); }
+            .matrix-field-tag.connected { background: #fff7ed !important; border-color: #f97316 !important; color: #c2410c !important; font-weight: 700; box-shadow: 0 2px 4px rgba(249,115,22,0.15); }
+            .matrix-field-tag.muted-tag { opacity: 0.35; filter: grayscale(50%); }
+
+            .matrix-mod-tag { background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0b192c; border-radius: 6px; padding: 8px 12px; font-size: 13px; font-weight: 600; color: #0b192c; cursor: pointer; transition: all 0.2s ease; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+            .matrix-mod-tag:hover { background: #eff6ff; border-left-color: #2563eb; transform: translateX(2px); }
+            .matrix-mod-tag.active-select { background: #0b192c !important; color: #ffffff !important; border-left-color: #f97316 !important; font-weight: 700; box-shadow: 0 0 0 3px rgba(11,25,44,0.25); }
+            .matrix-mod-tag.active-select small { color: #94a3b8 !important; }
+            .matrix-mod-tag.connected { background: #eff6ff !important; border-left-color: #2563eb !important; color: #1e40af !important; font-weight: 700; box-shadow: 0 2px 4px 0 rgba(37,99,235,0.12); }
+            .matrix-mod-tag.muted-tag { opacity: 0.35; filter: grayscale(50%); }
+        </style>
+    </head>
+    <body>
+        <div class="header-banner">
+            <div style="max-width: 1240px; margin: 0 auto;">
+                <h1>Cyber Risk Underwriting Audit Report</h1>
+                <p>Target Entity: <strong>Liberty Mutual Insurance</strong> | Domain: <strong>www.libertymutualgroup.com</strong> | Rule: <strong>cyber_risk_rating</strong></p>
+            </div>
+        </div>
+        <div class="container">
+            
+        <div class="card" style="margin-bottom: 24px; border-left: 6px solid #f97316;">
+            <h3 style="color:#0b192c;">Ground Truth Matching & Comparison</h3>
+            <div class="comparison-gauge">
+                <div class="gauge-circle success">88.1%</div>
+                <div>
+                    <p style="margin:0; font-weight:600; font-size:16px; color:#0b192c;">Field Concordance Rating</p>
+                    <p style="margin:4px 0 0 0; color:#64748b; font-size:13px;">Source: JSON key '<code>liberty_mutual</code>'</p>
+                </div>
+            </div>
+        </div>
+        
+            
+            <!-- SECTION 1A: Executive Underwriting Summary -->
+            <h2>1A. Executive Underwriting Summary</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Target Details</h3>
+                    <p><strong>Target Entity:</strong> Liberty Mutual Insurance</p>
+                    <p><strong>Primary Domain:</strong> www.libertymutualgroup.com</p>
+                    <p><strong>Rule Executed:</strong> cyber_risk_rating</p>
+                    <p><strong>Entity Status:</strong> <span class="badge info">Match</span></p>
+                </div>
+                <div class="card">
+                    <h3>Verdict Summary</h3>
+                    <p><strong>Risk Category:</strong> <span class="badge info">Partially Favourable</span></p>
+                    <p><strong>Confidence Score:</strong> 50.0%</p>
+                    <p><strong>Confidence Band:</strong> Medium</p>
+                    <p><strong>Human Referral:</strong> <span class="badge success">NOT REQUIRED</span></p>
+                </div>
+                <div class="card">
+                    <h3>Run Audit Metadata</h3>
+                    <p><strong>Prompt Tokens:</strong> 5,523</p>
+                    <p><strong>Completion Tokens:</strong> 991</p>
+                    <p><strong>Total Tokens:</strong> 6,514</p>
+                    <p><strong>Est. Execution Cost:</strong> $0.004041 USD</p>
+                </div>
+            </div>
+    
+            <!-- SECTION 1B: Side-by-Side Field Comparison -->
+            <h2>1B. Reconciled Profile & Ground Truth Field Comparison</h2>
+            <div class="card">
+                <h3>Extracted Profile Fields Comparison</h3>
+                <div style="overflow-x: auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Field / Parameter</th>
+                                <th>Reconciled (Our Data)</th>
+                                <th>Pre-Reconciliation Provenance</th>
+                                <th>Ground Truth (Claude)</th>
+                                <th>Match Accuracy</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+            <tr>
+                <td><strong>Revenue</strong></td>
+                <td>$50,218,500,000</td>
+                <td><button class="badge info" onclick="toggleProv('prov-1')" style="cursor:pointer; border:none; outline:none;">2 Sources &#9660;</button></td>
+                <td>$50,465,000,000</td>
+                <td><span class="badge success">99.5%</span></td>
+            </tr>
+            
+                <tr id="prov-1" style="display:none; background-color:#f8fafc;">
+                    <td colspan="5" style="padding:10px 16px; font-size:12px; color:#475569;">
+                        <strong>Pre-Reconciliation Collector Extraction Trail:</strong>
+                        <ul style="margin:4px 0 0 0; padding-left:18px; color:#1e293b;"><li><strong>ResponsesAPI:</strong> 50218500000</li><li><strong>Wikidata:</strong> 48200000000</li></ul>
+                    </td>
+                </tr>
+                
+            
+            <tr>
+                <td><strong>Founding Year</strong></td>
+                <td>1912</td>
+                <td><button class="badge info" onclick="toggleProv('prov-2')" style="cursor:pointer; border:none; outline:none;">3 Sources &#9660;</button></td>
+                <td>1912</td>
+                <td><span class="badge success">100.0%</span></td>
+            </tr>
+            
+                <tr id="prov-2" style="display:none; background-color:#f8fafc;">
+                    <td colspan="5" style="padding:10px 16px; font-size:12px; color:#475569;">
+                        <strong>Pre-Reconciliation Collector Extraction Trail:</strong>
+                        <ul style="margin:4px 0 0 0; padding-left:18px; color:#1e293b;"><li><strong>DBCollector:</strong> 1912</li><li><strong>Wikipedia:</strong> 1912</li><li><strong>Wikidata:</strong> None</li></ul>
+                    </td>
+                </tr>
+                
+            
+            <tr>
+                <td><strong>Customer Type</strong></td>
+                <td>MIX</td>
+                <td><button class="badge info" onclick="toggleProv('prov-3')" style="cursor:pointer; border:none; outline:none;">2 Sources &#9660;</button></td>
+                <td>MIX</td>
+                <td><span class="badge success">100.0%</span></td>
+            </tr>
+            
+                <tr id="prov-3" style="display:none; background-color:#f8fafc;">
+                    <td colspan="5" style="padding:10px 16px; font-size:12px; color:#475569;">
+                        <strong>Pre-Reconciliation Collector Extraction Trail:</strong>
+                        <ul style="margin:4px 0 0 0; padding-left:18px; color:#1e293b;"><li><strong>Wikipedia:</strong> MIX</li><li><strong>DomainScraper:</strong> MIX</li></ul>
+                    </td>
+                </tr>
+                
+            
+            <tr>
+                <td><strong>Has E-commerce</strong></td>
+                <td>Yes</td>
+                <td><button class="badge info" onclick="toggleProv('prov-4')" style="cursor:pointer; border:none; outline:none;">2 Sources &#9660;</button></td>
+                <td>Yes</td>
+                <td><span class="badge success">100.0%</span></td>
+            </tr>
+            
+                <tr id="prov-4" style="display:none; background-color:#f8fafc;">
+                    <td colspan="5" style="padding:10px 16px; font-size:12px; color:#475569;">
+                        <strong>Pre-Reconciliation Collector Extraction Trail:</strong>
+                        <ul style="margin:4px 0 0 0; padding-left:18px; color:#1e293b;"><li><strong>Wikipedia:</strong> True</li><li><strong>DomainScraper:</strong> False</li></ul>
+                    </td>
+                </tr>
+                
+            
+            <tr>
+                <td><strong>Privacy Policy Published</strong></td>
+                <td>Yes</td>
+                <td><button class="badge info" onclick="toggleProv('prov-5')" style="cursor:pointer; border:none; outline:none;">1 Sources &#9660;</button></td>
+                <td>Yes</td>
+                <td><span class="badge success">100.0%</span></td>
+            </tr>
+            
+                <tr id="prov-5" style="display:none; background-color:#f8fafc;">
+                    <td colspan="5" style="padding:10px 16px; font-size:12px; color:#475569;">
+                        <strong>Pre-Reconciliation Collector Extraction Trail:</strong>
+                        <ul style="margin:4px 0 0 0; padding-left:18px; color:#1e293b;"><li><strong>DomainScraper:</strong> True</li></ul>
+                    </td>
+                </tr>
+                
+            
+            <tr>
+                <td><strong>Subsidiaries Count</strong></td>
+                <td>24</td>
+                <td><button class="badge info" onclick="toggleProv('prov-6')" style="cursor:pointer; border:none; outline:none;">2 Sources &#9660;</button></td>
+                <td>14</td>
+                <td><span class="badge warning">58.3%</span></td>
+            </tr>
+            
+                <tr id="prov-6" style="display:none; background-color:#f8fafc;">
+                    <td colspan="5" style="padding:10px 16px; font-size:12px; color:#475569;">
+                        <strong>Pre-Reconciliation Collector Extraction Trail:</strong>
+                        <ul style="margin:4px 0 0 0; padding-left:18px; color:#1e293b;"><li><strong>Wikipedia:</strong> 24 items</li><li><strong>Wikidata:</strong> 0 items</li></ul>
+                    </td>
+                </tr>
+                
+            
+            <tr>
+                <td><strong>Acquisitions Count</strong></td>
+                <td>10</td>
+                <td><button class="badge info" onclick="toggleProv('prov-7')" style="cursor:pointer; border:none; outline:none;">3 Sources &#9660;</button></td>
+                <td>7</td>
+                <td><span class="badge warning">70.0%</span></td>
+            </tr>
+            
+                <tr id="prov-7" style="display:none; background-color:#f8fafc;">
+                    <td colspan="5" style="padding:10px 16px; font-size:12px; color:#475569;">
+                        <strong>Pre-Reconciliation Collector Extraction Trail:</strong>
+                        <ul style="margin:4px 0 0 0; padding-left:18px; color:#1e293b;"><li><strong>ResponsesAPI:</strong> 3 items</li><li><strong>Wikipedia:</strong> 8 items</li><li><strong>Wikidata:</strong> 0 items</li></ul>
+                    </td>
+                </tr>
+                
+            
+            <tr>
+                <td><strong>Countries of Op Count</strong></td>
+                <td>15</td>
+                <td><button class="badge info" onclick="toggleProv('prov-8')" style="cursor:pointer; border:none; outline:none;">2 Sources &#9660;</button></td>
+                <td>17</td>
+                <td><span class="badge success">88.2%</span></td>
+            </tr>
+            
+                <tr id="prov-8" style="display:none; background-color:#f8fafc;">
+                    <td colspan="5" style="padding:10px 16px; font-size:12px; color:#475569;">
+                        <strong>Pre-Reconciliation Collector Extraction Trail:</strong>
+                        <ul style="margin:4px 0 0 0; padding-left:18px; color:#1e293b;"><li><strong>Wikipedia:</strong> 15 items</li><li><strong>Wikidata:</strong> 1 items</li></ul>
+                    </td>
+                </tr>
+                
+            
+            <tr>
+                <td><strong>Continent Spread Count</strong></td>
+                <td>4</td>
+                <td><span class="badge muted">Coordinator Fallback</span></td>
+                <td>4</td>
+                <td><span class="badge success">100.0%</span></td>
+            </tr>
+            
+            
+            <tr>
+                <td><strong>Domains Count</strong></td>
+                <td>6</td>
+                <td><button class="badge info" onclick="toggleProv('prov-10')" style="cursor:pointer; border:none; outline:none;">1 Sources &#9660;</button></td>
+                <td>14</td>
+                <td><span class="badge warning">42.9%</span></td>
+            </tr>
+            
+                <tr id="prov-10" style="display:none; background-color:#f8fafc;">
+                    <td colspan="5" style="padding:10px 16px; font-size:12px; color:#475569;">
+                        <strong>Pre-Reconciliation Collector Extraction Trail:</strong>
+                        <ul style="margin:4px 0 0 0; padding-left:18px; color:#1e293b;"><li><strong>DomainScraper:</strong> 6 items</li></ul>
+                    </td>
+                </tr>
+                
+            
+            <tr>
+                <td><strong>Digital Exposure</strong></td>
+                <td>4/5</td>
+                <td><span class="badge muted">Coordinator Fallback</span></td>
+                <td>4/5</td>
+                <td><span class="badge success">100.0%</span></td>
+            </tr>
+            
+            
+            <tr>
+                <td><strong>Disruption Speed</strong></td>
+                <td>3/5</td>
+                <td><span class="badge muted">Coordinator Fallback</span></td>
+                <td>4/5</td>
+                <td><span class="badge warning">75.0%</span></td>
+            </tr>
+            
+            
+            <tr>
+                <td><strong>Recovery Complexity</strong></td>
+                <td>4/5</td>
+                <td><span class="badge muted">Coordinator Fallback</span></td>
+                <td>4/5</td>
+                <td><span class="badge success">100.0%</span></td>
+            </tr>
+            
+            
+            <tr>
+                <td><strong>Primary SIC Code</strong></td>
+                <td>6331</td>
+                <td><span class="badge muted">Coordinator Fallback</span></td>
+                <td>6331</td>
+                <td><span class="badge success">100.0%</span></td>
+            </tr>
+            
+            
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <button class="collapsible" style="border-left: 4px solid #f97316;">
+                        <span>Additional System Collected Target Fields (Complementary System Data)</span>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <span class="badge muted">INSPECT SYSTEM DATA</span>
+                            <span class="chevron-icon">&#9660;</span>
+                        </div>
+                    </button>
+                    <div class="content">
+                        <p style="font-size:13px; color:#64748b; margin-top:0;">These complementary target fields were collected and analyzed by our system collectors prior to underwriting. They provide system evidence beyond the primary 14 Ground Truth fields.</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Target Field</th>
+                                    <th>Reconciled System Value</th>
+                                    <th>Collector Source Provenance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+            <tr>
+                <td><strong>usa_presence</strong></td>
+                <td>True</td>
+                <td><span class="badge info">Coordinator Fallback</span></td>
+            </tr>
+            
+            <tr>
+                <td><strong>compliance_mentions</strong></td>
+                <td>0 items ()</td>
+                <td><span class="badge info">DomainScraper</span></td>
+            </tr>
+            
+            <tr>
+                <td><strong>quarterly_revenue</strong></td>
+                <td>0 items ()</td>
+                <td><span class="badge info">Coordinator Fallback</span></td>
+            </tr>
+            
+            <tr>
+                <td><strong>services_appetite</strong></td>
+                <td>medium_risk</td>
+                <td><span class="badge info">Coordinator Fallback</span></td>
+            </tr>
+            
+            <tr>
+                <td><strong>internet_exposure_domains</strong></td>
+                <td>5</td>
+                <td><span class="badge info">Coordinator Fallback</span></td>
+            </tr>
+            
+            <tr>
+                <td><strong>customer_base_scale</strong></td>
+                <td>Enterprise</td>
+                <td><span class="badge info">Coordinator Fallback</span></td>
+            </tr>
+            
+            <tr>
+                <td><strong>has_cyber_breach</strong></td>
+                <td>False</td>
+                <td><span class="badge info">Coordinator Fallback</span></td>
+            </tr>
+            
+            <tr>
+                <td><strong>has_active_litigation</strong></td>
+                <td>False</td>
+                <td><span class="badge info">Coordinator Fallback</span></td>
+            </tr>
+            
+            <tr>
+                <td><strong>ftc_actions_count</strong></td>
+                <td>0</td>
+                <td><span class="badge info">Coordinator Fallback</span></td>
+            </tr>
+            
+            <tr>
+                <td><strong>detected_technologies</strong></td>
+                <td>0 items ()</td>
+                <td><span class="badge info">Coordinator Fallback</span></td>
+            </tr>
+            
+            <tr>
+                <td><strong>ssl_grade</strong></td>
+                <td>A+</td>
+                <td><span class="badge info">SSLLabs</span></td>
+            </tr>
+            
+            <tr>
+                <td><strong>naics_code</strong></td>
+                <td>524126</td>
+                <td><span class="badge info">CensusNAICS</span></td>
+            </tr>
+            
+            <tr>
+                <td><strong>naics_description</strong></td>
+                <td>Direct Property and Casualty Insurance Carriers</td>
+                <td><span class="badge info">CensusNAICS</span></td>
+            </tr>
+            
+            <tr>
+                <td><strong>country</strong></td>
+                <td>US</td>
+                <td><span class="badge info">DBCollector, Wikipedia, Wikidata</span></td>
+            </tr>
+            
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 1C: Underwriting Verdict Comparison -->
+            <h2>1C. Underwriting Decision & Risk Verdict Verification Matrix</h2>
+
+            <!-- INTERACTIVE DATA LINEAGE & FIELD MAPPING MATRIX -->
+            <div class="card" style="margin-bottom: 24px; border-left: 6px solid #0b192c;">
+                <button class="collapsible" style="background:transparent; border:none; padding:0; width:100%;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+                        <h3 style="margin:0; color:#0b192c; font-size:16px;">Interactive Data Lineage & Field Mapping Matrix</h3>
+                        <span class="chevron-icon">&#9660;</span>
+                    </div>
+                </button>
+                <div class="content" style="display:none; padding:16px 0 0 0; border:none; box-shadow:none;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; background:#f8fafc; padding:12px 16px; border-radius:6px; border:1px solid #e2e8f0;">
+                        <p style="margin:0; font-size:13px; color:#64748b;">Click any <strong>Target Field</strong> (left) or <strong>Modifier</strong> (right) to visually trace upstream data dependencies.</p>
+                        <label style="font-size:13px; font-weight:600; color:#0b192c; cursor:pointer; display:flex; align-items:center; gap:8px;">
+                            <input type="checkbox" id="toggle-extra-fields" checked onchange="toggleExtraFieldsInMatrix()" style="cursor:pointer; accent-color:#f97316; width:16px; height:16px;">
+                            Include Additional System Target Fields
+                        </label>
+                    </div>
+
+                    <div style="display:grid; grid-template-columns: 1fr 1.2fr; gap:24px;">
+                        <div>
+                            <h4 style="margin:0 0 12px 0; font-size:12px; color:#475569; text-transform:uppercase; letter-spacing:0.5px;">Extracted Target Fields</h4>
+                            <div id="matrix-fields-container" style="display:flex; flex-wrap:wrap; gap:8px;">
+                                <span class="matrix-field-tag primary-matrix-field" id="mfield-revenue" onclick="highlightFieldLineage('revenue')">revenue</span>
+                                <span class="matrix-field-tag primary-matrix-field" id="mfield-founding_year" onclick="highlightFieldLineage('founding_year')">founding_year</span>
+                                <span class="matrix-field-tag primary-matrix-field" id="mfield-customer_type" onclick="highlightFieldLineage('customer_type')">customer_type</span>
+                                <span class="matrix-field-tag primary-matrix-field" id="mfield-has_ecommerce" onclick="highlightFieldLineage('has_ecommerce')">has_ecommerce</span>
+                                <span class="matrix-field-tag primary-matrix-field" id="mfield-privacy_policy_published" onclick="highlightFieldLineage('privacy_policy_published')">privacy_policy_published</span>
+                                <span class="matrix-field-tag primary-matrix-field" id="mfield-subsidiaries_count" onclick="highlightFieldLineage('subsidiaries_count')">subsidiaries_count</span>
+                                <span class="matrix-field-tag primary-matrix-field" id="mfield-acquisitions_count" onclick="highlightFieldLineage('acquisitions_count')">acquisitions_count</span>
+                                <span class="matrix-field-tag primary-matrix-field" id="mfield-countries_of_operation_count" onclick="highlightFieldLineage('countries_of_operation_count')">countries_of_operation_count</span>
+                                <span class="matrix-field-tag primary-matrix-field" id="mfield-continent_spread_count" onclick="highlightFieldLineage('continent_spread_count')">continent_spread_count</span>
+                                <span class="matrix-field-tag primary-matrix-field" id="mfield-domains_count" onclick="highlightFieldLineage('domains_count')">domains_count</span>
+                                <span class="matrix-field-tag primary-matrix-field" id="mfield-digital_exposure" onclick="highlightFieldLineage('digital_exposure')">digital_exposure</span>
+                                <span class="matrix-field-tag primary-matrix-field" id="mfield-disruption_speed" onclick="highlightFieldLineage('disruption_speed')">disruption_speed</span>
+                                <span class="matrix-field-tag primary-matrix-field" id="mfield-recovery_complexity" onclick="highlightFieldLineage('recovery_complexity')">recovery_complexity</span>
+                                <span class="matrix-field-tag primary-matrix-field" id="mfield-sic_codes" onclick="highlightFieldLineage('sic_codes')">sic_codes</span>
+
+                                <!-- Complementary System Fields (Shown when checkbox ticked) -->
+                                <span class="matrix-field-tag extra-matrix-field" id="mfield-acquisitions" onclick="highlightFieldLineage('acquisitions')" style="display:inline-block;">acquisitions</span>
+                                <span class="matrix-field-tag extra-matrix-field" id="mfield-subsidiaries" onclick="highlightFieldLineage('subsidiaries')" style="display:inline-block;">subsidiaries</span>
+                                <span class="matrix-field-tag extra-matrix-field" id="mfield-countries_of_operation" onclick="highlightFieldLineage('countries_of_operation')" style="display:inline-block;">countries_of_operation</span>
+                                <span class="matrix-field-tag extra-matrix-field" id="mfield-continent_spread" onclick="highlightFieldLineage('continent_spread')" style="display:inline-block;">continent_spread</span>
+                                <span class="matrix-field-tag extra-matrix-field" id="mfield-domains" onclick="highlightFieldLineage('domains')" style="display:inline-block;">domains</span>
+                                <span class="matrix-field-tag extra-matrix-field" id="mfield-compliance_mentions" onclick="highlightFieldLineage('compliance_mentions')" style="display:inline-block;">compliance_mentions</span>
+                                <span class="matrix-field-tag extra-matrix-field" id="mfield-detected_technologies" onclick="highlightFieldLineage('detected_technologies')" style="display:inline-block;">detected_technologies</span>
+                                <span class="matrix-field-tag extra-matrix-field" id="mfield-has_cyber_breach" onclick="highlightFieldLineage('has_cyber_breach')" style="display:inline-block;">has_cyber_breach</span>
+                                <span class="matrix-field-tag extra-matrix-field" id="mfield-has_active_litigation" onclick="highlightFieldLineage('has_active_litigation')" style="display:inline-block;">has_active_litigation</span>
+                                <span class="matrix-field-tag extra-matrix-field" id="mfield-ftc_actions_count" onclick="highlightFieldLineage('ftc_actions_count')" style="display:inline-block;">ftc_actions_count</span>
+                                <span class="matrix-field-tag extra-matrix-field" id="mfield-ssl_grade" onclick="highlightFieldLineage('ssl_grade')" style="display:inline-block;">ssl_grade</span>
+                                <span class="matrix-field-tag extra-matrix-field" id="mfield-naics_code" onclick="highlightFieldLineage('naics_code')" style="display:inline-block;">naics_code</span>
+                                <span class="matrix-field-tag extra-matrix-field" id="mfield-quarterly_revenue" onclick="highlightFieldLineage('quarterly_revenue')" style="display:inline-block;">quarterly_revenue</span>
+                            </div>
+
+                            <!-- 2-POINT DATA LINEAGE & RULE INPUT AUDIT CONTAINER -->
+                            <div id="matrix-transformation-box" style="margin-top:16px; background:#f8fafc; border:1px solid #cbd5e1; border-left:4px solid #f97316; padding:14px 16px; border-radius:6px; font-size:13px; color:#1e293b;">
+                                <p style="margin:0 0 10px 0; font-weight:700; color:#0b192c; font-size:13px;">Data Lineage & Rule Input Audit:</p>
+                                <div style="margin-bottom:10px;">
+                                    <span style="font-weight:600; color:#0b192c;">🎯 Inputs Required by Modifier Rule:</span>
+                                    <div id="trans-req-fields" style="color:#334155; margin-top:2px; font-size:12px;">Click any modifier on the right to inspect inputs</div>
+                                </div>
+                                <div>
+                                    <span style="font-weight:600; color:#0b192c;">📥 Raw Extracted Values:</span>
+                                    <div id="trans-raw-vals" style="color:#334155; margin-top:2px; font-size:12px;">Click any modifier on the right to inspect raw values</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 style="margin:0 0 12px 0; font-size:12px; color:#475569; text-transform:uppercase; letter-spacing:0.5px;">Underwriting Business Modifiers</h4>
+                            <div id="matrix-modifiers-container" style="display:flex; flex-direction:column; gap:8px;">
+                                <div class="matrix-mod-tag" id="mmod-MergersandAcquisitions" onclick="highlightModifierLineage('Mergers and Acquisitions', 'MergersandAcquisitions')">
+                                    <span>Mergers and Acquisitions</span>
+                                    <small style="color:#64748b; font-size:11px;">Points sum vs Revenue tier</small>
+                                </div>
+                                <div class="matrix-mod-tag" id="mmod-Amountofsensitiveinformation" onclick="highlightModifierLineage('Amount of sensitive information', 'Amountofsensitiveinformation')">
+                                    <span>Amount of sensitive information</span>
+                                    <small style="color:#64748b; font-size:11px;">B2B / E-com platform</small>
+                                </div>
+                                <div class="matrix-mod-tag" id="mmod-DomainEncryption" onclick="highlightModifierLineage('Domain Encryption', 'DomainEncryption')">
+                                    <span>Domain Encryption</span>
+                                    <small style="color:#64748b; font-size:11px;">Encrypted domain ratio</small>
+                                </div>
+                                <div class="matrix-mod-tag" id="mmod-GeographicSpread" onclick="highlightModifierLineage('Geographic Spread', 'GeographicSpread')">
+                                    <span>Geographic Spread</span>
+                                    <small style="color:#64748b; font-size:11px;">Countries & Continents count</small>
+                                </div>
+                                <div class="matrix-mod-tag" id="mmod-Internetfootprint" onclick="highlightModifierLineage('Internet footprint', 'Internetfootprint')">
+                                    <span>Internet footprint</span>
+                                    <small style="color:#64748b; font-size:11px;">Domains * Customer scale</small>
+                                </div>
+                                <div class="matrix-mod-tag" id="mmod-Natureofservices" onclick="highlightModifierLineage('Nature of services', 'Natureofservices')">
+                                    <span>Nature of services</span>
+                                    <small style="color:#64748b; font-size:11px;">SIC / NAICS risk appetite</small>
+                                </div>
+                                <div class="matrix-mod-tag" id="mmod-OrganizationalComplexity" onclick="highlightModifierLineage('Organizational Complexity', 'OrganizationalComplexity')">
+                                    <span>Organizational Complexity</span>
+                                    <small style="color:#64748b; font-size:11px;">Subsidiaries vs Revenue</small>
+                                </div>
+                                <div class="matrix-mod-tag" id="mmod-PrivacyRegulation" onclick="highlightModifierLineage('Privacy Regulation', 'PrivacyRegulation')">
+                                    <span>Privacy Regulation</span>
+                                    <small style="color:#64748b; font-size:11px;">Privacy policy & Frameworks</small>
+                                </div>
+                                <div class="matrix-mod-tag" id="mmod-Seasonalityofsales" onclick="highlightModifierLineage('Seasonality of sales', 'Seasonalityofsales')">
+                                    <span>Seasonality of sales</span>
+                                    <small style="color:#64748b; font-size:11px;">Quarterly Rev CV / SIC</small>
+                                </div>
+                                <div class="matrix-mod-tag" id="mmod-VolatilityRecoveryinSales" onclick="highlightModifierLineage('Volatility/Recovery in Sales', 'VolatilityRecoveryinSales')">
+                                    <span>Volatility/Recovery in Sales</span>
+                                    <small style="color:#64748b; font-size:11px;">Exposure & disruption speed</small>
+                                </div>
+                                <div class="matrix-mod-tag" id="mmod-ApplicabilityofPrivacyRegulation" onclick="highlightModifierLineage('Applicability of Privacy Regulation', 'ApplicabilityofPrivacyRegulation')">
+                                    <span>Applicability of Privacy Regulation</span>
+                                    <small style="color:#64748b; font-size:11px;">GDPR/CCPA Strict regions</small>
+                                </div>
+                                <div class="matrix-mod-tag" id="mmod-B2CEndProducts" onclick="highlightModifierLineage('B2C End Products', 'B2CEndProducts')">
+                                    <span>B2C End Products</span>
+                                    <small style="color:#64748b; font-size:11px;">B2C vs B2B classification</small>
+                                </div>
+                                <div class="matrix-mod-tag" id="mmod-Yearsinbusiness" onclick="highlightModifierLineage('Years in business', 'Yearsinbusiness')">
+                                    <span>Years in business</span>
+                                    <small style="color:#64748b; font-size:11px;">Age vs Revenue tier</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid">
+                <div class="card" style="border-top: 4px solid #10b981;">
+                    <h3>Our Reconciled Underwriting</h3>
+                    <p><strong>Risk Category:</strong> <span class="badge success">PARTIALLY FAVOURABLE</span></p>
+                    <p><strong>Sum of Modifier Scores:</strong> 49.00</p>
+                    <p><strong>Average Score:</strong> 3.769</p>
+                </div>
+                <div class="card" style="border-top: 4px solid #2980b9;">
+                    <h3>Ground Truth Underwriting</h3>
+                    <p><strong>Risk Category:</strong> <span class="badge info">PARTIALLY FAVOURABLE</span></p>
+                    <p><strong>Sum of Modifier Scores:</strong> 40.00</p>
+                    <p><strong>Average Score:</strong> 3.077</p>
+                </div>
+            </div>
+            
+            <div class="card" style="margin-top: 24px;">
+                <h3 style="margin-bottom: 4px;">Underwriting Modifiers Verification Matrix</h3>
+                <p style="color: #64748b; font-size: 13px; margin-top: 0; margin-bottom: 16px;">Click on any modifier row below to expand the itemized math breakdown, base points, multipliers, and exact inputs for both Our Tool and Ground Truth.</p>
+                <div style="overflow-x: auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Underwriting Modifier</th>
+                                <th>Our Rating (Score)</th>
+                                <th>Our Key Inputs & Evaluation Rule</th>
+                                <th>Ground Truth Rating</th>
+                                <th>Ground Truth Key Inputs</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+            <tr class="modifier-main-row" onclick="toggleModDetail(1)" style="cursor:pointer;">
+                <td>
+                    <div style="display:flex; align-items:center; justify-content:space-between;">
+                        <strong style="color:#0f172a;">1. Mergers and Acquisitions</strong>
+                        <span id="mod-icon-1" class="chevron-icon">&#9660;</span>
+                    </div>
+                </td>
+                <td>
+                    <span class="badge success">Partially Favourable (10.5)</span>
+                    <span class="badge success" style="margin-left:4px; font-size:10px;">High Conf</span>
+                </td>
+                <td><small style="color:#334155; font-weight:500;">10 Acquisitions (10.5 Pts)</small></td>
+                <td>
+                    <span class="badge success">Favourable (6.5)</span>
+                    <span class="badge success" style="margin-left:4px; font-size:10px;">High Conf</span>
+                </td>
+                <td><small style="color:#334155; font-weight:500;">7 Acquisitions (6.5 Pts)</small></td>
+            </tr>
+            <tr id="mod-detail-1" style="display:none; background-color:#f8fafc;">
+                <td colspan="5" style="padding:16px 20px;">
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+                        <div class="card" style="margin:0; border-top:3px solid #f97316; padding:16px; background:#fff;">
+                            <h4 style="margin:0 0 8px 0; color:#0f172a; font-size:14px; display:flex; align-items:center; justify-content:space-between;">
+                                <span>Our Tool Math Audit</span>
+                                <span class="badge success">Partially Favourable (10.5)</span>
+                            </h4>
+                            
+                            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-left:3px solid #f97316; padding:10px 14px; border-radius:6px; margin-bottom:10px; font-size:12px;">
+                                <strong style="color:#0b192c;">Formula Rule:</strong> <code>MA-03</code> - Mega Enterprise - Partially Favourable M&A Complexity<br>
+                                <span style="color:#64748b;">Companies in the Mega Enterprise tier with a M&A score <= 15.0 are classified as Partially Favourable due to the associated integration complexity.</span>
+                            </div>
+
+                            <h5 style="margin:8px 0 4px 0; font-size:12px; color:#475569;">Target Inputs Evaluated:</h5>
+                            <ul style="margin:0 0 8px 0; padding-left:18px; font-size:12px; color:#334155;"><li><strong>Revenue Tier:</strong> Mega Enterprise (>= $1B)</li><li><strong>Acquisitions Found:</strong> 10</li><li><strong>Calculated M&A Points:</strong> 10.5</li></ul>
+                            
+                <table style="margin-top:10px; font-size:12px;">
+                    <thead><tr><th>Entity / Deal</th><th>Type</th><th>Recency</th><th>Base Pts</th><th>Mult</th><th>Points</th></tr></thead>
+                    <tbody><tr><td>Wausau Insurance Cos</td><td>Minor Acquisition</td><td>27.0 yrs</td><td>2.0</td><td>0.0x</td><td><strong>0.0</strong></td></tr><tr><td>Safeco Corporation</td><td>Material Acquisition</td><td>18.0 yrs</td><td>3.0</td><td>0.0x</td><td><strong>0.0</strong></td></tr><tr><td>Ironshore Inc</td><td>Material Acquisition</td><td>9.0 yrs</td><td>3.0</td><td>0.5x</td><td><strong>1.5</strong></td></tr><tr><td>Nationale Borg</td><td>Minor Acquisition</td><td>7.0 yrs</td><td>2.0</td><td>0.5x</td><td><strong>1.0</strong></td></tr><tr><td>Nationale Borg Reinsurance</td><td>Minor Acquisition</td><td>7.0 yrs</td><td>2.0</td><td>0.5x</td><td><strong>1.0</strong></td></tr><tr><td>AmTrust Insurance Spain</td><td>Minor Acquisition</td><td>7.0 yrs</td><td>2.0</td><td>0.5x</td><td><strong>1.0</strong></td></tr><tr><td>State Auto Group</td><td>Material Acquisition</td><td>5.0 yrs</td><td>3.0</td><td>0.5x</td><td><strong>1.5</strong></td></tr><tr><td>AmGeneral Insurance Berhad</td><td>Minor Acquisition</td><td>4.0 yrs</td><td>2.0</td><td>1.0x</td><td><strong>2.0</strong></td></tr><tr><td>AmGeneral Insurance</td><td>Acquisition</td><td>0.5 yrs</td><td>1.0</td><td>2.0x</td><td><strong>2.0</strong></td></tr><tr><td>Ironshore Inc.</td><td>Acquisition</td><td>5.5 yrs</td><td>1.0</td><td>0.5x</td><td><strong>0.5</strong></td></tr></tbody>
+                </table>
+                
+                        </div>
+
+                        <div class="card" style="margin:0; border-top:3px solid #0b192c; padding:16px; background:#fff;">
+                            <h4 style="margin:0 0 8px 0; color:#0f172a; font-size:14px; display:flex; align-items:center; justify-content:space-between;">
+                                <span>Ground Truth Math Audit</span>
+                                <span class="badge success">Favourable (6.5)</span>
+                            </h4>
+                            
+                            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-left:3px solid #0b192c; padding:10px 14px; border-radius:6px; margin-bottom:10px; font-size:12px;">
+                                <strong style="color:#0b192c;">Formula Rule:</strong> <code>MA-02</code> - Mega Enterprise - Favourable M&A Complexity<br>
+                                <span style="color:#64748b;">Companies in the Mega Enterprise tier with a M&A score <= 10.0 are classified as Favourable due to the associated integration complexity.</span>
+                            </div>
+                            
+                            <h5 style="margin:8px 0 4px 0; font-size:12px; color:#475569;">Target Inputs Evaluated:</h5>
+                            <ul style="margin:0 0 8px 0; padding-left:18px; font-size:12px; color:#334155;"><li><strong>Revenue Tier:</strong> Mega Enterprise (>= $1B)</li><li><strong>Acquisitions Found:</strong> 7</li><li><strong>Calculated M&A Points:</strong> 6.5</li></ul>
+                            
+                <table style="margin-top:10px; font-size:12px;">
+                    <thead><tr><th>Entity / Deal</th><th>Type</th><th>Recency</th><th>Base Pts</th><th>Mult</th><th>Points</th></tr></thead>
+                    <tbody><tr><td>Wausau Insurance</td><td>Minor Acquisition</td><td>27.0 yrs</td><td>2.0</td><td>0.0x</td><td><strong>0.0</strong></td></tr><tr><td>American Mutual Insurance</td><td>Minor Acquisition</td><td>21.0 yrs</td><td>2.0</td><td>0.0x</td><td><strong>0.0</strong></td></tr><tr><td>Safeco Corp ($6.2B)</td><td>Material Acquisition</td><td>18.0 yrs</td><td>3.0</td><td>0.0x</td><td><strong>0.0</strong></td></tr><tr><td>Ironshore Inc ($2.93B)</td><td>Material Acquisition</td><td>9.0 yrs</td><td>3.0</td><td>0.5x</td><td><strong>1.5</strong></td></tr><tr><td>Nationale Borg / AmTrust Spain</td><td>Minor Acquisition</td><td>7.0 yrs</td><td>2.0</td><td>0.5x</td><td><strong>1.0</strong></td></tr><tr><td>State Auto Group ($2B+)</td><td>Minor Acquisition</td><td>4.0 yrs</td><td>2.0</td><td>1.0x</td><td><strong>2.0</strong></td></tr><tr><td>AmGeneral Insurance (Malaysia)</td><td>Minor Acquisition</td><td>4.0 yrs</td><td>2.0</td><td>1.0x</td><td><strong>2.0</strong></td></tr></tbody>
+                </table>
+                
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            
+            <tr class="modifier-main-row" onclick="toggleModDetail(2)" style="cursor:pointer;">
+                <td>
+                    <div style="display:flex; align-items:center; justify-content:space-between;">
+                        <strong style="color:#0f172a;">2. Amount of sensitive information</strong>
+                        <span id="mod-icon-2" class="chevron-icon">&#9660;</span>
+                    </div>
+                </td>
+                <td>
+                    <span class="badge success">Partially Unfavourable</span>
+                    <span class="badge success" style="margin-left:4px; font-size:10px;">High Conf</span>
+                </td>
+                <td><small style="color:#334155; font-weight:500;">Customer: MIX, E-com: Active</small></td>
+                <td>
+                    <span class="badge success">Partially Unfavourable</span>
+                    <span class="badge success" style="margin-left:4px; font-size:10px;">High Conf</span>
+                </td>
+                <td><small style="color:#334155; font-weight:500;">Customer: MIX, E-com: Active</small></td>
+            </tr>
+            <tr id="mod-detail-2" style="display:none; background-color:#f8fafc;">
+                <td colspan="5" style="padding:16px 20px;">
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+                        <div class="card" style="margin:0; border-top:3px solid #f97316; padding:16px; background:#fff;">
+                            <h4 style="margin:0 0 8px 0; color:#0f172a; font-size:14px; display:flex; align-items:center; justify-content:space-between;">
+                                <span>Our Tool Math Audit</span>
+                                <span class="badge success">Partially Unfavourable</span>
+                            </h4>
+                            
+                            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-left:3px solid #f97316; padding:10px 14px; border-radius:6px; margin-bottom:10px; font-size:12px;">
+                                <strong style="color:#0b192c;">Formula Rule:</strong> <code>SI-01</code> - Consumer Exposure - E-commerce Active<br>
+                                <span style="color:#64748b;">Companies serving mixed/B2C customers through ecommerce generally process larger volumes of sensitive customer information (PII/PCI).</span>
+                            </div>
+
+                            <h5 style="margin:8px 0 4px 0; font-size:12px; color:#475569;">Target Inputs Evaluated:</h5>
+                            <ul style="margin:0 0 8px 0; padding-left:18px; font-size:12px; color:#334155;"><li><strong>Customer Type:</strong> MIX</li><li><strong>Has Ecommerce:</strong> Yes</li></ul>
+                            
+                        </div>
+
+                        <div class="card" style="margin:0; border-top:3px solid #0b192c; padding:16px; background:#fff;">
+                            <h4 style="margin:0 0 8px 0; color:#0f172a; font-size:14px; display:flex; align-items:center; justify-content:space-between;">
+                                <span>Ground Truth Math Audit</span>
+                                <span class="badge success">Partially Unfavourable</span>
+                            </h4>
+                            
+                            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-left:3px solid #0b192c; padding:10px 14px; border-radius:6px; margin-bottom:10px; font-size:12px;">
+                                <strong style="color:#0b192c;">Formula Rule:</strong> <code>SI-01</code> - Consumer Exposure - E-commerce Active<br>
+                                <span style="color:#64748b;">Companies serving mixed/B2C customers through ecommerce generally process larger volumes of sensitive customer information (PII/PCI).</span>
+                            </div>
+                            
+                            <h5 style="margin:8px 0 4px 0; font-size:12px; color:#475569;">Target Inputs Evaluated:</h5>
+                            <ul style="margin:0 0 8px 0; padding-left:18px; font-size:12px; color:#334155;"><li><strong>Customer Type:</strong> MIX</li><li><strong>Has Ecommerce:</strong> Yes</li></ul>
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            
+            <tr class="modifier-main-row" onclick="toggleModDetail(3)" style="cursor:pointer;">
+                <td>
+                    <div style="display:flex; align-items:center; justify-content:space-between;">
+                        <strong style="color:#0f172a;">3. Domain Encryption</strong>
+                        <span id="mod-icon-3" class="chevron-icon">&#9660;</span>
+                    </div>
+                </td>
+                <td>
+                    <span class="badge success">Partially Favourable (3/6)</span>
+                    <span class="badge success" style="margin-left:4px; font-size:10px;">High Conf</span>
+                </td>
+                <td><small style="color:#334155; font-weight:500;">HTTPS: 3/6 (50%)</small></td>
+                <td>
+                    <span class="badge success">Favourable (14/14)</span>
+                    <span class="badge success" style="margin-left:4px; font-size:10px;">High Conf</span>
+                </td>
+                <td><small style="color:#334155; font-weight:500;">HTTPS: 14/14 (100%)</small></td>
+            </tr>
+            <tr id="mod-detail-3" style="display:none; background-color:#f8fafc;">
+                <td colspan="5" style="padding:16px 20px;">
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+                        <div class="card" style="margin:0; border-top:3px solid #f97316; padding:16px; background:#fff;">
+                            <h4 style="margin:0 0 8px 0; color:#0f172a; font-size:14px; display:flex; align-items:center; justify-content:space-between;">
+                                <span>Our Tool Math Audit</span>
+                                <span class="badge success">Partially Favourable (3/6)</span>
+                            </h4>
+                            
+                            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-left:3px solid #f97316; padding:10px 14px; border-radius:6px; margin-bottom:10px; font-size:12px;">
+                                <strong style="color:#0b192c;">Formula Rule:</strong> <code>DE-02</code> - Domain Encryption - Partially Favourable<br>
+                                <span style="color:#64748b;">Partial encryption coverage indicates potential misconfigurations or legacy unencrypted infrastructure.</span>
+                            </div>
+
+                            <h5 style="margin:8px 0 4px 0; font-size:12px; color:#475569;">Target Inputs Evaluated:</h5>
+                            <ul style="margin:0 0 8px 0; padding-left:18px; font-size:12px; color:#334155;"><li><strong>Total Domains:</strong> 6</li><li><strong>Encrypted Domains (HTTPS):</strong> 3</li><li><strong>Encryption Ratio:</strong> 50%</li><li><strong>SSL Labs Grade:</strong> A+</li></ul>
+                            
+                        </div>
+
+                        <div class="card" style="margin:0; border-top:3px solid #0b192c; padding:16px; background:#fff;">
+                            <h4 style="margin:0 0 8px 0; color:#0f172a; font-size:14px; display:flex; align-items:center; justify-content:space-between;">
+                                <span>Ground Truth Math Audit</span>
+                                <span class="badge success">Favourable (14/14)</span>
+                            </h4>
+                            
+                            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-left:3px solid #0b192c; padding:10px 14px; border-radius:6px; margin-bottom:10px; font-size:12px;">
+                                <strong style="color:#0b192c;">Formula Rule:</strong> <code>DE-01</code> - Domain Encryption - Favourable<br>
+                                <span style="color:#64748b;">100% encryption coverage across all discovered external domains signifies strong perimeter security posture.</span>
+                            </div>
+                            
+                            <h5 style="margin:8px 0 4px 0; font-size:12px; color:#475569;">Target Inputs Evaluated:</h5>
+                            <ul style="margin:0 0 8px 0; padding-left:18px; font-size:12px; color:#334155;"><li><strong>Total Domains:</strong> 14</li><li><strong>Encrypted Domains (HTTPS):</strong> 14</li><li><strong>Encryption Ratio:</strong> 100%</li><li><strong>SSL Labs Grade:</strong> A</li></ul>
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            
+            <tr class="modifier-main-row" onclick="toggleModDetail(4)" style="cursor:pointer;">
+                <td>
+                    <div style="display:flex; align-items:center; justify-content:space-between;">
+                        <strong style="color:#0f172a;">4. Geographic Spread</strong>
+                        <span id="mod-icon-4" class="chevron-icon">&#9660;</span>
+                    </div>
+                </td>
+                <td>
+                    <span class="badge warning">Average (15)</span>
+                    <span class="badge success" style="margin-left:4px; font-size:10px;">High Conf</span>
+                </td>
+                <td><small style="color:#334155; font-weight:500;">15 Countries, 4 Continents</small></td>
+                <td>
+                    <span class="badge warning">Average (17)</span>
+                    <span class="badge success" style="margin-left:4px; font-size:10px;">High Conf</span>
+                </td>
+                <td><small style="color:#334155; font-weight:500;">17 Countries, 4 Continents</small></td>
+            </tr>
+            <tr id="mod-detail-4" style="display:none; background-color:#f8fafc;">
+                <td colspan="5" style="padding:16px 20px;">
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+                        <div class="card" style="margin:0; border-top:3px solid #f97316; padding:16px; background:#fff;">
+                            <h4 style="margin:0 0 8px 0; color:#0f172a; font-size:14px; display:flex; align-items:center; justify-content:space-between;">
+                                <span>Our Tool Math Audit</span>
+                                <span class="badge warning">Average (15)</span>
+                            </h4>
+                            
+                            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-left:3px solid #f97316; padding:10px 14px; border-radius:6px; margin-bottom:10px; font-size:12px;">
+                                <strong style="color:#0b192c;">Formula Rule:</strong> <code>GS-03</code> - Mega Enterprise - Global Spread - Average<br>
+                                <span style="color:#64748b;">Companies in the Mega Enterprise tier operating in countries > 10 exhibit average geographic complexity.</span>
+                            </div>
+
+                            <h5 style="margin:8px 0 4px 0; font-size:12px; color:#475569;">Target Inputs Evaluated:</h5>
+                            <ul style="margin:0 0 8px 0; padding-left:18px; font-size:12px; color:#334155;"><li><strong>Revenue Tier:</strong> Mega Enterprise (>= $1B)</li><li><strong>Country Count:</strong> 15</li><li><strong>Continent Count:</strong> 4</li><li><strong>USA Presence:</strong> Yes</li></ul>
+                            
+                        </div>
+
+                        <div class="card" style="margin:0; border-top:3px solid #0b192c; padding:16px; background:#fff;">
+                            <h4 style="margin:0 0 8px 0; color:#0f172a; font-size:14px; display:flex; align-items:center; justify-content:space-between;">
+                                <span>Ground Truth Math Audit</span>
+                                <span class="badge warning">Average (17)</span>
+                            </h4>
+                            
+                            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-left:3px solid #0b192c; padding:10px 14px; border-radius:6px; margin-bottom:10px; font-size:12px;">
+                                <strong style="color:#0b192c;">Formula Rule:</strong> <code>GS-03</code> - Mega Enterprise - Global Spread - Average<br>
+                                <span style="color:#64748b;">Companies in the Mega Enterprise tier operating in countries > 10 exhibit average geographic complexity.</span>
+                            </div>
+                            
+                            <h5 style="margin:8px 0 4px 0; font-size:12px; color:#475569;">Target Inputs Evaluated:</h5>
+                            <ul style="margin:0 0 8px 0; padding-left:18px; font-size:12px; color:#334155;"><li><strong>Revenue Tier:</strong> Mega Enterprise (>= $1B)</li><li><strong>Country Count:</strong> 17</li><li><strong>Continent Count:</strong> 4</li><li><strong>USA Presence:</strong> Yes</li></ul>
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            
+            <tr class="modifier-main-row" onclick="toggleModDetail(5)" style="cursor:pointer;">
+                <td>
+                    <div style="display:flex; align-items:center; justify-content:space-between;">
+                        <strong style="color:#0f172a;">5. Internet footprint</strong>
+                        <span id="mod-icon-5" class="chevron-icon">&#9660;</span>
+                    </div>
+                </td>
+                <td>
+                    <span class="badge warning">Average (15.0)</span>
+                    <span class="badge success" style="margin-left:4px; font-size:10px;">High Conf</span>
+                </td>
+                <td><small style="color:#334155; font-weight:500;">Domains: 5, Scale: Enterprise</small></td>
+                <td>
+                    <span class="badge success">Favourable (3.0)</span>
+                    <span class="badge success" style="margin-left:4px; font-size:10px;">High Conf</span>
+                </td>
+                <td><small style="color:#334155; font-weight:500;">Domains: 1, Scale: Enterprise</small></td>
+            </tr>
+            <tr id="mod-detail-5" style="display:none; background-color:#f8fafc;">
+                <td colspan="5" style="padding:16px 20px;">
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+                        <div class="card" style="margin:0; border-top:3px solid #f97316; padding:16px; background:#fff;">
+                            <h4 style="margin:0 0 8px 0; color:#0f172a; font-size:14px; display:flex; align-items:center; justify-content:space-between;">
+                                <span>Our Tool Math Audit</span>
+                                <span class="badge warning">Average (15.0)</span>
+                            </h4>
+                            
+                            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-left:3px solid #f97316; padding:10px 14px; border-radius:6px; margin-bottom:10px; font-size:12px;">
+                                <strong style="color:#0b192c;">Formula Rule:</strong> <code>IF-02</code> - Enterprise - Average Internet Footprint Risk<br>
+                                <span style="color:#64748b;">Standard external attack surface relative to company scale.</span>
+                            </div>
+
+                            <h5 style="margin:8px 0 4px 0; font-size:12px; color:#475569;">Target Inputs Evaluated:</h5>
+                            <ul style="margin:0 0 8px 0; padding-left:18px; font-size:12px; color:#334155;"><li><strong>Discovered Domains:</strong> 5</li><li><strong>Customer Base Scale:</strong> Enterprise</li><li><strong>Scale Multiplier:</strong> 3.0</li><li><strong>Footprint Score:</strong> 15.0</li></ul>
+                            
+                        </div>
+
+                        <div class="card" style="margin:0; border-top:3px solid #0b192c; padding:16px; background:#fff;">
+                            <h4 style="margin:0 0 8px 0; color:#0f172a; font-size:14px; display:flex; align-items:center; justify-content:space-between;">
+                                <span>Ground Truth Math Audit</span>
+                                <span class="badge success">Favourable (3.0)</span>
+                            </h4>
+                            
+                            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-left:3px solid #0b192c; padding:10px 14px; border-radius:6px; margin-bottom:10px; font-size:12px;">
+                                <strong style="color:#0b192c;">Formula Rule:</strong> <code>IF-01</code> - Enterprise - Favourable Internet Footprint Risk<br>
+                                <span style="color:#64748b;">Very minimal external attack surface relative to company scale.</span>
+                            </div>
+                            
+                            <h5 style="margin:8px 0 4px 0; font-size:12px; color:#475569;">Target Inputs Evaluated:</h5>
+                            <ul style="margin:0 0 8px 0; padding-left:18px; font-size:12px; color:#334155;"><li><strong>Discovered Domains:</strong> 1</li><li><strong>Customer Base Scale:</strong> Enterprise</li><li><strong>Scale Multiplier:</strong> 3.0</li><li><strong>Footprint Score:</strong> 3.0</li></ul>
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            
+            <tr class="modifier-main-row" onclick="toggleModDetail(6)" style="cursor:pointer;">
+                <td>
+                    <div style="display:flex; align-items:center; justify-content:space-between;">
+                        <strong style="color:#0f172a;">6. Nature of services</strong>
+                        <span id="mod-icon-6" class="chevron-icon">&#9660;</span>
+                    </div>
+                </td>
+                <td>
+                    <span class="badge success">Partially Unfavourable (High Risk)</span>
+                    <span class="badge success" style="margin-left:4px; font-size:10px;">High Conf</span>
+                </td>
+                <td><small style="color:#334155; font-weight:500;">Appetite: High Risk</small></td>
+                <td>
+                    <span class="badge warning">Average (Medium Risk)</span>
+                    <span class="badge warning" style="margin-left:4px; font-size:10px;">Medium Conf</span>
+                </td>
+                <td><small style="color:#334155; font-weight:500;">Appetite: Medium Risk</small></td>
+            </tr>
+            <tr id="mod-detail-6" style="display:none; background-color:#f8fafc;">
+                <td colspan="5" style="padding:16px 20px;">
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+                        <div class="card" style="margin:0; border-top:3px solid #f97316; padding:16px; background:#fff;">
+                            <h4 style="margin:0 0 8px 0; color:#0f172a; font-size:14px; display:flex; align-items:center; justify-content:space-between;">
+                                <span>Our Tool Math Audit</span>
+                                <span class="badge success">Partially Unfavourable (High Risk)</span>
+                            </h4>
+                            
+                            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-left:3px solid #f97316; padding:10px 14px; border-radius:6px; margin-bottom:10px; font-size:12px;">
+                                <strong style="color:#0b192c;">Formula Rule:</strong> <code>NS-03</code> - Nature of Services - High Risk<br>
+                                <span style="color:#64748b;">Companies providing high risk services carry corresponding baseline cyber liability.</span>
+                            </div>
+
+                            <h5 style="margin:8px 0 4px 0; font-size:12px; color:#475569;">Target Inputs Evaluated:</h5>
+                            <ul style="margin:0 0 8px 0; padding-left:18px; font-size:12px; color:#334155;"><li><strong>Matched Products Keyword:</strong> insurance</li><li><strong>Matched Industry Keyword:</strong> insurance</li><li><strong>Matched SIC Keyword:</strong> None</li><li><strong>Matched Tech Keyword:</strong> None</li><li><strong>Calculated Risk Score:</strong> 3.00 / 3.0</li></ul>
+                            
+                        </div>
+
+                        <div class="card" style="margin:0; border-top:3px solid #0b192c; padding:16px; background:#fff;">
+                            <h4 style="margin:0 0 8px 0; color:#0f172a; font-size:14px; display:flex; align-items:center; justify-content:space-between;">
+                                <span>Ground Truth Math Audit</span>
+                                <span class="badge warning">Average (Medium Risk)</span>
+                            </h4>
+                            
+                            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-left:3px solid #0b192c; padding:10px 14px; border-radius:6px; margin-bottom:10px; font-size:12px;">
+                                <strong style="color:#0b192c;">Formula Rule:</strong> <code>NS-02</code> - Nature of Services - Medium Risk<br>
+                                <span style="color:#64748b;">Companies providing medium risk services carry corresponding baseline cyber liability.</span>
+                            </div>
+                            
+                            <h5 style="margin:8px 0 4px 0; font-size:12px; color:#475569;">Target Inputs Evaluated:</h5>
+                            <ul style="margin:0 0 8px 0; padding-left:18px; font-size:12px; color:#334155;"><li><strong>Matched Products Keyword:</strong> None</li><li><strong>Matched Industry Keyword:</strong> None</li><li><strong>Matched SIC Keyword:</strong> None</li><li><strong>Matched Tech Keyword:</strong> None</li><li><strong>Calculated Risk Score:</strong> Fallback</li></ul>
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            
+            <tr class="modifier-main-row" onclick="toggleModDetail(7)" style="cursor:pointer;">
+                <td>
+                    <div style="display:flex; align-items:center; justify-content:space-between;">
+                        <strong style="color:#0f172a;">7. Organizational Complexity</strong>
+                        <span id="mod-icon-7" class="chevron-icon">&#9660;</span>
+                    </div>
+                </td>
+                <td>
+                    <span class="badge warning">Average (24)</span>
+                    <span class="badge success" style="margin-left:4px; font-size:10px;">High Conf</span>
+                </td>
+                <td><small style="color:#334155; font-weight:500;">24 Subsidiaries</small></td>
+                <td>
+                    <span class="badge success">Favourable (14)</span>
+                    <span class="badge success" style="margin-left:4px; font-size:10px;">High Conf</span>
+                </td>
+                <td><small style="color:#334155; font-weight:500;">14 Subsidiaries</small></td>
+            </tr>
+            <tr id="mod-detail-7" style="display:none; background-color:#f8fafc;">
+                <td colspan="5" style="padding:16px 20px;">
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+                        <div class="card" style="margin:0; border-top:3px solid #f97316; padding:16px; background:#fff;">
+                            <h4 style="margin:0 0 8px 0; color:#0f172a; font-size:14px; display:flex; align-items:center; justify-content:space-between;">
+                                <span>Our Tool Math Audit</span>
+                                <span class="badge warning">Average (24)</span>
+                            </h4>
+                            
+                            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-left:3px solid #f97316; padding:10px 14px; border-radius:6px; margin-bottom:10px; font-size:12px;">
+                                <strong style="color:#0b192c;">Formula Rule:</strong> <code>OC-03</code> - Mega Enterprise - Average Organizational Complexity<br>
+                                <span style="color:#64748b;">Companies in the Mega Enterprise tier with known subsidiaries <= 50 are considered Average complexity.</span>
+                            </div>
+
+                            <h5 style="margin:8px 0 4px 0; font-size:12px; color:#475569;">Target Inputs Evaluated:</h5>
+                            <ul style="margin:0 0 8px 0; padding-left:18px; font-size:12px; color:#334155;"><li><strong>Revenue Tier:</strong> Mega Enterprise (>= $1B)</li><li><strong>Subsidiaries Count:</strong> 24</li></ul>
+                            
+                        </div>
+
+                        <div class="card" style="margin:0; border-top:3px solid #0b192c; padding:16px; background:#fff;">
+                            <h4 style="margin:0 0 8px 0; color:#0f172a; font-size:14px; display:flex; align-items:center; justify-content:space-between;">
+                                <span>Ground Truth Math Audit</span>
+                                <span class="badge success">Favourable (14)</span>
+                            </h4>
+                            
+                            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-left:3px solid #0b192c; padding:10px 14px; border-radius:6px; margin-bottom:10px; font-size:12px;">
+                                <strong style="color:#0b192c;">Formula Rule:</strong> <code>OC-02</code> - Mega Enterprise - Favourable Organizational Complexity<br>
+                                <span style="color:#64748b;">Companies in the Mega Enterprise tier with known subsidiaries <= 20 are considered Favourable complexity.</span>
+                            </div>
+                            
+                            <h5 style="margin:8px 0 4px 0; font-size:12px; color:#475569;">Target Inputs Evaluated:</h5>
+                            <ul style="margin:0 0 8px 0; padding-left:18px; font-size:12px; color:#334155;"><li><strong>Revenue Tier:</strong> Mega Enterprise (>= $1B)</li><li><strong>Subsidiaries Count:</strong> 14</li></ul>
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            
+            <tr class="modifier-main-row" onclick="toggleModDetail(8)" style="cursor:pointer;">
+                <td>
+                    <div style="display:flex; align-items:center; justify-content:space-between;">
+                        <strong style="color:#0f172a;">8. Privacy Regulation</strong>
+                        <span id="mod-icon-8" class="chevron-icon">&#9660;</span>
+                    </div>
+                </td>
+                <td>
+                    <span class="badge warning">Average</span>
+                    <span class="badge success" style="margin-left:4px; font-size:10px;">High Conf</span>
+                </td>
+                <td><small style="color:#334155; font-weight:500;">Policy: Published, Frameworks: 0</small></td>
+                <td>
+                    <span class="badge success">Favourable</span>
+                    <span class="badge success" style="margin-left:4px; font-size:10px;">High Conf</span>
+                </td>
+                <td><small style="color:#334155; font-weight:500;">Policy: Published, Frameworks: 4</small></td>
+            </tr>
+            <tr id="mod-detail-8" style="display:none; background-color:#f8fafc;">
+                <td colspan="5" style="padding:16px 20px;">
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+                        <div class="card" style="margin:0; border-top:3px solid #f97316; padding:16px; background:#fff;">
+                            <h4 style="margin:0 0 8px 0; color:#0f172a; font-size:14px; display:flex; align-items:center; justify-content:space-between;">
+                                <span>Our Tool Math Audit</span>
+                                <span class="badge warning">Average</span>
+                            </h4>
+                            
+                            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-left:3px solid #f97316; padding:10px 14px; border-radius:6px; margin-bottom:10px; font-size:12px;">
+                                <strong style="color:#0b192c;">Formula Rule:</strong> <code>PR-03</code> - Privacy Regulation - Average<br>
+                                <span style="color:#64748b;">Public privacy policy exists, but no specific compliance frameworks explicitly mapped.</span>
+                            </div>
+
+                            <h5 style="margin:8px 0 4px 0; font-size:12px; color:#475569;">Target Inputs Evaluated:</h5>
+                            <ul style="margin:0 0 8px 0; padding-left:18px; font-size:12px; color:#334155;"><li><strong>Privacy Policy Found:</strong> Yes</li><li><strong>Compliance Frameworks:</strong> 0</li><li><strong>Detected Frameworks:</strong> None</li></ul>
+                            
+                        </div>
+
+                        <div class="card" style="margin:0; border-top:3px solid #0b192c; padding:16px; background:#fff;">
+                            <h4 style="margin:0 0 8px 0; color:#0f172a; font-size:14px; display:flex; align-items:center; justify-content:space-between;">
+                                <span>Ground Truth Math Audit</span>
+                                <span class="badge success">Favourable</span>
+                            </h4>
+                            
+                            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-left:3px solid #0b192c; padding:10px 14px; border-radius:6px; margin-bottom:10px; font-size:12px;">
+                                <strong style="color:#0b192c;">Formula Rule:</strong> <code>PR-01</code> - Privacy Regulation - Favourable<br>
+                                <span style="color:#64748b;">Clear public privacy policy coupled with multiple compliance framework mentions denotes strong data governance.</span>
+                            </div>
+                            
+                            <h5 style="margin:8px 0 4px 0; font-size:12px; color:#475569;">Target Inputs Evaluated:</h5>
+                            <ul style="margin:0 0 8px 0; padding-left:18px; font-size:12px; color:#334155;"><li><strong>Privacy Policy Found:</strong> Yes</li><li><strong>Compliance Frameworks:</strong> 4</li><li><strong>Detected Frameworks:</strong> CCPA, CPRA, GDPR, PIPEDA</li></ul>
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            
+            <tr class="modifier-main-row" onclick="toggleModDetail(9)" style="cursor:pointer;">
+                <td>
+                    <div style="display:flex; align-items:center; justify-content:space-between;">
+                        <strong style="color:#0f172a;">9. Seasonality of sales</strong>
+                        <span id="mod-icon-9" class="chevron-icon">&#9660;</span>
+                    </div>
+                </td>
+                <td>
+                    <span class="badge warning">Average</span>
+                    <span class="badge warning" style="margin-left:4px; font-size:10px;">Medium Conf</span>
+                </td>
+                <td><small style="color:#334155; font-weight:500;">SIC Fallback (6331)</small></td>
+                <td>
+                    <span class="badge warning">Average</span>
+                    <span class="badge warning" style="margin-left:4px; font-size:10px;">Medium Conf</span>
+                </td>
+                <td><small style="color:#334155; font-weight:500;">SIC Fallback (6331)</small></td>
+            </tr>
+            <tr id="mod-detail-9" style="display:none; background-color:#f8fafc;">
+                <td colspan="5" style="padding:16px 20px;">
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+                        <div class="card" style="margin:0; border-top:3px solid #f97316; padding:16px; background:#fff;">
+                            <h4 style="margin:0 0 8px 0; color:#0f172a; font-size:14px; display:flex; align-items:center; justify-content:space-between;">
+                                <span>Our Tool Math Audit</span>
+                                <span class="badge warning">Average</span>
+                            </h4>
+                            
+                            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-left:3px solid #f97316; padding:10px 14px; border-radius:6px; margin-bottom:10px; font-size:12px;">
+                                <strong style="color:#0b192c;">Formula Rule:</strong> <code>SS-06</code> - Seasonality of Sales - Average<br>
+                                <span style="color:#64748b;">Missing quarterly data; standard industry defaults applied.</span>
+                            </div>
+
+                            <h5 style="margin:8px 0 4px 0; font-size:12px; color:#475569;">Target Inputs Evaluated:</h5>
+                            <ul style="margin:0 0 8px 0; padding-left:18px; font-size:12px; color:#334155;"><li><strong>Data Points:</strong> 0</li><li><strong>Primary SIC:</strong> 6331</li><li><strong>Coefficient of Variation (CV):</strong> N/A</li></ul>
+                            
+                        </div>
+
+                        <div class="card" style="margin:0; border-top:3px solid #0b192c; padding:16px; background:#fff;">
+                            <h4 style="margin:0 0 8px 0; color:#0f172a; font-size:14px; display:flex; align-items:center; justify-content:space-between;">
+                                <span>Ground Truth Math Audit</span>
+                                <span class="badge warning">Average</span>
+                            </h4>
+                            
+                            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-left:3px solid #0b192c; padding:10px 14px; border-radius:6px; margin-bottom:10px; font-size:12px;">
+                                <strong style="color:#0b192c;">Formula Rule:</strong> <code>SS-06</code> - Seasonality of Sales - Average<br>
+                                <span style="color:#64748b;">Missing quarterly data; standard industry defaults applied.</span>
+                            </div>
+                            
+                            <h5 style="margin:8px 0 4px 0; font-size:12px; color:#475569;">Target Inputs Evaluated:</h5>
+                            <ul style="margin:0 0 8px 0; padding-left:18px; font-size:12px; color:#334155;"><li><strong>Data Points:</strong> 2</li><li><strong>Primary SIC:</strong> 6331</li><li><strong>Coefficient of Variation (CV):</strong> N/A</li></ul>
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            
+            <tr class="modifier-main-row" onclick="toggleModDetail(10)" style="cursor:pointer;">
+                <td>
+                    <div style="display:flex; align-items:center; justify-content:space-between;">
+                        <strong style="color:#0f172a;">10. Volatility/Recovery in Sales</strong>
+                        <span id="mod-icon-10" class="chevron-icon">&#9660;</span>
+                    </div>
+                </td>
+                <td>
+                    <span class="badge success">Partially Unfavourable (3.67)</span>
+                    <span class="badge success" style="margin-left:4px; font-size:10px;">High Conf</span>
+                </td>
+                <td><small style="color:#334155; font-weight:500;">Digital Exp: 4/5, Disruption: 3/5, Recovery: 4/5</small></td>
+                <td>
+                    <span class="badge success">Partially Unfavourable (4.0)</span>
+                    <span class="badge success" style="margin-left:4px; font-size:10px;">High Conf</span>
+                </td>
+                <td><small style="color:#334155; font-weight:500;">Digital Exp: 4/5, Disruption: 4/5, Recovery: 4/5</small></td>
+            </tr>
+            <tr id="mod-detail-10" style="display:none; background-color:#f8fafc;">
+                <td colspan="5" style="padding:16px 20px;">
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+                        <div class="card" style="margin:0; border-top:3px solid #f97316; padding:16px; background:#fff;">
+                            <h4 style="margin:0 0 8px 0; color:#0f172a; font-size:14px; display:flex; align-items:center; justify-content:space-between;">
+                                <span>Our Tool Math Audit</span>
+                                <span class="badge success">Partially Unfavourable (3.67)</span>
+                            </h4>
+                            
+                            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-left:3px solid #f97316; padding:10px 14px; border-radius:6px; margin-bottom:10px; font-size:12px;">
+                                <strong style="color:#0b192c;">Formula Rule:</strong> <code>VR-03</code> - Volatility & Recovery - Partially Unfavourable<br>
+                                <span style="color:#64748b;">High digital exposure with complex, extended recovery workflows.</span>
+                            </div>
+
+                            <h5 style="margin:8px 0 4px 0; font-size:12px; color:#475569;">Target Inputs Evaluated:</h5>
+                            <ul style="margin:0 0 8px 0; padding-left:18px; font-size:12px; color:#334155;"><li><strong>Digital Exposure (1-5):</strong> 4</li><li><strong>Disruption Speed (1-5):</strong> 3</li><li><strong>Recovery Complexity (1-5):</strong> 4</li><li><strong>Index Average:</strong> 3.67</li></ul>
+                            
+                        </div>
+
+                        <div class="card" style="margin:0; border-top:3px solid #0b192c; padding:16px; background:#fff;">
+                            <h4 style="margin:0 0 8px 0; color:#0f172a; font-size:14px; display:flex; align-items:center; justify-content:space-between;">
+                                <span>Ground Truth Math Audit</span>
+                                <span class="badge success">Partially Unfavourable (4.0)</span>
+                            </h4>
+                            
+                            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-left:3px solid #0b192c; padding:10px 14px; border-radius:6px; margin-bottom:10px; font-size:12px;">
+                                <strong style="color:#0b192c;">Formula Rule:</strong> <code>VR-03</code> - Volatility & Recovery - Partially Unfavourable<br>
+                                <span style="color:#64748b;">High digital exposure with complex, extended recovery workflows.</span>
+                            </div>
+                            
+                            <h5 style="margin:8px 0 4px 0; font-size:12px; color:#475569;">Target Inputs Evaluated:</h5>
+                            <ul style="margin:0 0 8px 0; padding-left:18px; font-size:12px; color:#334155;"><li><strong>Digital Exposure (1-5):</strong> 4</li><li><strong>Disruption Speed (1-5):</strong> 4</li><li><strong>Recovery Complexity (1-5):</strong> 4</li><li><strong>Index Average:</strong> 4.0</li></ul>
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            
+            <tr class="modifier-main-row" onclick="toggleModDetail(11)" style="cursor:pointer;">
+                <td>
+                    <div style="display:flex; align-items:center; justify-content:space-between;">
+                        <strong style="color:#0f172a;">11. Applicability of Privacy Regulation</strong>
+                        <span id="mod-icon-11" class="chevron-icon">&#9660;</span>
+                    </div>
+                </td>
+                <td>
+                    <span class="badge warning">Average</span>
+                    <span class="badge success" style="margin-left:4px; font-size:10px;">High Conf</span>
+                </td>
+                <td><small style="color:#334155; font-weight:500;">High Risk Sector: Yes, Audience: MIX</small></td>
+                <td>
+                    <span class="badge warning">Average</span>
+                    <span class="badge success" style="margin-left:4px; font-size:10px;">High Conf</span>
+                </td>
+                <td><small style="color:#334155; font-weight:500;">High Risk Sector: Yes, Audience: MIX</small></td>
+            </tr>
+            <tr id="mod-detail-11" style="display:none; background-color:#f8fafc;">
+                <td colspan="5" style="padding:16px 20px;">
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+                        <div class="card" style="margin:0; border-top:3px solid #f97316; padding:16px; background:#fff;">
+                            <h4 style="margin:0 0 8px 0; color:#0f172a; font-size:14px; display:flex; align-items:center; justify-content:space-between;">
+                                <span>Our Tool Math Audit</span>
+                                <span class="badge warning">Average</span>
+                            </h4>
+                            
+                            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-left:3px solid #f97316; padding:10px 14px; border-radius:6px; margin-bottom:10px; font-size:12px;">
+                                <strong style="color:#0b192c;">Formula Rule:</strong> <code>AP-03</code> - Privacy Applicability - Average<br>
+                                <span style="color:#64748b;">Companies in high-risk sectors (Finance, Health) or heavily consumer-facing face stringent privacy regulations.</span>
+                            </div>
+
+                            <h5 style="margin:8px 0 4px 0; font-size:12px; color:#475569;">Target Inputs Evaluated:</h5>
+                            <ul style="margin:0 0 8px 0; padding-left:18px; font-size:12px; color:#334155;"><li><strong>Primary SIC:</strong> 6331</li><li><strong>High Risk Industry:</strong> Yes</li><li><strong>Customer Type:</strong> MIX</li><li><strong>Has Ecommerce:</strong> Yes</li></ul>
+                            
+                        </div>
+
+                        <div class="card" style="margin:0; border-top:3px solid #0b192c; padding:16px; background:#fff;">
+                            <h4 style="margin:0 0 8px 0; color:#0f172a; font-size:14px; display:flex; align-items:center; justify-content:space-between;">
+                                <span>Ground Truth Math Audit</span>
+                                <span class="badge warning">Average</span>
+                            </h4>
+                            
+                            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-left:3px solid #0b192c; padding:10px 14px; border-radius:6px; margin-bottom:10px; font-size:12px;">
+                                <strong style="color:#0b192c;">Formula Rule:</strong> <code>AP-03</code> - Privacy Applicability - Average<br>
+                                <span style="color:#64748b;">Companies in high-risk sectors (Finance, Health) or heavily consumer-facing face stringent privacy regulations.</span>
+                            </div>
+                            
+                            <h5 style="margin:8px 0 4px 0; font-size:12px; color:#475569;">Target Inputs Evaluated:</h5>
+                            <ul style="margin:0 0 8px 0; padding-left:18px; font-size:12px; color:#334155;"><li><strong>Primary SIC:</strong> 6331</li><li><strong>High Risk Industry:</strong> Yes</li><li><strong>Customer Type:</strong> MIX</li><li><strong>Has Ecommerce:</strong> Yes</li></ul>
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            
+            <tr class="modifier-main-row" onclick="toggleModDetail(12)" style="cursor:pointer;">
+                <td>
+                    <div style="display:flex; align-items:center; justify-content:space-between;">
+                        <strong style="color:#0f172a;">12. B2C End Products</strong>
+                        <span id="mod-icon-12" class="chevron-icon">&#9660;</span>
+                    </div>
+                </td>
+                <td>
+                    <span class="badge success">Partially Favourable</span>
+                    <span class="badge success" style="margin-left:4px; font-size:10px;">High Conf</span>
+                </td>
+                <td><small style="color:#334155; font-weight:500;">Customer Type: MIX</small></td>
+                <td>
+                    <span class="badge success">Partially Favourable</span>
+                    <span class="badge success" style="margin-left:4px; font-size:10px;">High Conf</span>
+                </td>
+                <td><small style="color:#334155; font-weight:500;">Customer Type: MIX</small></td>
+            </tr>
+            <tr id="mod-detail-12" style="display:none; background-color:#f8fafc;">
+                <td colspan="5" style="padding:16px 20px;">
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+                        <div class="card" style="margin:0; border-top:3px solid #f97316; padding:16px; background:#fff;">
+                            <h4 style="margin:0 0 8px 0; color:#0f172a; font-size:14px; display:flex; align-items:center; justify-content:space-between;">
+                                <span>Our Tool Math Audit</span>
+                                <span class="badge success">Partially Favourable</span>
+                            </h4>
+                            
+                            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-left:3px solid #f97316; padding:10px 14px; border-radius:6px; margin-bottom:10px; font-size:12px;">
+                                <strong style="color:#0b192c;">Formula Rule:</strong> <code>B2C-01</code> - B2C End Products - Partially Favourable<br>
+                                <span style="color:#64748b;">Mixed B2B and B2C operations.</span>
+                            </div>
+
+                            <h5 style="margin:8px 0 4px 0; font-size:12px; color:#475569;">Target Inputs Evaluated:</h5>
+                            <ul style="margin:0 0 8px 0; padding-left:18px; font-size:12px; color:#334155;"><li><strong>Customer Type:</strong> MIX</li></ul>
+                            
+                        </div>
+
+                        <div class="card" style="margin:0; border-top:3px solid #0b192c; padding:16px; background:#fff;">
+                            <h4 style="margin:0 0 8px 0; color:#0f172a; font-size:14px; display:flex; align-items:center; justify-content:space-between;">
+                                <span>Ground Truth Math Audit</span>
+                                <span class="badge success">Partially Favourable</span>
+                            </h4>
+                            
+                            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-left:3px solid #0b192c; padding:10px 14px; border-radius:6px; margin-bottom:10px; font-size:12px;">
+                                <strong style="color:#0b192c;">Formula Rule:</strong> <code>B2C-01</code> - B2C End Products - Partially Favourable<br>
+                                <span style="color:#64748b;">Mixed B2B and B2C operations.</span>
+                            </div>
+                            
+                            <h5 style="margin:8px 0 4px 0; font-size:12px; color:#475569;">Target Inputs Evaluated:</h5>
+                            <ul style="margin:0 0 8px 0; padding-left:18px; font-size:12px; color:#334155;"><li><strong>Customer Type:</strong> MIX</li></ul>
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            
+            <tr class="modifier-main-row" onclick="toggleModDetail(13)" style="cursor:pointer;">
+                <td>
+                    <div style="display:flex; align-items:center; justify-content:space-between;">
+                        <strong style="color:#0f172a;">13. Years in business</strong>
+                        <span id="mod-icon-13" class="chevron-icon">&#9660;</span>
+                    </div>
+                </td>
+                <td>
+                    <span class="badge success">Very Favourable (114)</span>
+                    <span class="badge success" style="margin-left:4px; font-size:10px;">High Conf</span>
+                </td>
+                <td><small style="color:#334155; font-weight:500;">Founding Year: 1912 (114 yrs)</small></td>
+                <td>
+                    <span class="badge success">Very Favourable (114)</span>
+                    <span class="badge success" style="margin-left:4px; font-size:10px;">High Conf</span>
+                </td>
+                <td><small style="color:#334155; font-weight:500;">Founding Year: 1912 (114 yrs)</small></td>
+            </tr>
+            <tr id="mod-detail-13" style="display:none; background-color:#f8fafc;">
+                <td colspan="5" style="padding:16px 20px;">
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+                        <div class="card" style="margin:0; border-top:3px solid #f97316; padding:16px; background:#fff;">
+                            <h4 style="margin:0 0 8px 0; color:#0f172a; font-size:14px; display:flex; align-items:center; justify-content:space-between;">
+                                <span>Our Tool Math Audit</span>
+                                <span class="badge success">Very Favourable (114)</span>
+                            </h4>
+                            
+                            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-left:3px solid #f97316; padding:10px 14px; border-radius:6px; margin-bottom:10px; font-size:12px;">
+                                <strong style="color:#0b192c;">Formula Rule:</strong> <code>YB-01</code> - Mega Enterprise - Very Favourable Maturity<br>
+                                <span style="color:#64748b;">Companies in the Mega Enterprise tier operating for > 30 years are considered Very Favourable maturity.</span>
+                            </div>
+
+                            <h5 style="margin:8px 0 4px 0; font-size:12px; color:#475569;">Target Inputs Evaluated:</h5>
+                            <ul style="margin:0 0 8px 0; padding-left:18px; font-size:12px; color:#334155;"><li><strong>Revenue Tier:</strong> Mega Enterprise (>= $1B)</li><li><strong>Founding Year:</strong> 1912</li><li><strong>Calculated Age:</strong> 114</li></ul>
+                            
+                        </div>
+
+                        <div class="card" style="margin:0; border-top:3px solid #0b192c; padding:16px; background:#fff;">
+                            <h4 style="margin:0 0 8px 0; color:#0f172a; font-size:14px; display:flex; align-items:center; justify-content:space-between;">
+                                <span>Ground Truth Math Audit</span>
+                                <span class="badge success">Very Favourable (114)</span>
+                            </h4>
+                            
+                            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-left:3px solid #0b192c; padding:10px 14px; border-radius:6px; margin-bottom:10px; font-size:12px;">
+                                <strong style="color:#0b192c;">Formula Rule:</strong> <code>YB-01</code> - Mega Enterprise - Very Favourable Maturity<br>
+                                <span style="color:#64748b;">Companies in the Mega Enterprise tier operating for > 30 years are considered Very Favourable maturity.</span>
+                            </div>
+                            
+                            <h5 style="margin:8px 0 4px 0; font-size:12px; color:#475569;">Target Inputs Evaluated:</h5>
+                            <ul style="margin:0 0 8px 0; padding-left:18px; font-size:12px; color:#334155;"><li><strong>Revenue Tier:</strong> Mega Enterprise (>= $1B)</li><li><strong>Founding Year:</strong> 1912</li><li><strong>Calculated Age:</strong> 114</li></ul>
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="margin-top: 24px; padding: 16px; background-color: #f8fafc; border-radius: 6px; border: 1px solid #e2e8f0;">
+                    <h3 style="color:#0b192c;">Calculation Details</h3>
+                    <p><strong>Sum of Modifier Scores:</strong> 49.00</p>
+                    <p><strong>Average Score Calculation:</strong> 49.00 / 13 = 3.769</p>
+                    <p><strong>Final Risk Category Range:</strong> <span class="badge info">Partially Favourable</span></p>
+                    <p><strong>Evidence Confidence Score:</strong> 50.0%</p>
+                    <p><strong>Human Escalation Reason:</strong> None</p>
+                </div>
+            </div>
+        
+            <!-- SECTION 2: Collector Evidence & API Research Trail -->
+            <h2>2. Collector Evidence & API Research Trail</h2>
+    
+            <button class="collapsible">
+                <span>CourtListener</span>
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <span class="badge warning">SKIPPED</span>
+                    <span class="chevron-icon">&#9660;</span>
+                </div>
+            </button>
+            <div class="content">
+                
+            <div style="background:#fff1f2; border:1px solid #fecaca; border-left:4px solid #ef4444; padding:10px 14px; border-radius:6px; color:#991b1b; font-size:13px; margin-bottom:12px;">
+                <strong>Backend Execution Notice (SKIPPED):</strong> <code>COURTLISTENER_API_KEY not set.</code>
+            </div>
+            
+                
+                <button class="collapsible" style="font-size:12px; font-weight:600; padding:6px 12px; background-color:#f1f5f9; color:#475569; border:1px solid #cbd5e1; border-radius:4px; margin-top:4px; display:inline-flex; width:auto; justify-content:flex-start; gap:6px;">
+                    <span>View Raw JSON Payload</span>
+                    <span class="chevron-icon">&#9660;</span>
+                </button>
+                <div class="content" style="padding:10px; margin-top:8px;">
+                    <pre style="margin:0;">{
+  "source": "CourtListener",
+  "status": "skipped",
+  "message": "COURTLISTENER_API_KEY not set.",
+  "findings": {}
+}</pre>
+                </div>
+            </div>
+        
+            <button class="collapsible">
+                <span>DBCollector</span>
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <span class="badge success">SUCCESS</span>
+                    <span class="chevron-icon">&#9660;</span>
+                </div>
+            </button>
+            <div class="content">
+                
+                
+                <div style="margin-bottom:12px;">
+                    <strong style="font-size:13px; color:#0b192c;">Extracted Target Fields:</strong>
+                    <div style="margin-top:6px; display:flex; flex-wrap:wrap;"><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>legal_name:</strong> Liberty Mutual Insurance Company</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>country:</strong> US</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>legal_address:</strong> street: 175 Berkeley Street, city: Boston, state: MA, postal_code: 02116</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>headquarters_address:</strong> street: 175 Berkeley Street, city: Boston, state: MA, postal_code: 02116</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>registration_authority:</strong> name: Massachusetts Secretary of the Commonwealth, id: CNC20I6IOMGF7KY49D67</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>legal_form:</strong> description: Stock Insurance Company, code: SIC</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>founding_year:</strong> 1912</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>relationships:</strong> {"direct_parent": null, "ultimate_parent": null}</span></div>
+                </div>
+                
+                <button class="collapsible" style="font-size:12px; font-weight:600; padding:6px 12px; background-color:#f1f5f9; color:#475569; border:1px solid #cbd5e1; border-radius:4px; margin-top:4px; display:inline-flex; width:auto; justify-content:flex-start; gap:6px;">
+                    <span>View Raw JSON Payload</span>
+                    <span class="chevron-icon">&#9660;</span>
+                </button>
+                <div class="content" style="padding:10px; margin-top:8px;">
+                    <pre style="margin:0;">{
+  "source": "DBCollector",
+  "status": "success",
+  "findings": {
+    "legal_name": "Liberty Mutual Insurance Company",
+    "country": "US",
+    "legal_address": {
+      "street": "175 Berkeley Street",
+      "city": "Boston",
+      "state": "MA",
+      "postal_code": "02116",
+      "country": "US"
+    },
+    "headquarters_address": {
+      "street": "175 Berkeley Street",
+      "city": "Boston",
+      "state": "MA",
+      "postal_code": "02116",
+      "country": "US"
+    },
+    "registration_authority": {
+      "name": "Massachusetts Secretary of the Commonwealth",
+      "id": "CNC20I6IOMGF7KY49D67"
+    },
+    "legal_form": {
+      "description": "Stock Insurance Company",
+      "code": "SIC"
+    },
+    "founding_year": 1912,
+    "relationships": {
+      "direct_parent": null,
+      "ultimate_parent": null
+    }
+  }
+}</pre>
+                </div>
+            </div>
+        
+            <button class="collapsible">
+                <span>FTC</span>
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <span class="badge danger">ERROR</span>
+                    <span class="chevron-icon">&#9660;</span>
+                </div>
+            </button>
+            <div class="content">
+                
+            <div style="background:#fff1f2; border:1px solid #fecaca; border-left:4px solid #ef4444; padding:10px 14px; border-radius:6px; color:#991b1b; font-size:13px; margin-bottom:12px;">
+                <strong>Backend Execution Notice (ERROR):</strong> <code>HTTP Error 403: Forbidden</code>
+            </div>
+            
+                
+                <button class="collapsible" style="font-size:12px; font-weight:600; padding:6px 12px; background-color:#f1f5f9; color:#475569; border:1px solid #cbd5e1; border-radius:4px; margin-top:4px; display:inline-flex; width:auto; justify-content:flex-start; gap:6px;">
+                    <span>View Raw JSON Payload</span>
+                    <span class="chevron-icon">&#9660;</span>
+                </button>
+                <div class="content" style="padding:10px; margin-top:8px;">
+                    <pre style="margin:0;">{
+  "source": "FTC",
+  "status": "error",
+  "message": "HTTP Error 403: Forbidden",
+  "findings": {}
+}</pre>
+                </div>
+            </div>
+        
+            <button class="collapsible">
+                <span>GDELT</span>
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <span class="badge danger">ERROR</span>
+                    <span class="chevron-icon">&#9660;</span>
+                </div>
+            </button>
+            <div class="content">
+                
+            <div style="background:#fff1f2; border:1px solid #fecaca; border-left:4px solid #ef4444; padding:10px 14px; border-radius:6px; color:#991b1b; font-size:13px; margin-bottom:12px;">
+                <strong>Backend Execution Notice (ERROR):</strong> <code>HTTP Error 429: Too Many Requests</code>
+            </div>
+            
+                
+                <button class="collapsible" style="font-size:12px; font-weight:600; padding:6px 12px; background-color:#f1f5f9; color:#475569; border:1px solid #cbd5e1; border-radius:4px; margin-top:4px; display:inline-flex; width:auto; justify-content:flex-start; gap:6px;">
+                    <span>View Raw JSON Payload</span>
+                    <span class="chevron-icon">&#9660;</span>
+                </button>
+                <div class="content" style="padding:10px; margin-top:8px;">
+                    <pre style="margin:0;">{
+  "source": "GDELT",
+  "status": "error",
+  "message": "HTTP Error 429: Too Many Requests",
+  "findings": {}
+}</pre>
+                </div>
+            </div>
+        
+            <button class="collapsible">
+                <span>OpenCorporates</span>
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <span class="badge danger">ERROR</span>
+                    <span class="chevron-icon">&#9660;</span>
+                </div>
+            </button>
+            <div class="content">
+                
+            <div style="background:#fff1f2; border:1px solid #fecaca; border-left:4px solid #ef4444; padding:10px 14px; border-radius:6px; color:#991b1b; font-size:13px; margin-bottom:12px;">
+                <strong>Backend Execution Notice (ERROR):</strong> <code>HTTP Error 401: Unauthorized</code>
+            </div>
+            
+                
+                <button class="collapsible" style="font-size:12px; font-weight:600; padding:6px 12px; background-color:#f1f5f9; color:#475569; border:1px solid #cbd5e1; border-radius:4px; margin-top:4px; display:inline-flex; width:auto; justify-content:flex-start; gap:6px;">
+                    <span>View Raw JSON Payload</span>
+                    <span class="chevron-icon">&#9660;</span>
+                </button>
+                <div class="content" style="padding:10px; margin-top:8px;">
+                    <pre style="margin:0;">{
+  "source": "OpenCorporates",
+  "status": "error",
+  "message": "HTTP Error 401: Unauthorized",
+  "findings": {}
+}</pre>
+                </div>
+            </div>
+        
+            <button class="collapsible">
+                <span>ResponsesAPI</span>
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <span class="badge success">SUCCESS</span>
+                    <span class="chevron-icon">&#9660;</span>
+                </div>
+            </button>
+            <div class="content">
+                
+                
+                <div style="margin-bottom:12px;">
+                    <strong style="font-size:13px; color:#0b192c;">Extracted Target Fields:</strong>
+                    <div style="margin-top:6px; display:flex; flex-wrap:wrap;"><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>official_websites:</strong> 5 items (https://www.libertymutualgroup.com, https://www.libertymutual.com)</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>revenue:</strong> 50218500000</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>acquisitions:</strong> 3 items (AmGeneral Insurance, State Auto Group)</span></div>
+                </div>
+                
+                <button class="collapsible" style="font-size:12px; font-weight:600; padding:6px 12px; background-color:#f1f5f9; color:#475569; border:1px solid #cbd5e1; border-radius:4px; margin-top:4px; display:inline-flex; width:auto; justify-content:flex-start; gap:6px;">
+                    <span>View Raw JSON Payload</span>
+                    <span class="chevron-icon">&#9660;</span>
+                </button>
+                <div class="content" style="padding:10px; margin-top:8px;">
+                    <pre style="margin:0;">{
+  "source": "ResponsesAPI",
+  "status": "success",
+  "findings": {
+    "official_websites": [
+      "https://www.libertymutualgroup.com",
+      "https://www.libertymutual.com",
+      "https://www.libertymutual.com/customer-support",
+      "https://www.libertymutualgroup.com/about-lm/corporate-information/overview",
+      "https://www.libertymutual.com/customer-support/billing-and-payment-options"
+    ],
+    "revenue": 50218500000,
+    "acquisitions": [
+      {
+        "name": "AmGeneral Insurance",
+        "deal_type": "acquisition",
+        "recency_years": 0.5
+      },
+      {
+        "name": "State Auto Group",
+        "deal_type": "acquisition",
+        "recency_years": 1.5
+      },
+      {
+        "name": "Ironshore Inc.",
+        "deal_type": "acquisition",
+        "recency_years": 5.5
+      }
+    ]
+  }
+}</pre>
+                </div>
+            </div>
+        
+            <button class="collapsible">
+                <span>SECCollector</span>
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <span class="badge warning">SKIPPED</span>
+                    <span class="chevron-icon">&#9660;</span>
+                </div>
+            </button>
+            <div class="content">
+                
+            <div style="background:#fff1f2; border:1px solid #fecaca; border-left:4px solid #ef4444; padding:10px 14px; border-radius:6px; color:#991b1b; font-size:13px; margin-bottom:12px;">
+                <strong>Backend Execution Notice (SKIPPED):</strong> <code>Company not registered with SEC EDGAR.</code>
+            </div>
+            
+                
+                <button class="collapsible" style="font-size:12px; font-weight:600; padding:6px 12px; background-color:#f1f5f9; color:#475569; border:1px solid #cbd5e1; border-radius:4px; margin-top:4px; display:inline-flex; width:auto; justify-content:flex-start; gap:6px;">
+                    <span>View Raw JSON Payload</span>
+                    <span class="chevron-icon">&#9660;</span>
+                </button>
+                <div class="content" style="padding:10px; margin-top:8px;">
+                    <pre style="margin:0;">{
+  "source": "SECCollector",
+  "status": "skipped",
+  "message": "Company not registered with SEC EDGAR.",
+  "findings": {}
+}</pre>
+                </div>
+            </div>
+        
+            <button class="collapsible">
+                <span>SSLLabs</span>
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <span class="badge success">SUCCESS</span>
+                    <span class="chevron-icon">&#9660;</span>
+                </div>
+            </button>
+            <div class="content">
+                
+                
+                <div style="margin-bottom:12px;">
+                    <strong style="font-size:13px; color:#0b192c;">Extracted Target Fields:</strong>
+                    <div style="margin-top:6px; display:flex; flex-wrap:wrap;"><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>ssl_grade:</strong> A+</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>ssl_details:</strong> status: READY, protocol: http, endpoints_count: 3</span></div>
+                </div>
+                
+                <button class="collapsible" style="font-size:12px; font-weight:600; padding:6px 12px; background-color:#f1f5f9; color:#475569; border:1px solid #cbd5e1; border-radius:4px; margin-top:4px; display:inline-flex; width:auto; justify-content:flex-start; gap:6px;">
+                    <span>View Raw JSON Payload</span>
+                    <span class="chevron-icon">&#9660;</span>
+                </button>
+                <div class="content" style="padding:10px; margin-top:8px;">
+                    <pre style="margin:0;">{
+  "source": "SSLLabs",
+  "status": "success",
+  "findings": {
+    "ssl_grade": "A+",
+    "ssl_details": {
+      "status": "READY",
+      "protocol": "http",
+      "endpoints_count": 3
+    }
+  }
+}</pre>
+                </div>
+            </div>
+        
+            <button class="collapsible">
+                <span>Wappalyzer</span>
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <span class="badge warning">SKIPPED</span>
+                    <span class="chevron-icon">&#9660;</span>
+                </div>
+            </button>
+            <div class="content">
+                
+            <div style="background:#fff1f2; border:1px solid #fecaca; border-left:4px solid #ef4444; padding:10px 14px; border-radius:6px; color:#991b1b; font-size:13px; margin-bottom:12px;">
+                <strong>Backend Execution Notice (SKIPPED):</strong> <code>python-Wappalyzer not installed. Run: pip install python-Wappalyzer</code>
+            </div>
+            
+                
+                <button class="collapsible" style="font-size:12px; font-weight:600; padding:6px 12px; background-color:#f1f5f9; color:#475569; border:1px solid #cbd5e1; border-radius:4px; margin-top:4px; display:inline-flex; width:auto; justify-content:flex-start; gap:6px;">
+                    <span>View Raw JSON Payload</span>
+                    <span class="chevron-icon">&#9660;</span>
+                </button>
+                <div class="content" style="padding:10px; margin-top:8px;">
+                    <pre style="margin:0;">{
+  "source": "Wappalyzer",
+  "status": "skipped",
+  "message": "python-Wappalyzer not installed. Run: pip install python-Wappalyzer",
+  "findings": {}
+}</pre>
+                </div>
+            </div>
+        
+            <button class="collapsible">
+                <span>Wikipedia</span>
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <span class="badge success">SUCCESS</span>
+                    <span class="chevron-icon">&#9660;</span>
+                </div>
+            </button>
+            <div class="content">
+                
+                
+                <div style="margin-bottom:12px;">
+                    <strong style="font-size:13px; color:#0b192c;">Extracted Target Fields:</strong>
+                    <div style="margin-top:6px; display:flex; flex-wrap:wrap;"><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>subsidiaries:</strong> 24 items (Helmsman Management Services, Liberty County Mutual Insurance Company)</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>acquisitions:</strong> 8 items (Wausau Insurance Cos, Safeco Corporation)</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>customer_type:</strong> MIX</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>has_ecommerce:</strong> True</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>country:</strong> United States</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>countries_of_operation:</strong> 15 items (United States, Brazil)</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>founding_year:</strong> 1912</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>industry_classification:</strong> 9 items (Insurance, Property and Casualty)</span></div>
+                </div>
+                
+                <button class="collapsible" style="font-size:12px; font-weight:600; padding:6px 12px; background-color:#f1f5f9; color:#475569; border:1px solid #cbd5e1; border-radius:4px; margin-top:4px; display:inline-flex; width:auto; justify-content:flex-start; gap:6px;">
+                    <span>View Raw JSON Payload</span>
+                    <span class="chevron-icon">&#9660;</span>
+                </button>
+                <div class="content" style="padding:10px; margin-top:8px;">
+                    <pre style="margin:0;">{
+  "source": "Wikipedia",
+  "status": "success",
+  "findings": {
+    "subsidiaries": [
+      "Helmsman Management Services",
+      "Liberty County Mutual Insurance Company",
+      "Liberty International Underwriters (LIU)",
+      "Liberty Mutual Surety (LMS)",
+      "Liberty Mutual Reinsurance (LMR)",
+      "Liberty Specialty Markets (LSM)",
+      "Liberty Seguros",
+      "Liberty Mutual Agency Corporation",
+      "American Fire & Casualty",
+      "America First Insurance",
+      "Colorado Casualty",
+      "Consolidated Insurance Company",
+      "Golden Eagle Insurance",
+      "Indiana Insurance",
+      "Liberty Mutual Surety",
+      "Liberty Surety First",
+      "Montgomery Insurance",
+      "Ohio Casualty",
+      "Ohio Security",
+      "West American",
+      "Peerless Insurance",
+      "Safeco",
+      "State Auto Mutual Insurance Companies",
+      "Ironshore"
+    ],
+    "acquisitions": [
+      {
+        "name": "Wausau Insurance Cos",
+        "deal_type": "minor acquisition",
+        "recency_years": 1999.0
+      },
+      {
+        "name": "Safeco Corporation",
+        "deal_type": "material acquisition",
+        "recency_years": 2008.0
+      },
+      {
+        "name": "Ironshore Inc",
+        "deal_type": "material acquisition",
+        "recency_years": 2017.0
+      },
+      {
+        "name": "Nationale Borg",
+        "deal_type": "minor acquisition",
+        "recency_years": 2019.0
+      },
+      {
+        "name": "Nationale Borg Reinsurance",
+        "deal_type": "minor acquisition",
+        "recency_years": 2019.0
+      },
+      {
+        "name": "AmTrust Insurance Spain",
+        "deal_type": "minor acquisition",
+        "recency_years": 2019.0
+      },
+      {
+        "name": "State Auto Group",
+        "deal_type": "material acquisition",
+        "recency_years": 2021.0
+      },
+      {
+        "name": "AmGeneral Insurance Berhad",
+        "deal_type": "minor acquisition",
+        "recency_years": 2022.0
+      }
+    ],
+    "customer_type": "MIX",
+    "has_ecommerce": true,
+    "country": "United States",
+    "countries_of_operation": [
+      "United States",
+      "Brazil",
+      "Chile",
+      "China",
+      "Colombia",
+      "Ecuador",
+      "India",
+      "Ireland",
+      "Malaysia",
+      "Portugal",
+      "Singapore",
+      "Spain",
+      "Thailand",
+      "United Kingdom",
+      "Vietnam"
+    ],
+    "founding_year": 1912,
+    "industry_classification": [
+      "Insurance",
+      "Property and Casualty",
+      "Life Insurance",
+      "Commercial Insurance",
+      "Workers' Compensation",
+      "Global Specialty",
+      "Group Disability",
+      "Fire Insurance",
+      "Surety"
+    ]
+  }
+}</pre>
+                </div>
+            </div>
+        
+            <button class="collapsible">
+                <span>Wikidata</span>
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <span class="badge success">SUCCESS</span>
+                    <span class="chevron-icon">&#9660;</span>
+                </div>
+            </button>
+            <div class="content">
+                
+                
+                <div style="margin-bottom:12px;">
+                    <strong style="font-size:13px; color:#0b192c;">Extracted Target Fields:</strong>
+                    <div style="margin-top:6px; display:flex; flex-wrap:wrap;"><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>revenue:</strong> 48200000000</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>employees:</strong> N/A</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>country:</strong> United States</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>headquarters:</strong> Boston</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>industry:</strong> Insurance</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>sub_industries:</strong> 4 items (Property insurance, Casualty insurance)</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>official_website:</strong> https://www.libertymutualgroup.com</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>official_websites:</strong> https://www.libertymutualgroup.com, https://www.libertymutual.com/</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>subsidiaries:</strong> None</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>founding_year:</strong> N/A</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>countries_of_operation:</strong> United States</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>parent_organization:</strong> N/A</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>company_type:</strong> Mutual company</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>acquisitions:</strong> None</span></div>
+                </div>
+                
+                <button class="collapsible" style="font-size:12px; font-weight:600; padding:6px 12px; background-color:#f1f5f9; color:#475569; border:1px solid #cbd5e1; border-radius:4px; margin-top:4px; display:inline-flex; width:auto; justify-content:flex-start; gap:6px;">
+                    <span>View Raw JSON Payload</span>
+                    <span class="chevron-icon">&#9660;</span>
+                </button>
+                <div class="content" style="padding:10px; margin-top:8px;">
+                    <pre style="margin:0;">{
+  "source": "Wikidata",
+  "status": "success",
+  "findings": {
+    "revenue": 48200000000,
+    "employees": null,
+    "country": "United States",
+    "headquarters": "Boston",
+    "industry": [
+      "Insurance"
+    ],
+    "sub_industries": [
+      "Property insurance",
+      "Casualty insurance",
+      "Life insurance",
+      "Commercial insurance"
+    ],
+    "official_website": "https://www.libertymutualgroup.com",
+    "official_websites": [
+      "https://www.libertymutualgroup.com",
+      "https://www.libertymutual.com/"
+    ],
+    "subsidiaries": [],
+    "founding_year": null,
+    "countries_of_operation": [
+      "United States"
+    ],
+    "parent_organization": null,
+    "company_type": "Mutual company",
+    "acquisitions": []
+  }
+}</pre>
+                </div>
+            </div>
+        
+            <button class="collapsible">
+                <span>DomainScraper</span>
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <span class="badge success">SUCCESS</span>
+                    <span class="chevron-icon">&#9660;</span>
+                </div>
+            </button>
+            <div class="content">
+                
+                
+                <div style="margin-bottom:12px;">
+                    <strong style="font-size:13px; color:#0b192c;">Extracted Target Fields:</strong>
+                    <div style="margin-top:6px; display:flex; flex-wrap:wrap;"><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>domains:</strong> 6 items ({'url': 'kdc-www.libertymutualgroup.com', 'https_encrypted': False}, {'url': 'libertymutual.com', 'https_encrypted': True})</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>privacy_policy_published:</strong> True</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>compliance_mentions:</strong> None</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>customer_type:</strong> MIX</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>has_ecommerce:</strong> False</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>industries_served:</strong> insurance</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>customer_segments:</strong> personal, small business, enterprise</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>business_model:</strong> Insurance services</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>b2b_b2c_confidence:</strong> high</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>ecommerce_evidence:</strong> No checkout/cart/payment flow detected</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>cloud_saas_indicators:</strong> None</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>data_sensitive_indicators:</strong> insurance</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>privacy_policy_url:</strong> https://www.libertymutual.com/privacy-policy</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>terms_url:</strong> https://www.libertymutual.com/terms-and-conditions</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>products_services_portfolio:</strong> 6 items (Auto insurance, Home insurance)</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>mozilla_observatory_grade:</strong> N/A</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>tosdr_privacy_grade:</strong> N/A</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>domain_creation_date:</strong> N/A</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>domain_expiration_date:</strong> N/A</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>domain_registrar:</strong> N/A</span></div>
+                </div>
+                
+                <button class="collapsible" style="font-size:12px; font-weight:600; padding:6px 12px; background-color:#f1f5f9; color:#475569; border:1px solid #cbd5e1; border-radius:4px; margin-top:4px; display:inline-flex; width:auto; justify-content:flex-start; gap:6px;">
+                    <span>View Raw JSON Payload</span>
+                    <span class="chevron-icon">&#9660;</span>
+                </button>
+                <div class="content" style="padding:10px; margin-top:8px;">
+                    <pre style="margin:0;">{
+  "source": "DomainScraper",
+  "status": "success",
+  "findings": {
+    "domains": [
+      {
+        "url": "kdc-www.libertymutualgroup.com",
+        "https_encrypted": false
+      },
+      {
+        "url": "libertymutual.com",
+        "https_encrypted": true
+      },
+      {
+        "url": "failover-libertymutual.com.edgekey.net",
+        "https_encrypted": false
+      },
+      {
+        "url": "www.libertymutualgroup.com",
+        "https_encrypted": true
+      },
+      {
+        "url": "pdc-www.libertymutualgroup.com",
+        "https_encrypted": false
+      },
+      {
+        "url": "libertymutualgroup.com",
+        "https_encrypted": true
+      }
+    ],
+    "privacy_policy_published": true,
+    "compliance_mentions": [],
+    "customer_type": "MIX",
+    "has_ecommerce": false,
+    "industries_served": [
+      "insurance"
+    ],
+    "customer_segments": [
+      "personal",
+      "small business",
+      "enterprise"
+    ],
+    "business_model": "Insurance services",
+    "b2b_b2c_confidence": "high",
+    "ecommerce_evidence": "No checkout/cart/payment flow detected",
+    "cloud_saas_indicators": [],
+    "data_sensitive_indicators": [
+      "insurance"
+    ],
+    "privacy_policy_url": "https://www.libertymutual.com/privacy-policy",
+    "terms_url": "https://www.libertymutual.com/terms-and-conditions",
+    "products_services_portfolio": [
+      "Auto insurance",
+      "Home insurance",
+      "Renters insurance",
+      "Life insurance",
+      "Pet insurance",
+      "Small business insurance"
+    ],
+    "mozilla_observatory_grade": null,
+    "tosdr_privacy_grade": null,
+    "domain_creation_date": null,
+    "domain_expiration_date": null,
+    "domain_registrar": null
+  }
+}</pre>
+                </div>
+            </div>
+        
+            <button class="collapsible">
+                <span>CensusNAICS</span>
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <span class="badge success">SUCCESS</span>
+                    <span class="chevron-icon">&#9660;</span>
+                </div>
+            </button>
+            <div class="content">
+                
+                
+                <div style="margin-bottom:12px;">
+                    <strong style="font-size:13px; color:#0b192c;">Extracted Target Fields:</strong>
+                    <div style="margin-top:6px; display:flex; flex-wrap:wrap;"><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>naics_code:</strong> 524126</span><span style='background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:4px 10px; font-size:12px; margin-right:6px; margin-bottom:6px; display:inline-block;'><strong>naics_description:</strong> Direct Property and Casualty Insurance Carriers</span></div>
+                </div>
+                
+                <button class="collapsible" style="font-size:12px; font-weight:600; padding:6px 12px; background-color:#f1f5f9; color:#475569; border:1px solid #cbd5e1; border-radius:4px; margin-top:4px; display:inline-flex; width:auto; justify-content:flex-start; gap:6px;">
+                    <span>View Raw JSON Payload</span>
+                    <span class="chevron-icon">&#9660;</span>
+                </button>
+                <div class="content" style="padding:10px; margin-top:8px;">
+                    <pre style="margin:0;">{
+  "source": "CensusNAICS",
+  "status": "success",
+  "findings": {
+    "naics_code": "524126",
+    "naics_description": "Direct Property and Casualty Insurance Carriers"
+  }
+}</pre>
+                </div>
+            </div>
+        
+        </div>
+        
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+
+            for (i = 0; i < coll.length; i++) {
+              coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                var icon = this.querySelector(".chevron-icon");
+                if (content.style.display === "block") {
+                  content.style.display = "none";
+                  if (icon) icon.innerHTML = "&#9660;";
+                } else {
+                  content.style.display = "block";
+                  if (icon) icon.innerHTML = "&#9650;";
+                }
+              });
+            }
+
+            function toggleModDetail(idx) {
+                var detailRow = document.getElementById("mod-detail-" + idx);
+                var icon = document.getElementById("mod-icon-" + idx);
+                if (!detailRow) return;
+                if (detailRow.style.display === "none" || detailRow.style.display === "") {
+                    detailRow.style.display = "table-row";
+                    icon.innerHTML = "&#9650;";
+                } else {
+                    detailRow.style.display = "none";
+                    icon.innerHTML = "&#9660;";
+                }
+            }
+
+            function toggleProv(id) {
+                var row = document.getElementById(id);
+                if (!row) return;
+                row.style.display = (row.style.display === "none" || row.style.display === "") ? "table-row" : "none";
+            }
+
+            // Bi-Directional Lineage Mapping Matrix
+            const FIELD_TO_MODIFIERS = {
+                "revenue": ["Mergers and Acquisitions", "Organizational Complexity", "Seasonality of sales", "Years in business"],
+                "founding_year": ["Years in business"],
+                "customer_type": ["Amount of sensitive information", "B2C End Products", "Applicability of Privacy Regulation"],
+                "has_ecommerce": ["Amount of sensitive information", "Applicability of Privacy Regulation"],
+                "has_ecommerce_platform": ["Amount of sensitive information"],
+                "privacy_policy_published": ["Privacy Regulation"],
+                "compliance_mentions": ["Privacy Regulation"],
+                "subsidiaries": ["Organizational Complexity"],
+                "subsidiaries_count": ["Organizational Complexity"],
+                "acquisitions": ["Mergers and Acquisitions"],
+                "acquisitions_count": ["Mergers and Acquisitions"],
+                "acquisitions_mentions": ["Mergers and Acquisitions"],
+                "countries_of_operation": ["Geographic Spread", "Applicability of Privacy Regulation"],
+                "countries_of_operation_count": ["Geographic Spread", "Applicability of Privacy Regulation"],
+                "continent_spread": ["Geographic Spread"],
+                "continent_spread_count": ["Geographic Spread"],
+                "domains": ["Domain Encryption", "Internet footprint"],
+                "domains_count": ["Domain Encryption", "Internet footprint"],
+                "internet_exposure_domains": ["Internet footprint"],
+                "ssl_grade": ["Domain Encryption"],
+                "digital_exposure": ["Volatility/Recovery in Sales"],
+                "disruption_speed": ["Volatility/Recovery in Sales"],
+                "recovery_complexity": ["Volatility/Recovery in Sales"],
+                "sic_codes": ["Nature of services", "Seasonality of sales"],
+                "naics_code": ["Nature of services"],
+                "services_appetite": ["Nature of services"],
+                "quarterly_revenue": ["Seasonality of sales"],
+                "detected_technologies": ["Amount of sensitive information", "Internet footprint"],
+                "has_cyber_breach": ["Volatility/Recovery in Sales"],
+                "has_active_litigation": ["Organizational Complexity"],
+                "ftc_actions_count": ["Privacy Regulation"]
+            };
+
+            const MODIFIER_DERIVATION_DATA = {
+  "Mergers and Acquisitions": {
+    "inputs": "Revenue Tier: Mega Enterprise (>= $1B) | Acquisitions Count: 10",
+    "raw": "revenue: $50,218,500,000 USD | acquisitions_count: 10 | acquisitions: 10 items"
+  },
+  "Amount of sensitive information": {
+    "inputs": "Customer Type: MIX | Has E-commerce: Yes | E-commerce Platform: None",
+    "raw": "customer_type: 'MIX' | has_ecommerce: True | detected_technologies: 0 items ()"
+  },
+  "Domain Encryption": {
+    "inputs": "Domains Discovered: 6 | Encrypted Ratio: 100% | SSL Grade: A+",
+    "raw": "domains: 6 items | domains_count: 6 | ssl_grade: 'A+'"
+  },
+  "Geographic Spread": {
+    "inputs": "Operating Countries Count: 15 | Continent Count: 4 | USA Presence: Yes",
+    "raw": "countries_of_operation: 15 items | countries_of_operation_count: 15 | continent_spread: 4 items"
+  },
+  "Internet footprint": {
+    "inputs": "Discovered Domains: 6 | Customer Base Scale: Enterprise | Scale Multiplier: 3.0",
+    "raw": "domains: 6 items | domains_count: 6 | internet_exposure_domains: 5 | detected_technologies: 0 items ()"
+  },
+  "Nature of services": {
+    "inputs": "Services Risk Appetite: medium_risk | Primary SIC Code: 6331 | NAICS Code: 524126",
+    "raw": "sic_codes: ['6331'] | naics_code: '524126' | services_appetite: 'medium_risk'"
+  },
+  "Organizational Complexity": {
+    "inputs": "Subsidiaries Count: 24 | Annual Revenue: $50,218,500,000 USD | Active Litigation: No",
+    "raw": "revenue: $50,218,500,000 USD | subsidiaries_count: 24 | subsidiaries: 24 items | has_active_litigation: False"
+  },
+  "Privacy Regulation": {
+    "inputs": "Privacy Policy Published: Yes | Compliance Frameworks: 0 | FTC Enforcement Actions: 0",
+    "raw": "privacy_policy_published: True | compliance_mentions: 0 items () | ftc_actions_count: 0"
+  },
+  "Seasonality of sales": {
+    "inputs": "Quarterly Timeline Quarters: 0 | Revenue Volatility CV: 0.08 | Primary SIC: 6331",
+    "raw": "quarterly_revenue: 0 items () | revenue: $50,218,500,000 USD | sic_codes: ['6331']"
+  },
+  "Volatility/Recovery in Sales": {
+    "inputs": "Digital Exposure: 4/5 | Disruption Speed: 3/5 | Recovery Complexity: 4/5 | Has Cyber Breach: No",
+    "raw": "digital_exposure: 4 | disruption_speed: 3 | recovery_complexity: 4 | has_cyber_breach: False"
+  },
+  "Applicability of Privacy Regulation": {
+    "inputs": "Operating Countries: 15 | Strict Regimes (GDPR/CCPA): Active | Has E-commerce: Yes",
+    "raw": "countries_of_operation: 15 items | countries_of_operation_count: 15 | has_ecommerce: True | customer_type: 'MIX'"
+  },
+  "B2C End Products": {
+    "inputs": "Customer Classification: MIX | End Product Category: Hybrid Commercial & Consumer Lines",
+    "raw": "customer_type: 'MIX'"
+  },
+  "Years in business": {
+    "inputs": "Founding Year: 1912 | Business Age: 114 yrs | Revenue Tier: Mega Enterprise (>= $1B)",
+    "raw": "founding_year: 1912 | revenue: $50,218,500,000 USD"
+  }
+};
+
+            let currentSelectedField = null;
+            let currentSelectedMod = null;
+
+            function highlightFieldLineage(fieldKey) {
+                if (currentSelectedField === fieldKey) {
+                    resetMatrixHighlight();
+                    currentSelectedField = null;
+                    return;
+                }
+                currentSelectedField = fieldKey;
+                currentSelectedMod = null;
+
+                document.querySelectorAll('.matrix-field-tag').forEach(el => {
+                    el.classList.remove('active-select', 'connected', 'muted-tag');
+                });
+                document.querySelectorAll('.matrix-mod-tag').forEach(el => {
+                    el.classList.remove('active-select', 'connected', 'muted-tag');
+                });
+
+                const targetEl = document.getElementById('mfield-' + fieldKey);
+                if (targetEl) targetEl.classList.add('active-select');
+
+                const connectedMods = FIELD_TO_MODIFIERS[fieldKey] || [];
+                
+                document.querySelectorAll('.matrix-field-tag').forEach(el => {
+                    if (el.id !== 'mfield-' + fieldKey) el.classList.add('muted-tag');
+                });
+
+                document.querySelectorAll('.matrix-mod-tag').forEach(el => {
+                    const cleanId = el.id.replace('mmod-', '');
+                    let isMatch = false;
+                    connectedMods.forEach(mName => {
+                        if (mName.replace(/[^a-zA-Z0-9]/g, '') === cleanId) {
+                            isMatch = true;
+                        }
+                    });
+                    if (isMatch) {
+                        el.classList.add('connected');
+                    } else {
+                        el.classList.add('muted-tag');
+                    }
+                });
+
+                // Update breakdown box for selected field
+                document.getElementById('trans-req-fields').innerText = fieldKey;
+                document.getElementById('trans-raw-vals').innerText = "Field: " + fieldKey;
+            }
+
+            function highlightModifierLineage(modName, cleanId) {
+                if (currentSelectedMod === cleanId) {
+                    resetMatrixHighlight();
+                    currentSelectedMod = null;
+                    return;
+                }
+                currentSelectedMod = cleanId;
+                currentSelectedField = null;
+
+                document.querySelectorAll('.matrix-field-tag').forEach(el => {
+                    el.classList.remove('active-select', 'connected', 'muted-tag');
+                });
+                document.querySelectorAll('.matrix-mod-tag').forEach(el => {
+                    el.classList.remove('active-select', 'connected', 'muted-tag');
+                });
+
+                const targetMod = document.getElementById('mmod-' + cleanId);
+                if (targetMod) targetMod.classList.add('active-select');
+
+                const connectedFields = [];
+                for (const [fKey, mods] of Object.entries(FIELD_TO_MODIFIERS)) {
+                    if (mods.includes(modName)) {
+                        connectedFields.push(fKey);
+                    }
+                }
+
+                document.querySelectorAll('.matrix-mod-tag').forEach(el => {
+                    if (el.id !== 'mmod-' + cleanId) el.classList.add('muted-tag');
+                });
+
+                document.querySelectorAll('.matrix-field-tag').forEach(el => {
+                    const fKey = el.id.replace('mfield-', '');
+                    if (connectedFields.includes(fKey)) {
+                        el.classList.add('connected');
+                    } else {
+                        el.classList.add('muted-tag');
+                    }
+                });
+
+                // Update 2-point breakdown box for selected modifier
+                const dData = MODIFIER_DERIVATION_DATA[modName] || {};
+                document.getElementById('trans-req-fields').innerText = dData.inputs || connectedFields.join(', ');
+                document.getElementById('trans-raw-vals').innerText = dData.raw || connectedFields.join(' | ');
+            }
+
+            function resetMatrixHighlight() {
+                document.querySelectorAll('.matrix-field-tag').forEach(el => {
+                    el.classList.remove('active-select', 'connected', 'muted-tag');
+                });
+                document.querySelectorAll('.matrix-mod-tag').forEach(el => {
+                    el.classList.remove('active-select', 'connected', 'muted-tag');
+                });
+
+                document.getElementById('trans-req-fields').innerText = "Click any modifier on the right to inspect inputs";
+                document.getElementById('trans-raw-vals').innerText = "Click any modifier on the right to inspect raw values";
+            }
+
+            function toggleExtraFieldsInMatrix() {
+                const isChecked = document.getElementById('toggle-extra-fields').checked;
+                document.querySelectorAll('.extra-matrix-field').forEach(el => {
+                    el.style.display = isChecked ? 'inline-block' : 'none';
+                });
+                resetMatrixHighlight();
+            }
+        </script>
+    </body>
+    </html>
+    
