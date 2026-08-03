@@ -1,0 +1,16 @@
+Col 2	Description	Evaluates a company's cybersecurity strength across 3 simple checks:
+1. Certifications: ISO 27001, SOC 2, NIST CSF, CIS Controls, OWASP, Cloud Security Alliance.
+2. Live Web Security: DMARC/SPF email protection, HTTP security headers, security.txt file, and bug bounty programs.
+3. Executive Leadership: CISO role disclosures in SEC 10-K filings (for public companies).
+
+Scoring by Company Type:
+• Public Companies: Score = 40% Certifications + 40% Live Web Security + 20% SEC CISO.
+• Private Companies: SEC check is skipped. Score = 50% Certifications + 50% Live Web Security (if no certs page is found, Certifications defaults to Neutral baseline, making Score = [Neutral + Live Web Security] / 2).
+
+Rating Buckets:
+• Favourable: Verified audited certs (ISO 27001 / SOC 2) + good web security.
+• Partially Favourable: Self-declared frameworks (NIST / CIS / OWASP) OR active bug bounty / security.txt.
+• Average: No certs found + standard web security.
+• Partially Unfavourable: Weak web security (missing DMARC email protection & security headers).
+Col 3	Target Parameter	Security framework certs, DMARC/SPF email records, HTTP security headers, security.txt file, and SEC CISO disclosures.
+Col 4	Cyber Insurance research Needed	Scrape company site (/security, /trust, /.well-known/security.txt), run free DNS lookups for DMARC/SPF, check HTTP response headers, and read SEC 10-K Item 1C for public companies.
