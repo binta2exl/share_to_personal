@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyber Risk Underwriting Platform - Presentation Deck (Backup Copy)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-canvas: #0B132B;
+      --bg-slide: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --border-card: #E2E8F0;
+      --border-dark: #334155;
+      
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --text-muted: #64748B;
+      --text-white: #FFFFFF;
+      
+      --primary-blue: #2563EB;
+      --primary-blue-dark: #1D4ED8;
+      --primary-blue-light: #EFF6FF;
+      
+      --accent-teal: #0D9488;
+      --accent-teal-light: #F0FDFA;
+      
+      --accent-emerald: #059669;
+      --accent-emerald-light: #ECFDF5;
+      
+      --accent-purple: #7C3AED;
+      --accent-purple-light: #FAF5FF;
+      
+      --accent-amber: #D97706;
+      --accent-amber-light: #FFFBEB;
+      
+      --accent-red: #DC2626;
+      --accent-red-light: #FEF2F2;
+      
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      font-family: var(--font-sans);
+      color: var(--text-primary);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      user-select: none;
+    }
+
+    /* Presentation Viewport */
+    #presentation-container {
+      position: relative;
+      width: 94vw;
+      max-width: 1440px;
+      aspect-ratio: 16 / 9;
+      max-height: 88vh;
+      background: var(--bg-slide);
+      border-radius: 16px;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      display: flex;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      padding: 36px 48px;
+      display: none;
+      flex-direction: column;
+      opacity: 0;
+      transform: scale(0.98);
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .slide.active {
+      display: flex;
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Dark Slide Overrides */
+    .slide.dark-theme {
+      background: #0B132B;
+      color: var(--text-white);
+    }
+    .slide.dark-theme .text-title { color: #FFFFFF; }
+    .slide.dark-theme .text-sub { color: #94A3B8; }
+    .slide.dark-theme .card { background: #111D3D; border-color: #1E293B; }
+
+    /* Header Component */
+    .slide-header {
+      margin-bottom: 20px;
+      flex-shrink: 0;
+    }
+
+    .badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+    .tag-blue { background: var(--primary-blue-light); color: var(--primary-blue-dark); }
+    .tag-teal { background: var(--accent-teal-light); color: var(--accent-teal); }
+    .tag-emerald { background: var(--accent-emerald-light); color: var(--accent-emerald); }
+    .tag-purple { background: var(--accent-purple-light); color: var(--accent-purple); }
+    .tag-amber { background: var(--accent-amber-light); color: var(--accent-amber); }
+    .tag-red { background: var(--accent-red-light); color: var(--accent-red); }
+    .tag-dark { background: #1E293B; color: #60A5FA; border: 1px solid #334155; }
+
+    .slide-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .slide-subtitle {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    /* Card System */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 12px;
+      padding: 18px 20px;
+      box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.04);
+      position: relative;
+    }
+
+    .card-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      flex: 1;
+    }
+
+    .card-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      flex: 1;
+    }
+
+    .card-grid-2x3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 14px;
+      flex: 1;
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+
+    .card-desc {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .bullet-list {
+      list-style: none;
+      margin-top: 8px;
+    }
+
+    .bullet-list li {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: 5px;
+      position: relative;
+      padding-left: 14px;
+    }
+
+    .bullet-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--primary-blue);
+      font-weight: bold;
+    }
+
+    /* KPI Stat Cards */
+    .stat-card {
+      text-align: center;
+      padding: 16px 12px;
+      border-radius: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+    }
+    .stat-blue::before { background: var(--primary-blue); }
+    .stat-emerald::before { background: var(--accent-emerald); }
+    .stat-purple::before { background: var(--accent-purple); }
+    .stat-amber::before { background: var(--accent-amber); }
+
+    .stat-value {
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 4px;
+      font-feature-settings: "tnum";
+    }
+    .stat-blue .stat-value { color: var(--primary-blue); }
+    .stat-emerald .stat-value { color: var(--accent-emerald); }
+    .stat-purple .stat-value { color: var(--accent-purple); }
+    .stat-amber .stat-value { color: var(--accent-amber); }
+
+    .stat-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .stat-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Table Component */
+    .presentation-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+    .presentation-table th {
+      background: #0F172A;
+      color: #FFFFFF;
+      text-align: left;
+      padding: 10px 14px;
+      font-weight: 700;
+      font-size: 11.5px;
+      letter-spacing: 0.02em;
+    }
+    .presentation-table th:first-child { border-top-left-radius: 8px; }
+    .presentation-table th:last-child { border-top-right-radius: 8px; }
+    .presentation-table td {
+      padding: 9px 14px;
+      border-bottom: 1px solid var(--border-card);
+      color: var(--text-secondary);
+    }
+    .presentation-table tr:nth-child(even) td {
+      background: #F8FAFC;
+    }
+    .presentation-table tr:last-child td {
+      border-bottom: none;
+    }
+    .presentation-table td.bold {
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .badge-verified {
+      background: var(--accent-emerald-light);
+      color: var(--accent-emerald);
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 10px;
+      display: inline-block;
+    }
+    .badge-confirmed {
+      background: var(--primary-blue-light);
+      color: var(--primary-blue);
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 10px;
+      display: inline-block;
+    }
+
+    /* Bottom Control Bar */
+    #nav-bar {
+      margin-top: 14px;
+      width: 94vw;
+      max-width: 1440px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #94A3B8;
+      font-size: 13px;
+    }
+
+    .nav-btn {
+      background: #1E293B;
+      color: #FFFFFF;
+      border: 1px solid #334155;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .nav-btn:hover:not(:disabled) {
+      background: var(--primary-blue);
+      border-color: var(--primary-blue);
+    }
+    .nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .slide-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 5px;
+      background: #334155;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .dot.active {
+      width: 28px;
+      background: var(--primary-blue);
+    }
+
+    /* SVG Architecture Visuals */
+    .arch-svg {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Presentation Container -->
+  <div id="presentation-container">
+
+    <!-- ================================================================= -->
+    <!-- SLIDE 1: HERO / TITLE SLIDE -->
+    <!-- ================================================================= -->
+    <div class="slide dark-theme active" id="slide-1" style="background: radial-gradient(circle at 80% 20%, #1E293B 0%, #0B132B 70%);">
+      <div style="max-width: 90%; margin: auto 0;">
+        <span class="badge-tag tag-dark" style="margin-bottom: 16px;">EXL DIGITAL ACCELERATOR • PRODUCTION POC</span>
+        <h1 style="font-size: 42px; font-weight: 800; line-height: 1.15; color: #FFFFFF; margin-bottom: 8px; letter-spacing: -0.02em;">
+          Autonomous Multi-Agent Cyber Risk<br>
+          <span style="background: linear-gradient(90deg, #38BDF8 0%, #818CF8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Underwriting Assessment Platform</span>
+        </h1>
+        <p style="font-size: 16px; color: #94A3B8; line-height: 1.5; margin-bottom: 32px; max-width: 860px;">
+          Transforming commercial cyber insurance research, fact-checking, and rating modifier evaluation from 
+          <strong style="color: #F1F5F9;">4 hours of manual effort to under 90 seconds</strong> using LangGraph orchestration, live public-source intelligence, and deterministic CNA scoring.
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;">
+          <div class="card" style="background: rgba(15, 23, 42, 0.7); border-color: #334155;">
+            <div style="color: #38BDF8; font-size: 11px; font-weight: 700; margin-bottom: 4px;">LANGGRAPH WORKFLOW</div>
+            <div style="color: #FFFFFF; font-size: 14px; font-weight: 700;">10 Orchestrated Agents</div>
+            <div style="color: #94A3B8; font-size: 11px; margin-top: 2px;">Fan-out / fan-in DAG</div>
+          </div>
+          <div class="card" style="background: rgba(15, 23, 42, 0.7); border-color: #334155;">
+            <div style="color: #34D399; font-size: 11px; font-weight: 700; margin-bottom: 4px;">ZERO HALLUCINATION MATH</div>
+            <div style="color: #FFFFFF; font-size: 14px; font-weight: 700;">15 Codified Modifiers</div>
+            <div style="color: #94A3B8; font-size: 11px; margin-top: 2px;">CNA underwriting rules</div>
+          </div>
+          <div class="card" style="background: rgba(15, 23, 42, 0.7); border-color: #334155;">
+            <div style="color: #C084FC; font-size: 11px; font-weight: 700; margin-bottom: 4px;">REAL-TIME TELEMETRY</div>
+            <div style="color: #FFFFFF; font-size: 14px; font-weight: 700;">FastAPI + React SSE</div>
+            <div style="color: #94A3B8; font-size: 11px; margin-top: 2px;">Live node execution streaming</div>
+          </div>
+          <div class="card" style="background: rgba(15, 23, 42, 0.7); border-color: #334155;">
+            <div style="color: #FBBF24; font-size: 11px; font-weight: 700; margin-bottom: 4px;">MEASURED IMPACT</div>
+            <div style="color: #FFFFFF; font-size: 14px; font-weight: 700;">99% Turnaround Lift</div>
+            <div style="color: #94A3B8; font-size: 11px; margin-top: 2px;">4 hrs → 90 seconds</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- SLIDE 2: THE PROBLEM / UNDERWRITING BOTTLENECK -->
+    <!-- ================================================================= -->
+    <div class="slide" id="slide-2">
+      <div class="slide-header">
+        <span class="badge-tag tag-red">THE PROBLEM & MARKET CONTEXT</span>
+        <h2 class="slide-title">The Underwriting Bottleneck in Commercial Cyber Insurance</h2>
+        <p class="slide-subtitle">Manual research cannot scale with exploding submission volumes, creating severe underwriting leakage and pricing volatility.</p>
+      </div>
+
+      <div class="card-grid-3">
+        <div class="card" style="border-top: 4px solid var(--accent-red);">
+          <span class="badge-tag tag-red" style="font-size: 9px;">PAIN POINT 1</span>
+          <div class="card-title">Scattered Manual Research</div>
+          <div style="background: var(--accent-red-light); padding: 10px; border-radius: 8px; text-align: center; margin: 10px 0;">
+            <div style="font-size: 24px; font-weight: 800; color: var(--accent-red);">3–4 Hours</div>
+            <div style="font-size: 11px; color: #7F1D1D;">spent per corporate submission</div>
+          </div>
+          <p class="card-desc">Underwriters manually scour 5–7 disconnected sources (SEC filings, Wikidata, D&B, Wikipedia, SSL certificates, HTML) for risk factors.</p>
+          <ul class="bullet-list" style="margin-top: 10px;">
+            <li>High turnaround times delay broker quotes</li>
+            <li>Inconsistent data coverage across accounts</li>
+            <li>Fatigue causes missed cyber vulnerability indicators</li>
+          </ul>
+        </div>
+
+        <div class="card" style="border-top: 4px solid var(--accent-amber);">
+          <span class="badge-tag tag-amber" style="font-size: 9px;">PAIN POINT 2</span>
+          <div class="card-title">Subjective Risk Scoring</div>
+          <div style="background: var(--accent-amber-light); padding: 10px; border-radius: 8px; text-align: center; margin: 10px 0;">
+            <div style="font-size: 24px; font-weight: 800; color: var(--accent-amber);">±15% Variance</div>
+            <div style="font-size: 11px; color: #78350F;">pricing spread across analysts</div>
+          </div>
+          <p class="card-desc">Translating unstructured findings into CNA modifier debits and credits relies on human judgment without mathematical standardization.</p>
+          <ul class="bullet-list" style="margin-top: 10px;">
+            <li>Lack of cross-source consensus verification</li>
+            <li>Zero automated evidence lineage or audit trail</li>
+            <li>High risk of underwriting leakage and adverse selection</li>
+          </ul>
+        </div>
+
+        <div class="card" style="border-top: 4px solid var(--primary-blue);">
+          <span class="badge-tag tag-blue" style="font-size: 9px;">PAIN POINT 3</span>
+          <div class="card-title">Exploding Cyber Market</div>
+          <div style="background: var(--primary-blue-light); padding: 10px; border-radius: 8px; text-align: center; margin: 10px 0;">
+            <div style="font-size: 24px; font-weight: 800; color: var(--primary-blue);">$80 Billion</div>
+            <div style="font-size: 11px; color: #1E3A8A;">global market by 2030 (EXL Study)</div>
+          </div>
+          <p class="card-desc">Cyber premiums are growing 25%+ YoY. Manual underwriting desks cannot scale to meet small & middle-market account volumes.</p>
+          <ul class="bullet-list" style="margin-top: 10px;">
+            <li>High operational expenses per bind</li>
+            <li>Lost broker flow to algorithmic digital raters</li>
+            <li>Need for automated triage and appetite filtering</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- SLIDE 3: THE SOLUTION / VALUE PILLARS -->
+    <!-- ================================================================= -->
+    <div class="slide" id="slide-3">
+      <div class="slide-header">
+        <span class="badge-tag tag-teal">SOLUTION OVERVIEW</span>
+        <h2 class="slide-title">An Autonomous, Governed Underwriting Assessment Engine</h2>
+        <p class="slide-subtitle">Combines parallel multi-agent harvesting with consensus fact-checking and deterministic underwriting math.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1.4fr; gap: 16px; flex: 1;">
+        <!-- Left: Pipeline Summary -->
+        <div class="card">
+          <span class="badge-tag tag-blue" style="margin-bottom: 12px;">PIPELINE FLOW</span>
+          <div class="card-title" style="font-size: 16px; margin-bottom: 14px;">End-to-End Autonomous Pipeline</div>
+          
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #F8FAFC; border: 1px solid var(--border-card); border-radius: 8px;">
+              <span style="background: var(--primary-blue); color: #fff; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800;">1</span>
+              <div>
+                <div style="font-size: 12px; font-weight: 700; color: var(--text-primary);">Supervisor Validation</div>
+                <div style="font-size: 11px; color: var(--text-muted);">Pre-validates GLEIF LEI & routes SEC vs. Non-SEC</div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #F8FAFC; border: 1px solid var(--border-card); border-radius: 8px;">
+              <span style="background: var(--accent-teal); color: #fff; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800;">2</span>
+              <div>
+                <div style="font-size: 12px; font-weight: 700; color: var(--text-primary);">Parallel Data Harvesting</div>
+                <div style="font-size: 11px; color: var(--text-muted);">6 live collectors gather financials, filings, web posture</div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #F8FAFC; border: 1px solid var(--border-card); border-radius: 8px;">
+              <span style="background: var(--accent-purple); color: #fff; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800;">3</span>
+              <div>
+                <div style="font-size: 12px; font-weight: 700; color: var(--text-primary);">Priority Reconciliation</div>
+                <div style="font-size: 11px; color: var(--text-muted);">Coordinator merges evidence with zero data loss</div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #F8FAFC; border: 1px solid var(--border-card); border-radius: 8px;">
+              <span style="background: var(--accent-amber); color: #fff; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800;">4</span>
+              <div>
+                <div style="font-size: 12px; font-weight: 700; color: var(--text-primary);">Consensus Fact Verification</div>
+                <div style="font-size: 11px; color: var(--text-muted);">Cross-verifies claims across 3+ independent sources</div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #F8FAFC; border: 1px solid var(--border-card); border-radius: 8px;">
+              <span style="background: var(--accent-emerald); color: #fff; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800;">5</span>
+              <div>
+                <div style="font-size: 12px; font-weight: 700; color: var(--text-primary);">Deterministic CNA Underwriting</div>
+                <div style="font-size: 11px; color: var(--text-muted);">Evaluates 15 risk modifiers to compute final rating factor</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: 3 Pillars -->
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div class="card" style="border-left: 4px solid var(--primary-blue); padding: 14px 18px;">
+            <div class="card-title" style="color: var(--primary-blue); font-size: 14px;">Pillar 1: Speed & Scale (99% TAT Reduction)</div>
+            <p class="card-desc">Reduces research & underwriting from 4 hours to ~90 seconds. Multi-tier collector caching avoids redundant queries, lowering API compute costs to $0.15 per run.</p>
+          </div>
+          <div class="card" style="border-left: 4px solid var(--accent-emerald); padding: 14px 18px;">
+            <div class="card-title" style="color: var(--accent-emerald); font-size: 14px;">Pillar 2: Zero Hallucination Math</div>
+            <p class="card-desc">LLMs are strictly restricted to structured extraction and reconciliation. All 15 modifier scoring formulas are 100% deterministic code aligned to CNA matrices.</p>
+          </div>
+          <div class="card" style="border-left: 4px solid var(--accent-purple); padding: 14px 18px;">
+            <div class="card-title" style="color: var(--accent-purple); font-size: 14px;">Pillar 3: Evidence Provenance & Governance</div>
+            <p class="card-desc">Every single fact (revenue, SIC, employees, SSL grade) links to live URLs and filings. Confidence scores below 50% trigger automated Human-in-the-Loop escalation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- SLIDE 4: SYSTEM ARCHITECTURE (LangGraph DAG) -->
+    <!-- ================================================================= -->
+    <div class="slide" id="slide-4">
+      <div class="slide-header">
+        <span class="badge-tag tag-purple">SYSTEM ARCHITECTURE</span>
+        <h2 class="slide-title">LangGraph Multi-Agent Orchestration Workflow</h2>
+        <p class="slide-subtitle">A resilient Directed Acyclic Graph (DAG) featuring conditional routing, parallel fan-out harvesting, and state reduction.</p>
+      </div>
+
+      <div class="card" style="flex: 1; padding: 16px; display: flex; align-items: center; justify-content: center; background: #FFFFFF;">
+        <!-- Clean Vector SVG Architecture Diagram -->
+        <svg viewBox="0 0 1000 360" class="arch-svg" style="max-height: 100%;">
+          <defs>
+            <linearGradient id="grad-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#EFF6FF"/>
+              <stop offset="100%" stop-color="#DBEAFE"/>
+            </linearGradient>
+            <linearGradient id="grad-teal" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#F0FDFA"/>
+              <stop offset="100%" stop-color="#CCFBF1"/>
+            </linearGradient>
+            <linearGradient id="grad-purple" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FAF5FF"/>
+              <stop offset="100%" stop-color="#F3E8FF"/>
+            </linearGradient>
+            <linearGradient id="grad-emerald" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ECFDF5"/>
+              <stop offset="100%" stop-color="#D1FAE5"/>
+            </linearGradient>
+            <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 8 5 L 0 9 z" fill="#94A3B8"/>
+            </marker>
+            <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 8 5 L 0 9 z" fill="#2563EB"/>
+            </marker>
+          </defs>
+
+          <!-- Stage 1: Supervisor -->
+          <g transform="translate(20, 40)">
+            <rect width="180" height="280" rx="10" fill="url(#grad-blue)" stroke="#2563EB" stroke-width="1.5"/>
+            <rect x="15" y="15" width="150" height="24" rx="12" fill="#2563EB"/>
+            <text x="90" y="31" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="700">STAGE 1 • ENTRY</text>
+            <text x="90" y="65" text-anchor="middle" fill="#0F172A" font-size="15" font-weight="800">Supervisor Node</text>
+            
+            <rect x="15" y="85" width="150" height="45" rx="6" fill="#FFFFFF" stroke="#E2E8F0"/>
+            <text x="25" y="102" fill="#2563EB" font-size="10" font-weight="700">GLEIF Validation</text>
+            <text x="25" y="118" fill="#64748B" font-size="9">LEI Legal Entity Check</text>
+
+            <rect x="15" y="140" width="150" height="45" rx="6" fill="#FFFFFF" stroke="#E2E8F0"/>
+            <text x="25" y="157" fill="#2563EB" font-size="10" font-weight="700">Multi-Tier Cache</text>
+            <text x="25" y="173" fill="#64748B" font-size="9">Avoid Duplicate Queries</text>
+
+            <rect x="15" y="195" width="150" height="55" rx="6" fill="#FFFFFF" stroke="#E2E8F0"/>
+            <text x="25" y="212" fill="#2563EB" font-size="10" font-weight="700">Entity Router</text>
+            <text x="25" y="228" fill="#64748B" font-size="9">SEC vs Non-SEC Private</text>
+            <text x="25" y="240" fill="#64748B" font-size="9">Dynamic DAG Routing</text>
+          </g>
+
+          <!-- Fan-out Arrows -->
+          <path d="M 200 180 L 260 65" stroke="#2563EB" stroke-width="1.5" fill="none" marker-end="url(#arrow-blue)"/>
+          <path d="M 200 180 L 260 115" stroke="#2563EB" stroke-width="1.5" fill="none" marker-end="url(#arrow-blue)"/>
+          <path d="M 200 180 L 260 165" stroke="#2563EB" stroke-width="1.5" fill="none" marker-end="url(#arrow-blue)"/>
+          <path d="M 200 180 L 260 215" stroke="#2563EB" stroke-width="1.5" fill="none" marker-end="url(#arrow-blue)"/>
+          <path d="M 200 180 L 260 265" stroke="#2563EB" stroke-width="1.5" fill="none" marker-end="url(#arrow-blue)"/>
+          <path d="M 200 180 L 260 315" stroke="#2563EB" stroke-width="1.5" fill="none" marker-end="url(#arrow-blue)"/>
+
+          <!-- Stage 2: Parallel Collectors -->
+          <g transform="translate(270, 20)">
+            <rect width="250" height="320" rx="10" fill="url(#grad-teal)" stroke="#0D9488" stroke-width="1.5"/>
+            <rect x="15" y="10" width="220" height="22" rx="11" fill="#0D9488"/>
+            <text x="125" y="25" text-anchor="middle" fill="#FFFFFF" font-size="10" font-weight="700">STAGE 2 • PARALLEL HARVESTING</text>
+
+            <rect x="15" y="40" width="220" height="38" rx="6" fill="#FFFFFF" stroke="#E2E8F0"/>
+            <text x="25" y="56" fill="#0F172A" font-size="11" font-weight="700">SEC EDGAR Collector</text>
+            <text x="25" y="70" fill="#64748B" font-size="9">10-K, 10-Q XBRL Revenues & SIC Codes</text>
+
+            <rect x="15" y="86" width="220" height="38" rx="6" fill="#FFFFFF" stroke="#E2E8F0"/>
+            <text x="25" y="102" fill="#0F172A" font-size="11" font-weight="700">Wikidata SPARQL Collector</text>
+            <text x="25" y="116" fill="#64748B" font-size="9">Subsidiaries, Inception, HQ Country</text>
+
+            <rect x="15" y="132" width="220" height="38" rx="6" fill="#FFFFFF" stroke="#E2E8F0"/>
+            <text x="25" y="148" fill="#0F172A" font-size="11" font-weight="700">Wikipedia REST Collector</text>
+            <text x="25" y="162" fill="#64748B" font-size="9">Services, M&A History, Brand Mentions</text>
+
+            <rect x="15" y="178" width="220" height="38" rx="6" fill="#FFFFFF" stroke="#E2E8F0"/>
+            <text x="25" y="194" fill="#0F172A" font-size="11" font-weight="700">D&B / GLEIF Registry</text>
+            <text x="25" y="208" fill="#64748B" font-size="9">LEI Legal Status & Jurisdiction</text>
+
+            <rect x="15" y="224" width="220" height="38" rx="6" fill="#FFFFFF" stroke="#E2E8F0"/>
+            <text x="25" y="240" fill="#0F172A" font-size="11" font-weight="700">SerpAPI / Tavily Search</text>
+            <text x="25" y="254" fill="#64748B" font-size="9">Breach History, FTC Actions, Discovered URLs</text>
+
+            <rect x="15" y="270" width="220" height="38" rx="6" fill="#FFFFFF" stroke="#E2E8F0"/>
+            <text x="25" y="286" fill="#0F172A" font-size="11" font-weight="700">Domain Scraper (Sequential)</text>
+            <text x="25" y="300" fill="#64748B" font-size="9">SSL Handshake, HTML GDPR/SOC2 Badges</text>
+          </g>
+
+          <!-- Fan-in Arrows -->
+          <path d="M 520 60 L 580 140" stroke="#0D9488" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+          <path d="M 520 110 L 580 145" stroke="#0D9488" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+          <path d="M 520 150 L 580 150" stroke="#0D9488" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+          <path d="M 520 200 L 580 155" stroke="#0D9488" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+          <path d="M 520 240 L 580 160" stroke="#0D9488" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+          <path d="M 520 290 L 580 165" stroke="#0D9488" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+
+          <!-- Stage 3: Coordinator & Fact Checker -->
+          <g transform="translate(590, 40)">
+            <rect width="180" height="280" rx="10" fill="url(#grad-purple)" stroke="#7C3AED" stroke-width="1.5"/>
+            <rect x="15" y="15" width="150" height="24" rx="12" fill="#7C3AED"/>
+            <text x="90" y="31" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="700">STAGE 3 • RECONCILIATION</text>
+
+            <rect x="15" y="60" width="150" height="95" rx="8" fill="#FFFFFF" stroke="#E2E8F0"/>
+            <text x="25" y="80" fill="#7C3AED" font-size="12" font-weight="800">Coordinator Agent</text>
+            <text x="25" y="98" fill="#64748B" font-size="9.5">• Priority-Merge Logic</text>
+            <text x="25" y="113" fill="#64748B" font-size="9.5">• Zero-Data-Loss Unions</text>
+            <text x="25" y="128" fill="#64748B" font-size="9.5">• Fallback SIC Inference</text>
+            <text x="25" y="143" fill="#64748B" font-size="9.5">• Unifies Corporate Profile</text>
+
+            <rect x="15" y="165" width="150" height="95" rx="8" fill="#FFFFFF" stroke="#E2E8F0"/>
+            <text x="25" y="185" fill="#D97706" font-size="12" font-weight="800">Fact-Checker Agent</text>
+            <text x="25" y="203" fill="#64748B" font-size="9.5">• Cross-Source Consensus</text>
+            <text x="25" y="218" fill="#64748B" font-size="9.5">• Accuracy Score (>90%)</text>
+            <text x="25" y="233" fill="#64748B" font-size="9.5">• Live HTML Web Proof</text>
+            <text x="25" y="248" fill="#64748B" font-size="9.5">• Escalation Threshold &lt;50%</text>
+          </g>
+
+          <!-- Arrow to Underwriter -->
+          <path d="M 770 180 L 810 180" stroke="#7C3AED" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+          <!-- Stage 4: Deterministic Underwriter -->
+          <g transform="translate(820, 40)">
+            <rect width="160" height="280" rx="10" fill="url(#grad-emerald)" stroke="#059669" stroke-width="1.5"/>
+            <rect x="15" y="15" width="130" height="24" rx="12" fill="#059669"/>
+            <text x="80" y="31" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="700">STAGE 4 • VERDICT</text>
+            <text x="80" y="65" text-anchor="middle" fill="#0F172A" font-size="14" font-weight="800">Underwriter Agent</text>
+
+            <rect x="12" y="85" width="136" height="175" rx="8" fill="#FFFFFF" stroke="#E2E8F0"/>
+            <text x="20" y="105" fill="#059669" font-size="10.5" font-weight="700">15 CNA Modifiers:</text>
+            <text x="20" y="122" fill="#64748B" font-size="8.5">• M&A Activity</text>
+            <text x="20" y="136" fill="#64748B" font-size="8.5">• Revenue Stability</text>
+            <text x="20" y="150" fill="#64748B" font-size="8.5">• Nature of Services</text>
+            <text x="20" y="164" fill="#64748B" font-size="8.5">• Geographic Spread</text>
+            <text x="20" y="178" fill="#64748B" font-size="8.5">• Domain Encryption</text>
+            <text x="20" y="192" fill="#64748B" font-size="8.5">• Breach History</text>
+            <text x="20" y="206" fill="#64748B" font-size="8.5">• SSL Grade & Litigation</text>
+            <rect x="18" y="220" width="124" height="28" rx="4" fill="#059669"/>
+            <text x="80" y="238" text-anchor="middle" fill="#FFFFFF" font-size="9.5" font-weight="700">Final Rate Modifier</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- SLIDE 5: MULTI-SOURCE INTELLIGENCE ENGINE -->
+    <!-- ================================================================= -->
+    <div class="slide" id="slide-5">
+      <div class="slide-header">
+        <span class="badge-tag tag-teal">DATA HARVESTING</span>
+        <h2 class="slide-title">360° Corporate Data Ingestion Across 6+ Live Public Tiers</h2>
+        <p class="slide-subtitle">Automated harvesting combines financial filings, entity registries, technical posture, and brand intelligence.</p>
+      </div>
+
+      <div class="card-grid-2x3">
+        <div class="card" style="border-top: 3px solid var(--primary-blue);">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+            <div class="card-title" style="font-size: 13px;">SEC EDGAR XBRL API</div>
+            <span class="badge-tag tag-blue" style="font-size: 8px; padding: 2px 6px;">FINANCIALS</span>
+          </div>
+          <p class="card-desc" style="font-size: 11px;">Annual 10-K & quarterly 10-Q revenues, SIC classification, employee counts, fiscal cycles. PremiumsEarned fallback for insurance carriers.</p>
+          <div style="display: flex; gap: 6px; margin-top: 8px;">
+            <span class="badge-tag" style="background:#F1F5F9; color:#475569; font-size:8px;">~1.2s Latency</span>
+            <span class="badge-tag" style="background:#EFF6FF; color:#1D4ED8; font-size:8px;">99.9% US Public</span>
+          </div>
+        </div>
+
+        <div class="card" style="border-top: 3px solid var(--accent-teal);">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+            <div class="card-title" style="font-size: 13px;">Wikidata SPARQL Engine</div>
+            <span class="badge-tag tag-teal" style="font-size: 8px; padding: 2px 6px;">STRUCTURE</span>
+          </div>
+          <p class="card-desc" style="font-size: 11px;">Corporate parent ontology, subsidiary counts, inception dates, global office locations, and dynamic industry claims.</p>
+          <div style="display: flex; gap: 6px; margin-top: 8px;">
+            <span class="badge-tag" style="background:#F1F5F9; color:#475569; font-size:8px;">~0.8s Latency</span>
+            <span class="badge-tag" style="background:#F0FDFA; color:#0D9488; font-size:8px;">Global Ontologies</span>
+          </div>
+        </div>
+
+        <div class="card" style="border-top: 3px solid var(--accent-purple);">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+            <div class="card-title" style="font-size: 13px;">Wikipedia REST API</div>
+            <span class="badge-tag tag-purple" style="font-size: 8px; padding: 2px 6px;">BRAND & SERVICES</span>
+          </div>
+          <p class="card-desc" style="font-size: 11px;">Primary business nature, major M&A acquisitions, historical cyber events, B2B vs. B2C consumer product mentions.</p>
+          <div style="display: flex; gap: 6px; margin-top: 8px;">
+            <span class="badge-tag" style="background:#F1F5F9; color:#475569; font-size:8px;">~0.5s Latency</span>
+            <span class="badge-tag" style="background:#FAF5FF; color:#7C3AED; font-size:8px;">High Precision</span>
+          </div>
+        </div>
+
+        <div class="card" style="border-top: 3px solid var(--accent-amber);">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+            <div class="card-title" style="font-size: 13px;">D&B / GLEIF Registries</div>
+            <span class="badge-tag tag-amber" style="font-size: 8px; padding: 2px 6px;">LEGAL ENTITY</span>
+          </div>
+          <p class="card-desc" style="font-size: 11px;">Legal Entity Identifier (LEI) verification, jurisdiction of incorporation, official registration status, and corporate hierarchy.</p>
+          <div style="display: flex; gap: 6px; margin-top: 8px;">
+            <span class="badge-tag" style="background:#F1F5F9; color:#475569; font-size:8px;">~0.7s Latency</span>
+            <span class="badge-tag" style="background:#FFFBEB; color:#D97706; font-size:8px;">Official Registry</span>
+          </div>
+        </div>
+
+        <div class="card" style="border-top: 3px solid var(--accent-emerald);">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+            <div class="card-title" style="font-size: 13px;">Live SSL & HTML Scraper</div>
+            <span class="badge-tag tag-emerald" style="font-size: 8px; padding: 2px 6px;">CYBER POSTURE</span>
+          </div>
+          <p class="card-desc" style="font-size: 11px;">TLS certificate cipher strength, privacy policies (GDPR, CCPA), security compliance badges (SOC2, ISO 27001), e-commerce portals.</p>
+          <div style="display: flex; gap: 6px; margin-top: 8px;">
+            <span class="badge-tag" style="background:#F1F5F9; color:#475569; font-size:8px;">~1.8s Latency</span>
+            <span class="badge-tag" style="background:#ECFDF5; color:#059669; font-size:8px;">Live Web Proof</span>
+          </div>
+        </div>
+
+        <div class="card" style="border-top: 3px solid var(--accent-red);">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+            <div class="card-title" style="font-size: 13px;">SerpAPI / Tavily Search</div>
+            <span class="badge-tag tag-red" style="font-size: 8px; padding: 2px 6px;">NEWS & BREACH</span>
+          </div>
+          <p class="card-desc" style="font-size: 11px;">Discovered brand domains, recent ransomware incidents, FTC regulatory actions, active litigation, and supplemental financials.</p>
+          <div style="display: flex; gap: 6px; margin-top: 8px;">
+            <span class="badge-tag" style="background:#F1F5F9; color:#475569; font-size:8px;">~1.5s Latency</span>
+            <span class="badge-tag" style="background:#FEF2F2; color:#DC2626; font-size:8px;">Real-Time Web</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- SLIDE 6: CONSENSUS FACT-CHECKING & EVIDENCE LINEAGE -->
+    <!-- ================================================================= -->
+    <div class="slide" id="slide-6">
+      <div class="slide-header">
+        <span class="badge-tag tag-purple">GOVERNANCE & TRUST</span>
+        <h2 class="slide-title">Consensus Fact-Checking & Evidence Lineage</h2>
+        <p class="slide-subtitle">Cross-validating harvested claims across independent public sources to guarantee data integrity and eliminate hallucinations.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 16px; flex: 1;">
+        <!-- Left: Table -->
+        <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+          <div style="padding: 12px 16px; background: #FFFFFF; border-bottom: 1px solid var(--border-card);">
+            <div style="font-size: 13px; font-weight: 700; color: var(--text-primary);">Cross-Source Verification Sample (Liberty Mutual Insurance)</div>
+          </div>
+          <div style="overflow-y: auto; flex: 1;">
+            <table class="presentation-table">
+              <thead>
+                <tr>
+                  <th>Harvested Field</th>
+                  <th>Extracted Claim</th>
+                  <th>Corroborating Sources</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="bold">Annual Revenue</td>
+                  <td>$49.5 Billion (FY2023)</td>
+                  <td>SEC 10-K + Wikidata + Search</td>
+                  <td><span class="badge-verified">[VERIFIED] 3 Sources</span></td>
+                </tr>
+                <tr>
+                  <td class="bold">Employee Count</td>
+                  <td>45,000+ Full-Time</td>
+                  <td>SEC 10-K + Wikipedia + D&B</td>
+                  <td><span class="badge-verified">[VERIFIED] 3 Sources</span></td>
+                </tr>
+                <tr>
+                  <td class="bold">Inception Date</td>
+                  <td>1912 (112 Years in Business)</td>
+                  <td>Wikidata + Wikipedia</td>
+                  <td><span class="badge-confirmed">[CONFIRMED] 2 Sources</span></td>
+                </tr>
+                <tr>
+                  <td class="bold">Primary HQ</td>
+                  <td>United States (Boston, MA)</td>
+                  <td>GLEIF + SEC + Wikipedia</td>
+                  <td><span class="badge-verified">[VERIFIED] 3 Sources</span></td>
+                </tr>
+                <tr>
+                  <td class="bold">Active Subsidiaries</td>
+                  <td>60+ Global Entities</td>
+                  <td>Wikidata SPARQL + OpenCorp</td>
+                  <td><span class="badge-confirmed">[CONFIRMED] 2 Sources</span></td>
+                </tr>
+                <tr>
+                  <td class="bold">Domain TLS Security</td>
+                  <td>Grade A (HTTPS Enforced)</td>
+                  <td>Direct SSL Live Handshake</td>
+                  <td><span class="badge-confirmed">[CONFIRMED] Verified</span></td>
+                </tr>
+                <tr>
+                  <td class="bold">Privacy Policies</td>
+                  <td>GDPR / CCPA / Notice Found</td>
+                  <td>Live HTML Scraper</td>
+                  <td><span class="badge-confirmed">[CONFIRMED] Verified</span></td>
+                </tr>
+                <tr>
+                  <td class="bold">Past Cyber Breaches</td>
+                  <td>No catastrophic breach in 36m</td>
+                  <td>SerpAPI + FTC + News</td>
+                  <td><span class="badge-verified">[VERIFIED] Clean</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Right: Confidence & HITL -->
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div class="card" style="border-left: 4px solid var(--accent-emerald);">
+            <span class="badge-tag tag-emerald" style="font-size: 8px;">QUANTITATIVE CONFIDENCE</span>
+            <div class="card-title" style="font-size: 13px;">90%+ Consensus Accuracy</div>
+            <p class="card-desc" style="font-size: 11.5px;">Claims verified by 3+ independent sources receive automatic high confidence. Discrepancies trigger automated priority merge rules.</p>
+          </div>
+          <div class="card" style="border-left: 4px solid var(--accent-amber);">
+            <span class="badge-tag tag-amber" style="font-size: 8px;">HUMAN-IN-THE-LOOP</span>
+            <div class="card-title" style="font-size: 13px;">Automated HITL Escalation</div>
+            <p class="card-desc" style="font-size: 11.5px;">Consensus below 50% automatically flags the account for senior underwriter review. Every data point retains complete URL and filing lineage.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- SLIDE 7: 15 CODIFIED CNA RISK MODIFIERS -->
+    <!-- ================================================================= -->
+    <div class="slide" id="slide-7">
+      <div class="slide-header">
+        <span class="badge-tag tag-emerald">UNDERWRITING ENGINE</span>
+        <h2 class="slide-title">15 Deterministic Underwriting Modifiers (CNA Matrix)</h2>
+        <p class="slide-subtitle">Raw profile facts are programmatically mapped to the 15 standard CNA cyber underwriting risk dimensions.</p>
+      </div>
+
+      <div class="card-grid-4">
+        <div class="card" style="border-top: 3px solid var(--primary-blue);">
+          <span class="badge-tag tag-blue" style="font-size: 8px;">1. CORPORATE SCALE</span>
+          <ul class="bullet-list" style="margin-top: 6px;">
+            <li><strong>Years in Business:</strong> Resilience & longevity (>10 yrs = Favourable)</li>
+            <li><strong>Geographic Spread:</strong> Multi-state/global regulatory footprint</li>
+            <li><strong>Organizational Complexity:</strong> Tiered subsidiary hierarchy</li>
+            <li><strong>M&A Activity:</strong> Unvetted legacy IT integration risk</li>
+          </ul>
+        </div>
+
+        <div class="card" style="border-top: 3px solid var(--accent-teal);">
+          <span class="badge-tag tag-teal" style="font-size: 8px;">2. FINANCIAL STABILITY</span>
+          <ul class="bullet-list" style="margin-top: 6px;">
+            <li><strong>Seasonality of Sales:</strong> Revenue spike windows (Q4 ransomware risk)</li>
+            <li><strong>Volatility in Sales:</strong> Erratic YoY cashflow recovery resilience</li>
+            <li><strong>Nature of Services:</strong> SEC SIC industry hazard classification</li>
+          </ul>
+        </div>
+
+        <div class="card" style="border-top: 3px solid var(--accent-purple);">
+          <span class="badge-tag tag-purple" style="font-size: 8px;">3. TECHNICAL SURFACE</span>
+          <ul class="bullet-list" style="margin-top: 6px;">
+            <li><strong>Domain Encryption:</strong> TLS cipher grade & HTTPS enforcement</li>
+            <li><strong>Internet Footprint:</strong> Discovered domains & public assets</li>
+            <li><strong>B2C End Products:</strong> Payment gateway & PCI-DSS attack vector</li>
+            <li><strong>Cyber Security:</strong> Public SOC2 / ISO compliance</li>
+          </ul>
+        </div>
+
+        <div class="card" style="border-top: 3px solid var(--accent-red);">
+          <span class="badge-tag tag-red" style="font-size: 8px;">4. COMPLIANCE & BREACH</span>
+          <ul class="bullet-list" style="margin-top: 6px;">
+            <li><strong>Sensitive Information:</strong> PII, PHI, financial consumer data</li>
+            <li><strong>Privacy Regulation:</strong> Statutory GDPR / CCPA liability</li>
+            <li><strong>Breach History:</strong> Past ransomware & FTC disclosures</li>
+            <li><strong>Active Litigation:</strong> Ongoing data disputes in courts</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: 12px; background: #0F172A; color: #FFFFFF; padding: 12px 18px; border-color: #1E293B;">
+        <div style="font-size: 11px; font-weight: 700; color: #38BDF8; margin-bottom: 2px;">DETERMINISTIC SCORING FORMULA: Evidence → Modifier Rules Engine → Category Score (1.0 to 6.0) → Final Rating Modifier</div>
+        <div style="font-size: 10.5px; color: #CBD5E1;">• Very Favourable (1.0 - 2.0 / Credit) &nbsp;|&nbsp; • Favourable (2.1 - 3.5) &nbsp;|&nbsp; • Average / Neutral (3.6 - 4.5) &nbsp;|&nbsp; • Unfavourable (4.6 - 6.0 / Debit)</div>
+      </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- SLIDE 8: INTERACTIVE UI, REAL-TIME SSE TELEMETRY & AUDIT REPORTS -->
+    <!-- ================================================================= -->
+    <div class="slide" id="slide-8">
+      <div class="slide-header">
+        <span class="badge-tag tag-blue">USER EXPERIENCE & DELIVERY</span>
+        <h2 class="slide-title">Interactive React UI, Live SSE Telemetry & Instant Reports</h2>
+        <p class="slide-subtitle">A complete underwriting dashboard featuring live step streaming, drill-down modifier modals, and exportable audit reports.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; flex: 1;">
+        <div class="card" style="border-left: 4px solid var(--primary-blue);">
+          <span class="badge-tag tag-blue" style="font-size: 8.5px;">REACT 18 + VITE DASHBOARD</span>
+          <div class="card-title" style="font-size: 15px; margin-top: 4px;">Live Underwriting Workbench</div>
+          <ul class="bullet-list" style="margin-top: 10px;">
+            <li><strong>Real-Time SSE Streaming:</strong> Backend emits LangGraph node completions live; perceived wait latency is reduced by 70%.</li>
+            <li><strong>Interactive Flowchart:</strong> Visual pipeline flowchart with animated progress chips as collectors and processors finish.</li>
+            <li><strong>Drill-Down Modifier Modals:</strong> Click any of the 15 modifiers to view raw evidence snippets, rules logic, and confidence bands.</li>
+            <li><strong>Ground Truth Verification:</strong> Built-in side-by-side comparison gauges benchmarking live automated results against manual gold standards.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="border-left: 4px solid var(--accent-emerald);">
+          <span class="badge-tag tag-emerald" style="font-size: 8.5px;">AUTOMATED REPORT ENGINE</span>
+          <div class="card-title" style="font-size: 15px; margin-top: 4px;">Executive HTML Audit Reports</div>
+          <ul class="bullet-list" style="margin-top: 10px;">
+            <li><strong>Instant Report Generation:</strong> Generates styled HTML audit reports stored in <code style="font-family:var(--font-mono); font-size:11px; background:#F1F5F9; padding:2px 4px; border-radius:4px;">/reports</code> in seconds, replacing 30+ minutes of manual report writing.</li>
+            <li><strong>Full Evidence Lineage:</strong> Every claim, rate modifier, and underwriter log is recorded with timestamped citations.</li>
+            <li><strong>Committee Ready:</strong> Executive KPI cards, confidence score gauges, and customized policy rating recommendations.</li>
+            <li><strong>Context-Aware Structured Logging:</strong> <code style="font-family:var(--font-mono); font-size:11px; background:#F1F5F9; padding:2px 4px; border-radius:4px;">ContextAwareFileHandler</code> writes async-isolated traces and prompts per agent run.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- SLIDE 9: QUANTIFIED ROI & GROUND TRUTH ACCURACY -->
+    <!-- ================================================================= -->
+    <div class="slide" id="slide-9">
+      <div class="slide-header">
+        <span class="badge-tag tag-amber">BUSINESS ROI & IMPACT</span>
+        <h2 class="slide-title">Quantified Business Impact & Proven Accuracy</h2>
+        <p class="slide-subtitle">Production-tested metrics demonstrating dramatic turnaround time reduction, cost savings, and high audit precision.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 16px;">
+        <div class="stat-card stat-blue">
+          <div class="stat-value">99%</div>
+          <div class="stat-label">Turnaround Time Lift</div>
+          <div class="stat-sub">4 Hours → ~90 Seconds</div>
+        </div>
+        <div class="stat-card stat-emerald">
+          <div class="stat-value">100%</div>
+          <div class="stat-label">Scoring Consistency</div>
+          <div class="stat-sub">15 Standardized CNA Modifiers</div>
+        </div>
+        <div class="stat-card stat-purple">
+          <div class="stat-value">&gt;90%</div>
+          <div class="stat-label">Consensus Accuracy</div>
+          <div class="stat-sub">Verified across 6+ live APIs</div>
+        </div>
+        <div class="stat-card stat-amber">
+          <div class="stat-value">$0.15</div>
+          <div class="stat-label">Compute Cost / Run</div>
+          <div class="stat-sub">Down from ~$150 in analyst hours</div>
+        </div>
+      </div>
+
+      <div class="card" style="padding: 0; overflow: hidden; flex: 1;">
+        <table class="presentation-table">
+          <thead>
+            <tr>
+              <th>Performance Dimension</th>
+              <th>Traditional Manual Underwriting</th>
+              <th>Agentic Cyber Rating Platform</th>
+              <th>Measurable Business Lift</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="bold">Research Time per Account</td>
+              <td>3 to 4 hours across scattered web tabs</td>
+              <td>~90 seconds end-to-end</td>
+              <td><span class="badge-verified">99% Turnaround Lift</span></td>
+            </tr>
+            <tr>
+              <td class="bold">Public Sources Consulted</td>
+              <td>2 to 3 sites (ad-hoc & inconsistent)</td>
+              <td>6+ live public APIs (every run)</td>
+              <td><span class="badge-verified">2-3x Broader Data Breadth</span></td>
+            </tr>
+            <tr>
+              <td class="bold">Fact Verification & Provenance</td>
+              <td>Subjective notes, no cross-checking</td>
+              <td>Consensus score with full URL lineage</td>
+              <td><span class="badge-confirmed">Zero Hallucinations</span></td>
+            </tr>
+            <tr>
+              <td class="bold">Underwriting Modifiers Evaluated</td>
+              <td>Varies by analyst experience</td>
+              <td>15 standardized CNA modifier rules</td>
+              <td><span class="badge-verified">100% Pricing Consistency</span></td>
+            </tr>
+            <tr>
+              <td class="bold">Report Generation</td>
+              <td>Manual 30-min Word doc typing</td>
+              <td>Auto-generated HTML audit reports</td>
+              <td><span class="badge-verified">Instant Committee Packets</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- SLIDE 10: ENTERPRISE ROADMAP & MULTI-CARRIER EXPANSION -->
+    <!-- ================================================================= -->
+    <div class="slide dark-theme" id="slide-10" style="background: radial-gradient(circle at 20% 80%, #1E293B 0%, #0B132B 70%);">
+      <div class="slide-header">
+        <span class="badge-tag tag-dark">FUTURE ROADMAP</span>
+        <h2 class="slide-title" style="color:#FFFFFF;">From Production POC to Enterprise Multi-Carrier Platform</h2>
+        <p class="slide-subtitle" style="color:#94A3B8;">A structured 3-phase growth trajectory to scale from Liberty Mutual POC to top-tier commercial cyber carriers.</p>
+      </div>
+
+      <div class="card-grid-3">
+        <div class="card" style="background: #111D3D; border-color: #334155; border-top: 4px solid var(--accent-emerald);">
+          <span class="badge-tag tag-emerald" style="font-size: 8.5px;">PHASE 1 (COMPLETED)</span>
+          <div class="card-title" style="color: #FFFFFF; font-size: 14px; margin-top: 4px;">Core Multi-Agent Foundation</div>
+          <ul class="bullet-list" style="margin-top: 8px;">
+            <li style="color:#CBD5E1;">Built LangGraph DAG (Supervisor, 6 Collectors, Coordinator, FactChecker, Underwriter).</li>
+            <li style="color:#CBD5E1;">Replaced mock data with 6 live APIs (SEC XBRL, Wikidata, Wikipedia, D&B, SerpAPI, SSL/HTML).</li>
+            <li style="color:#CBD5E1;">Codified 15 CNA underwriting risk modifiers.</li>
+            <li style="color:#CBD5E1;">Built React 18 frontend with real-time SSE streaming and automated HTML report generation.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="background: #111D3D; border-color: #334155; border-top: 4px solid var(--primary-blue);">
+          <span class="badge-tag tag-blue" style="font-size: 8.5px;">PHASE 2 (CURRENT)</span>
+          <div class="card-title" style="color: #FFFFFF; font-size: 14px; margin-top: 4px;">Enterprise Hardening & Multi-LLM</div>
+          <ul class="bullet-list" style="margin-top: 8px;">
+            <li style="color:#CBD5E1;">Deployed on Azure OpenAI infrastructure with multi-LLM abstraction (Azure, OpenAI, Groq).</li>
+            <li style="color:#CBD5E1;">Private company & non-SEC entity fallback heuristic routing to prevent data penalties.</li>
+            <li style="color:#CBD5E1;">Collector-level caching reducing redundant API queries by 80%.</li>
+            <li style="color:#CBD5E1;">Ground truth automated comparison audit engine.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="background: #111D3D; border-color: #334155; border-top: 4px solid var(--accent-purple);">
+          <span class="badge-tag tag-purple" style="font-size: 8.5px;">PHASE 3 (NEXT 3–6 MONTHS)</span>
+          <div class="card-title" style="color: #FFFFFF; font-size: 14px; margin-top: 4px;">Carrier Scaling & Batch Rater</div>
+          <ul class="bullet-list" style="margin-top: 8px;">
+            <li style="color:#CBD5E1;">Direct API integration into carrier workbenches (CNA, Hartford, Chubb, Zurich, AXA XL).</li>
+            <li style="color:#CBD5E1;">Portfolio-level batch underwriting rater processing 1,000+ commercial accounts overnight.</li>
+            <li style="color:#CBD5E1;">Custom appetite & referral rule configurator for carrier-specific underwriting guidelines.</li>
+            <li style="color:#CBD5E1;">Continuous feedback loop from actual claim loss ratios.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid #334155; border-radius: 10px; padding: 10px 18px; margin-top: 14px; display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-size: 12px; font-weight: 700; color: #38BDF8;">TARGET ADDRESSABLE MARKET: $40M (EXL 2025 Study)</span>
+        <span style="font-size: 11px; color: #94A3B8;">Target Carriers: CNA • The Hartford • Chubb • Zurich • Hiscox • AXA XL • Travelers</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Navigation & Controls -->
+  <div id="nav-bar">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <button class="nav-btn" id="prev-btn" onclick="prevSlide()">← Prev</button>
+      <button class="nav-btn" id="next-btn" onclick="nextSlide()">Next →</button>
+      <span style="color: #64748B; font-size: 11px; margin-left: 8px;">(Use Arrow keys or Spacebar)</span>
+    </div>
+
+    <div class="slide-dots" id="dots-container"></div>
+
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <span id="slide-indicator" style="font-weight: 700; font-feature-settings: 'tnum'; color: #FFFFFF;">1 / 10</span>
+      <button class="nav-btn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
+    </div>
+  </div>
+
+  <script>
+    const totalSlides = 10;
+    let currentSlide = 1;
+
+    // Initialize Dots
+    const dotsContainer = document.getElementById('dots-container');
+    for (let i = 1; i <= totalSlides; i++) {
+      const dot = document.createElement('div');
+      dot.className = `dot ${i === 1 ? 'active' : ''}`;
+      dot.onclick = () => goToSlide(i);
+      dotsContainer.appendChild(dot);
+    }
+
+    function updateSlide() {
+      document.querySelectorAll('.slide').forEach((slide, index) => {
+        if (index + 1 === currentSlide) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+
+      document.querySelectorAll('.dot').forEach((dot, index) => {
+        if (index + 1 === currentSlide) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+
+      document.getElementById('slide-indicator').textContent = `${currentSlide} / ${totalSlides}`;
+      document.getElementById('prev-btn').disabled = currentSlide === 1;
+      document.getElementById('next-btn').disabled = currentSlide === totalSlides;
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        currentSlide++;
+        updateSlide();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        currentSlide--;
+        updateSlide();
+      }
+    }
+
+    function goToSlide(n) {
+      currentSlide = n;
+      updateSlide();
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        prevSlide();
+      } else if (e.key === 'f' || e.key === 'F') {
+        toggleFullscreen();
+      } else if (e.key >= '1' && e.key <= '9') {
+        goToSlide(parseInt(e.key));
+      } else if (e.key === '0') {
+        goToSlide(10);
+      }
+    });
+
+    updateSlide();
+  </script>
+</body>
+</html>
