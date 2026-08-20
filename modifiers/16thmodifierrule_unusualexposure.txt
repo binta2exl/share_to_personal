@@ -1,0 +1,32 @@
+Unusual Exposure
+
+"Evaluates whether a company presents cyber risk exposure that is materially unusual relative to its peer cohort-companies of similar revenue band operating the same industry sector - 
+Dimensions:
+1. Digital Surface Exposure (DSE) - Compare the company's internet facing footprint (domain count, web properties, cloud/saas surface, encryption) against industry benchmarks for its revenue tier
+ - In line - footprint within expected range for the peer cohort ( Point 0 )
+ - elevated - footprint 1-2x the peer cohort norm ( Point +1 )
+ - significantly elevated - footprint > 2x the peer or multiple anamolous internet facing assets confirmed. ( Point +2 )
+
+2.   Security Maturity Index (SMI) - Assess observable security practices against minimum-expected maturity for the company's industry and revenue tier (e.g SOC 2 for SaaS/tech, PCI-DSS for payments, HIPAA/HITECH for healthcare, ISO 27001 for enterprises).
+ - Above expected - holds certification/practives beyond the industry baseline ( Point 0)
+ - in line - meets baseline expectations for the sector ( Point +1)
+ - below expected - missing certifications or posture signals expected for sector ( Point +2 )
+
+3. Geographic Risk Exposure (GRE) - flag material operations in geographies that exhibit elevated cyber risk relative to what is typical for the company's peer cohort. High risk region marker: countries with active nation-state APT targeting if the sector, weak data protection regimes, sanctions-adjacent environments, or FATF grey/black list jurisdictions.
+ - in line - geo footprint consistent with insudtry peers. ( Point 0 )
+ - elevated - some operations in high risk geos, above peer norms. ( Point +1 )
+ - significantly elevated - material revenue, entities, or data processing in high risk geos well beyond peer norm. ( Point +2 )
+
+4. Structural anamoly index (SAI) - Count confirmed characterstics that are unusual relative to industry peers
+ - OT (Operational Technology) /SCADA (Supervisory control and data acquisition) exposure in a non-industrial sector
+ - single client or single platform revenue concentration above industry norm
+ - M&A driven integration complexity significantly above industry norms
+ - regulatroy arbitrage structures unsual for the sector
+ Rating - 0 anamolies ( Point 0 ) | 1-2 anamolies ( Point +1 ) | 3+ anamolies ( Point +2 )
+
+Scoring - 
+0  Favourable
+1-2  Partially Favourable
+3-4 Average
+5-6 Partially Unfavourable 
+7+ Unfavourable"
