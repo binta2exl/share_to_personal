@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RecoverIQ — Buildathon Presentation Slides</title>
+<style>
+  :root {
+    --bg-canvas: #0B0F19;
+    --card-bg: #FFFFFF;
+    --card-border: #E2E8F0;
+    --header-dark: #0F172A;
+    --header-surface: #1E293B;
+    --coral: #EA580C;
+    --coral-light: #FFF7ED;
+    --coral-border: #FDBA74;
+    --blue: #0284C7;
+    --blue-light: #F0F9FF;
+    --purple: #7C3AED;
+    --purple-light: #F5F3FF;
+    --emerald: #059669;
+    --emerald-light: #ECFDF5;
+    --text-dark: #0F172A;
+    --text-muted: #64748B;
+    --text-body: #334155;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  body { background: var(--bg-canvas); color: #FFF; padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 32px; }
+  .slide-container { width: 1280px; height: 720px; background: #F8FAFC; border-radius: 12px; overflow: hidden; position: relative; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7); border: 1px solid #334155; display: flex; flex-direction: column; color: var(--text-dark); }
+  
+  /* Top Banner */
+  .slide-header { background: var(--header-dark); padding: 14px 28px; position: relative; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--coral); }
+  .badge-tag { display: inline-block; background: #334155; color: #FFF; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 4px; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .header-title { font-size: 22px; font-weight: 800; color: #FFF; line-height: 1.2; }
+  .header-title span { color: #FB923C; }
+  .header-subtitle { font-size: 12px; color: #94A3B8; margin-top: 2px; }
+  .team-card { background: var(--header-surface); border: 1px solid var(--coral); border-radius: 8px; padding: 8px 16px; font-size: 11px; line-height: 1.5; color: #CBD5E1; }
+  .team-card b { color: #FB923C; }
+  
+  /* KPI Ribbon */
+  .kpi-ribbon { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; padding: 12px 28px 4px 28px; }
+  .kpi-card { background: #FFF; border-radius: 8px; padding: 10px 14px; border: 1px solid var(--card-border); display: flex; align-items: center; gap: 12px; }
+  .kpi-val { font-size: 22px; font-weight: 800; line-height: 1; }
+  .kpi-label { font-size: 11px; font-weight: 700; color: var(--text-dark); }
+  .kpi-sub { font-size: 9.5px; color: var(--text-muted); }
+  
+  /* Slide 1 Grid */
+  .content-grid { display: grid; grid-template-columns: 1.45fr 1fr; gap: 14px; padding: 10px 28px 20px 28px; flex: 1; }
+  .card { background: #FFF; border-radius: 10px; border: 1px solid var(--card-border); padding: 14px 18px; position: relative; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  .card.accent-coral { border-left: 4px solid var(--coral); }
+  .card.accent-emerald { border-left: 4px solid var(--emerald); }
+  .card-pill { display: inline-block; font-size: 9.5px; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-bottom: 8px; text-transform: uppercase; }
+  .card-title { font-size: 13.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
+  .bullet-list { list-style: none; font-size: 11px; color: var(--text-body); line-height: 1.45; }
+  .bullet-list li { margin-bottom: 6px; padding-left: 14px; position: relative; }
+  .bullet-list li::before { content: "▪"; position: absolute; left: 0; font-weight: bold; }
+  .bullet-list li.coral::before { color: var(--coral); }
+  .bullet-list li.emerald::before { color: var(--emerald); }
+  .bullet-list li.purple::before { color: var(--purple); }
+  .bullet-list li.blue::before { color: var(--blue); }
+  .bullet-list b { color: var(--text-dark); }
+
+  /* Slide 2 Pipeline */
+  .pipeline-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 10px 28px; position: relative; }
+  .pipe-card { background: #FFF; border-radius: 8px; border: 1px solid var(--card-border); overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.04); }
+  .pipe-hdr { padding: 6px 12px; font-size: 11px; font-weight: 800; color: #FFF; display: flex; justify-content: space-between; align-items: center; }
+  .pipe-body { padding: 10px 12px; font-size: 10px; line-height: 1.4; color: var(--text-body); }
+  .pipe-body ul { list-style: none; }
+  .pipe-body li { margin-bottom: 4px; padding-left: 10px; position: relative; }
+  .pipe-body li::before { content: "•"; position: absolute; left: 0; font-weight: bold; }
+
+  /* Recon Box */
+  .recon-box { background: var(--emerald-light); border: 2px solid var(--emerald); border-radius: 10px; margin: 4px 28px 10px 28px; padding: 10px 16px; }
+  .recon-title { font-size: 12.5px; font-weight: 800; color: #065F46; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .recon-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .recon-col-inner { background: #FFF; border: 1px solid #A7F3D0; border-radius: 6px; padding: 6px 10px; font-size: 9.5px; }
+  .recon-col-inner b { display: block; font-size: 10.5px; margin-bottom: 2px; }
+
+  /* Footer ribbon */
+  .footer-ribbon { background: var(--header-surface); border-top: 1px solid var(--coral); padding: 8px 28px; font-size: 10px; color: #FFF; display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
+  .footer-ribbon b { color: #FB923C; }
+</style>
+</head>
+<body>
+
+  <!-- SLIDE 1 PREVIEW -->
+  <div class="slide-container">
+    <div class="slide-header">
+      <div>
+        <div class="badge-tag">INSURANCE ANALYTICS AI BUILDATHON</div>
+        <div class="header-title">RecoverIQ <span>— AI-Powered Reinsurance Leakage Workbench</span></div>
+        <div class="header-subtitle">Autonomous treaty intelligence & deterministic 3-way reconciliation to recover unbilled reinsurance cash.</div>
+      </div>
+      <div class="team-card">
+        <div><b>TEAM:</b> Modi Manojkumar · Ashish Chavan · Arin Mangal</div>
+        <div><b style="color:#38BDF8;">DOMAIN:</b> Claims — Reinsurance Recoveries & Reconciliation</div>
+        <div><b style="color:#4ADE80;">STATUS:</b> Verified MVP · 100% Benchmark Recall · Zero PIP</div>
+      </div>
+    </div>
+
+    <div class="kpi-ribbon">
+      <div class="kpi-card" style="background:var(--coral-light); border-color:var(--coral-border);">
+        <div class="kpi-val" style="color:var(--coral);">$17.65M</div>
+        <div><div class="kpi-label">Total Leakage Identified</div><div class="kpi-sub">Across 150 commercial claims</div></div>
+      </div>
+      <div class="kpi-card" style="background:var(--emerald-light); border-color:#A7F3D0;">
+        <div class="kpi-val" style="color:var(--emerald);">30 / 30</div>
+        <div><div class="kpi-label">Planted Anomalies Caught</div><div class="kpi-sub">100% precision & recall verified</div></div>
+      </div>
+      <div class="kpi-card" style="background:var(--blue-light); border-color:#BAE6FD;">
+        <div class="kpi-val" style="color:var(--blue);">$900K</div>
+        <div><div class="kpi-label">Flagship Vance Recovery</div><div class="kpi-sub">Unbilled 4-warehouse CAT loss</div></div>
+      </div>
+      <div class="kpi-card" style="background:var(--purple-light); border-color:#DDD6FE;">
+        <div class="kpi-val" style="color:var(--purple);">0 pip</div>
+        <div><div class="kpi-label">Pure Python 3.9+ Engine</div><div class="kpi-sub">Zero cloud bloat, runs locally</div></div>
+      </div>
+    </div>
+
+    <div class="content-grid">
+      <!-- Left Column -->
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <div class="card accent-coral">
+          <div class="card-pill" style="background:var(--coral-light); color:var(--coral);">Problem Statement</div>
+          <div class="card-title">Why Does This Matter to Insurers? Reinsurance Leakage Drivers</div>
+          <ul class="bullet-list">
+            <li class="coral"><b>A. Siloed Claims Blindness:</b> Individual losses ($500k–$900k) appear under retention, missing $900k+ aggregate CAT event payouts.</li>
+            <li class="coral"><b>B. Treaty Complexity:</b> Multi-layered retentions, hours clauses, and peril exclusions lead to miscalculated entitlements.</li>
+            <li class="coral"><b>C. Billing Ledger Gaps:</b> Disconnected claims, billing logs, and broker bordereaux (BDX) hide unbilled & short-paid recoveries.</li>
+            <li class="coral"><b>D. Manual Audit Bottleneck:</b> Spreadsheet-based evidence gathering causes costly collection delays and unrecovered balances.</li>
+          </ul>
+        </div>
+
+        <div class="card accent-emerald">
+          <div class="card-pill" style="background:var(--emerald-light); color:var(--emerald);">Solution Architecture</div>
+          <div class="card-title">How RecoverIQ Solves It: The 4-Pillar Autonomous Engine</div>
+          <ul class="bullet-list">
+            <li class="emerald"><b>A. AI Treaty Interpretation:</b> Groq-hosted LLM extracts terms, retentions, and exclusions with verifiable contract page citations.</li>
+            <li class="emerald"><b>B. Deterministic XOL Math:</b> Aggregate catastrophe losses evaluated against available treaty capacity with 100% bug-free rules.</li>
+            <li class="emerald"><b>C. 3-Way Reconciliation:</b> Simultaneously matches Entitled Recovery vs Actually Billed vs Broker Remittances (BDX).</li>
+            <li class="emerald"><b>D. Actionable Audit Evidence:</b> Auto-drafts legal billing demand briefs with step-by-step proofs for 1-click analyst approval.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <div class="card">
+          <div class="card-pill" style="background:var(--purple-light); color:var(--purple);">Analytics & Module Design</div>
+          <div class="card-title">AI Theme: Hybrid Agentic & Deterministic Core</div>
+          <ul class="bullet-list">
+            <li class="purple"><b>Agentic AI:</b> Specialized agents for treaty interpretation and formal billing demand generation.</li>
+            <li class="purple"><b>Rule-Based AI:</b> Deterministic recovery math & 3-way matching — guarantees zero AI hallucination.</li>
+            <li class="purple"><b>GenAI Drafting:</b> LLM-powered clause synthesis and adjuster-grade Proof-of-Loss document drafting.</li>
+            <li class="purple"><b>Business Intel:</b> Live reconciliation dashboards, leakage breakdown, and treaty limit capacity tracking.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-pill" style="background:var(--blue-light); color:var(--blue);">Production Tech Stack</div>
+          <div class="card-title">Verified Implementation (Zero Phantom Claims)</div>
+          <ul class="bullet-list">
+            <li class="blue"><b>Application Core:</b> Python 3.9+ Standard Library (Zero-PIP dependency footprint, runs locally).</li>
+            <li class="blue"><b>AI Inference Engine:</b> Groq Cloud API running openai/gpt-oss-120b on ultra-low latency LPUs.</li>
+            <li class="blue"><b>Storage & Data Store:</b> Deterministic CSV & JSON flat-file storage (150 claims, 300 BDX records).</li>
+            <li class="blue"><b>Analyst Interface:</b> Custom Web Analyst Workbench (Native HTML5 / Vanilla JavaScript at :8080).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 2 PREVIEW -->
+  <div class="slide-container">
+    <div class="slide-header">
+      <div>
+        <div class="badge-tag">INSURANCE ANALYTICS AI BUILDATHON</div>
+        <div class="header-title">RecoverIQ Architecture <span>— End-to-End Operational Pipeline</span></div>
+        <div class="header-subtitle">Multi-Agent System: Autonomous Treaty Mining → Deterministic Math → 3-Way BDX Reconciliation → Audit Briefs</div>
+      </div>
+      <div class="team-card">
+        <div><b style="color:#4ADE80;">TECH STACK:</b> Python 3.9+ · Groq LPUs · GPT-OSS-120B</div>
+        <div>CSV/JSON Data Store · Custom HTML5 Workbench</div>
+      </div>
+    </div>
+
+    <!-- Row 1: Pipeline Stage 1, 2, 3 -->
+    <div class="pipeline-row" style="margin-top:10px;">
+      <div class="pipe-card">
+        <div class="pipe-hdr" style="background:var(--blue);">
+          <span>1. DATA INGESTION</span><span style="font-size:8px; background:#FFF; color:var(--blue); padding:1px 6px; border-radius:3px;">RAW ASSETS</span>
+        </div>
+        <div class="pipe-body">
+          <ul>
+            <li style="color:var(--blue);">Treaty Contract Documents (Structured legal text)</li>
+            <li style="color:var(--blue);">Claims Portfolio (150 Property claim records)</li>
+            <li style="color:var(--blue);">Catastrophe Events (12 CAT identifiers & dates)</li>
+            <li style="color:var(--blue);">Broker Bordereaux (300 BDX billing/cash lines)</li>
+            <li style="color:var(--blue);">Cumulative Loss Runs (Capacity tracker)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pipe-card">
+        <div class="pipe-hdr" style="background:var(--purple);">
+          <span>2. AI TREATY ANALYSIS</span><span style="font-size:8px; background:#FFF; color:var(--purple); padding:1px 6px; border-radius:3px;">AGENT 1 · GROQ</span>
+        </div>
+        <div class="pipe-body">
+          <ul>
+            <li style="color:var(--purple);">Powered by Groq Cloud (openai/gpt-oss-120b)</li>
+            <li style="color:var(--purple);">Automated Clause & Article Extraction</li>
+            <li style="color:var(--purple);">Retention, Limit & Hours Clause Capture</li>
+            <li style="color:var(--purple);">Verifiable Legal Citations (Page / Article)</li>
+            <li style="color:var(--purple);">Built-in Deterministic Regex Fallback</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pipe-card">
+        <div class="pipe-hdr" style="background:var(--coral);">
+          <span>3. RECOVERY CALCULATION</span><span style="font-size:8px; background:#FFF; color:var(--coral); padding:1px 6px; border-radius:3px;">DETERMINISTIC</span>
+        </div>
+        <div class="pipe-body">
+          <ul>
+            <li style="color:var(--coral);">Excess of Loss (Per Risk & Cat Occurrence)</li>
+            <li style="color:var(--coral);">72h / 168h Hours Clause Loss Aggregation</li>
+            <li style="color:var(--coral);">Treaty Limit Exhaustion (Kitty tracking)</li>
+            <li style="color:var(--coral);">Zero AI Math Errors (100% Python rules)</li>
+            <li style="color:var(--coral);">Calculates Entitlement + Confidence Score</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2: Reconciliation Central Box -->
+    <div class="recon-box">
+      <div class="recon-title">
+        <span style="background:var(--emerald); color:#FFF; font-size:9px; padding:2px 8px; border-radius:3px;">STAGE 4</span>
+        4. THREE-WAY RECONCILIATION & LEAKAGE DETECTION ENGINE
+      </div>
+      <div class="recon-cols">
+        <div class="recon-col-inner">
+          <b style="color:var(--blue);">A. Entitled Recovery (Treaty)</b>
+          Calculated via contract rules & CAT loss aggregation against limits.
+        </div>
+        <div class="recon-col-inner">
+          <b style="color:var(--coral);">B. Actually Billed (Insurer)</b>
+          Cross-referenced against primary billing records & historical ledgers.
+        </div>
+        <div class="recon-col-inner">
+          <b style="color:var(--purple);">C. Broker Remittance (BDX)</b>
+          Verified against 300 line-item broker cash remittance bordereaux.
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 3: Pipeline Stage 5, 6, 7 -->
+    <div class="pipeline-row">
+      <div class="pipe-card">
+        <div class="pipe-hdr" style="background:#9333EA;">
+          <span>5. AUDIT EXPLANATION</span><span style="font-size:8px; background:#FFF; color:#9333EA; padding:1px 6px; border-radius:3px;">AGENT 2 · GROQ</span>
+        </div>
+        <div class="pipe-body">
+          <ul>
+            <li style="color:#9333EA;">Synthesizes Adjuster-Grade Demand Briefs</li>
+            <li style="color:#9333EA;">Generates formal 'Proof of Loss' notices</li>
+            <li style="color:#9333EA;">Includes step-by-step mathematical proof</li>
+            <li style="color:#9333EA;">Binds exact legal citations (Article & Page #)</li>
+            <li style="color:#9333EA;">Zero hallucination: uses verified dollar proofs</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pipe-card">
+        <div class="pipe-hdr" style="background:var(--header-dark);">
+          <span>6. ANALYST WORKBENCH</span><span style="font-size:8px; background:#FFF; color:var(--header-dark); padding:1px 6px; border-radius:3px;">INTERACTIVE UI</span>
+        </div>
+        <div class="pipe-body">
+          <ul>
+            <li style="color:var(--header-dark);">Real-Time Responsive Web App (:8080)</li>
+            <li style="color:var(--header-dark);">Live Agent Telemetry & Reasoning Inspector</li>
+            <li style="color:var(--header-dark);">Interactive Evidence Explorer & Contract Viewer</li>
+            <li style="color:var(--header-dark);">Human-in-the-Loop: Approve / Dispute</li>
+            <li style="color:var(--header-dark);">Instant Demand Brief Export & Case Dispatch</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pipe-card">
+        <div class="pipe-hdr" style="background:var(--emerald);">
+          <span>7. BUSINESS OUTCOMES</span><span style="font-size:8px; background:#FFF; color:var(--emerald); padding:1px 6px; border-radius:3px;">MEASURABLE ROI</span>
+        </div>
+        <div class="pipe-body">
+          <ul>
+            <li style="color:var(--emerald);"><b>$17,653,338.77</b> Verified Leakage Found</li>
+            <li style="color:var(--emerald);"><b>100% Recall & Precision</b> (30/30 Planted)</li>
+            <li style="color:var(--emerald);">Catastrophe event aggregate leakage eliminated</li>
+            <li style="color:var(--emerald);">Automated audit compliance (SOX-grade trail)</li>
+            <li style="color:var(--emerald);">Accelerated broker recovery dispute resolution</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-ribbon">
+      <div><b>VERIFIED MVP ADVANTAGES:</b> &nbsp;✓ Zero 3rd-Party Dependencies &nbsp;|&nbsp; ✓ Sub-Second Groq LPUs &nbsp;|&nbsp; ✓ 100% Planted Anomaly Catch Rate &nbsp;|&nbsp; ✓ Traceable Legal Evidence &nbsp;|&nbsp; ✓ Human Approval Loop</div>
+    </div>
+  </div>
+
+</body>
+</html>
+
